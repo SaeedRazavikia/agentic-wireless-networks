@@ -1,0 +1,155 @@
+\section{Acquisition Design and Completion}
+\label{app:acquisition-design}
+\label{app:constructive-plan}
+\label{app:supporting-constructions}
+\subsection{Allocation and Integer Execution}
+For each affine response, intersect its confidence intervals over time and with valid physical bounds. Constants are exact; unestimable directions have infinite radius; empty intersections indicate inconsistency. A candidate passes when its constraint upper bounds are nonpositive and every rival is certainly infeasible or satisfies $U[F(x)-F(y)-\epsilon]\leq0$. Eliminate only candidates certainly more than $\epsilon$ worse than a certainly feasible one.
+
+At a fixed center $\vartheta$, solve \eqref{eq:residual-allocation}, assigning infinity to infeasibility and selecting the cheapest attained proposal. Its unconstrained value cannot increase with additional information; changed goals alter the relevant alternatives.
+The resource-aware comparator maximizes minimum alternative distance over
+$$\mathcal N_t=\{0\leq n\leq u^{\rm rem}:\ell^\T n\leq H^{\rm rem}\}.$$
+It minimizes cost at an attained target $1.10\beta^2$, otherwise executing the best attained maximin plan. Projection cuts and dual witnesses bound its optimization gap. The common executor rounds, checks original limits, and verifies observed data. This empirical-center search proves neither completion nor integer optimality. Its fallback has no monetary cap or inherited resource-optimality guarantee~\cite{li2024}.
+
+\subsection{Sufficient Integer Reserve}
+\label{app:old-sufficient-plan}
+At a checkpoint, freeze the goal, proposal, retained mask, allowances, and nonnegative witnesses $\mu_b$. Set $v_b=H_b^\T\mu_b$ and $m_b(\vartheta)=\mu_b^\T(H_b\vartheta+d_b-k_b)$. Let $(M_0,\widehat\theta_0,W_0)$ denote retained information, estimate, and centered score. Calibrate its planning radius $\gamma_p$ at risk $\eta_p$; for $J$ predeclared checkpoint/mask pairs, use
+$$\gamma_p^2=r+2\sqrt{r\log(J/\eta_p)}+2\log(J/\eta_p).$$
+Arbitrary selection instead requires the simultaneous construction in Section~\ref{app:validity-reuse}. Define
+\begin{equation}
+\underline m_b=m_b(\widehat\theta_0)
+-\gamma_p\sqrt{\chi_{v_b}(M_0)}-\rho_{v_b,0}.
+\label{eq:planning-margin}
+\end{equation}
+Choose integer quotas $q$ from acquired history with $n+q\in\mathcal Q_{\rm int}$. Write $M_q=\sum_eq_eG_e$, $M_1=M_0+M_q$, and calibrate $\gamma_f$ for the independent fresh score $W_q$ at conditional risk $\eta_f$ using the same fixed-design formula with $J=1$. Put $\Gamma=\beta_{\delta_{\rm stat}}+\sqrt{\gamma_p^2+\gamma_f^2}$.
+
+\begin{proposition}[Executable sufficient completion]
+\label{prop:sufficient-plan}
+If all $\underline m_b>0$ and
+\begin{equation}
+\Gamma\sqrt{\chi_{v_b}(M_1)}+2\rho_{v_b,1}<\underline m_b
+\quad\text{for every region }b,
+\label{eq:sufficient-plan}
+\end{equation}
+freeze these quotas; early stopping may return the same proposal after verification. Issuance and failure to complete correctly has probability at most $\eta_p+\eta_f+\alpha$. Wrong-return risk remains at most $\delta_{\rm stat}+\alpha\leq\delta$.
+\end{proposition}
+\begin{IEEEproof}
+On the planning/envelope events, $m_b(\theta_t)\geq\underline m_b$. The two score bounds and Cauchy--Schwarz give
+$$|v^\T M_1^\dagger(W_0+W_q)|
+\leq\sqrt{\gamma_p^2+\gamma_f^2}\sqrt{\chi_v(M_1)}$$
+for estimable $v$. Adding terminal transport and using \eqref{eq:sufficient-plan} implies \eqref{eq:transport-test} for every region. Positive true margins also validate earlier verified returns of this proposal. Potential reserved reports define the endpoint after stopping; unused reports are uncharged. Union the planning, fresh-score, and envelope failures; Proposition~\ref{prop:transport} separately controls wrong returns.
+\end{IEEEproof}
+The bound guarantees neither issuance nor conditional success. Changed plans and repeated completion attempts need valid risk accounting. Optional semidefinite/rounding and exact two-instrument constructions remain in the archived derivation. Recheck every target and original resource limit after rounding; clipping can destroy completion.
+
+\section{Guarded Acquisition and Observable Promises}
+\label{app:v37-acquisition}
+These results support Section~\ref{sec:sufficient-plan} only for the following Gaussian subclass, not completion in the nine-configuration study.
+
+\subsection{Model, Audits, and Physical Ledger}
+Let $\mathcal X=\{0,1\}$, $p_0=0,p_1=1$, $0\leq\epsilon_g<1$, with configuration 1 known feasible. Configuration 0 is feasible iff $R_j=\mu_j+u_j\leq\tau_j$ for $j\in\{A,1\}$, where $\mu_A=\theta_1+\theta_2$, $\mu_1=\theta_1$, and fixed $u\in[-b,b]^2$ has a supplied valid envelope. Thus $\mathcal V_g(\theta,u)$ equals $\{0\}$ if feasible and $\{1\}$ otherwise; $\mathcal V_g^{\rm rob}(\theta)=\bigcap_u\mathcal V_g(\theta,u)$ may be empty.
+
+Write $m=(\theta_1+\theta_2,\theta_2)$, $v_A=(1,0)$, $v_1=(1,-1)$, and $\mu_j=v_j^\T m$. Instruments $e\in\{A,S\}$ report
+$$H_{e,i}=m_e+\Delta_e+\xi_{e,i},\qquad Y_{e,i}=m_e+\varepsilon_{e,i},$$
+with independent standard Gaussian errors and fixed $m,\Delta$; indices are $1\leq i\leq h_e=512$ historically and $1\leq i\leq n_e$ freshly. History uses the total cap 4000 even if discarded, so $n_e\leq3488$. Every fresh pilot, audit, discovery, and completion report counts toward $C(n)=n_A+8n_S\leq B$ and $T(n)=n_A+4n_S\leq H$, with $(B,H)=(5000,4000)$ or $(14000,9000)$. Historical cost is sunk; computation is separate.
+Certificates $F,V_A,V_1$ use $J_F=\{A,1\}$, $J_{V_j}=\{j\}$, $s_F=-1$, $s_{V_j}=1$, and unknown margins
+$$d_{F,j}=\tau_j-b-\mu_j,\qquad d_{V_j,j}=\mu_j-\tau_j-b.$$
+Strict positivity of a complete certificate gives a robust answer; shifts are also unknown.
+
+Use nested deterministic legal checkpoints $n^{(0)},\ldots,n^{(L-1)}$: $(16,16)$, then legal ray points $(\lceil\sqrt8s_k\rceil,s_k)$ for $s_k=16\,2^k$ up to the first violation. Append a legal dominating point minimizing $1/n_A+1/n_S$, with cost/duration/count ties: respectively $(1304,462)$ and $(3488,1314)$. Within each residual quota, causal batch selection checks the verifier after each batch; unresolved legal-progress fallback reaches the checkpoint. The terminal status is certified or unresolved.
+
+At checkpoint $k$, set $D_{e,k}=\overline H_e-\overline Y_{e,n_e^{(k)}}$, $a_{e,k}=\sqrt{h_e^{-1}+(n_e^{(k)})^{-1}}$, $U_{e,k}=|D_{e,k}|+q_{e,k}a_{e,k}$, and $\widetilde U_{e,k}=\min_{\ell\leq k}U_{e,\ell}$. Prespecify $\sum_{e,k}2[1-\Phi(q_{e,k})]\leq\alpha=0.005$; the implementation uses $q_{e,k}=\Phi^{-1}(1-\alpha/(4L))$. A mask $w\in\{0,1\}^2$ is available iff retained instruments have $\widetilde U_{e,k}\leq0.9$; cache bounds between checkpoints. The fresh mask remains available; no audit uses an uncalibrated selected count.
+
+\begin{proposition}[Simultaneous audited validity]
+\label{prop:v37-audit-validity}
+Let $\mathcal A=\{|D_{e,k}-\Delta_e|\leq q_{e,k}a_{e,k}\text{ for all }e,k\}$. Then $\Pr(\mathcal A^c)\leq\alpha$. Combined with the original all-mask, all-prefix event $\mathcal S$ of risk $\delta_{\rm stat}=0.005$, the audited verifier has any-wrong-return risk at most $0.01$ under causal ordering, mask selection, and stopping.
+\end{proposition}
+\begin{IEEEproof}
+Each normalized discrepancy is standard Gaussian at its deterministic potential checkpoint; the union bound gives $\mathcal A$, hence $|\Delta_e|\leq\widetilde U_{e,k}$. For any mask, define $r_e=w_eh_e$, $N_e=n_e+r_e$, $\lambda_e=r_e/N_e$, $\widehat m_{e,w}=(n_e\overline Y_e+r_e\overline H_e)/N_e$, $\widehat\mu_{j,w}=v_j^\T\widehat m_w$, $b_{j,w}=\sum_ev_{j,e}\lambda_e\Delta_e$, $\sigma_{j,w}^2=\sum_ev_{j,e}^2/N_e$, and $\rho_{j,w,k}=\sum_e|v_{j,e}|\lambda_e\widetilde U_{e,k}$.
+On $\mathcal S$, $|\widehat\mu_{j,w}-\mu_j-b_{j,w}|\leq\beta\sigma_{j,w}$ with $\beta=7.886153024504561$; on $\mathcal A$, $|b_{j,w}|\leq\rho_{j,w,k}$. Thus observed robust margins exceeding $\beta\sigma+\rho$ certify simultaneously, without conditioning on audit success or masks, or requiring audit--estimator independence.
+\end{IEEEproof}
+Fresh-only risk is $0.005$; its mask does not erase earlier historical-return risk. Audits do not establish the physical residual envelope.
+
+\subsection{Completion and Historical Savings}
+For fresh counts, $\sigma_A(n)=n_A^{-1/2}$, $\sigma_1(n)=(n_A^{-1}+n_S^{-1})^{1/2}$, and $z_c=\Phi^{-1}(1-0.04/|J_c|)$. Define deterministic envelopes $\overline U_{e,k}=|\Delta_e|+2q_{e,k}a_{e,k}$ and $\overline\rho_{j,w,k}=\sum_e|v_{j,e}|\lambda_e\overline U_{e,k}$. An endpoint supports $(c,w)$ if
+\begin{align}
+w_e=1&\ \Longrightarrow\ \overline U_{e,k}\leq0.9,\nonumber\\
+d_{c,j}+s_cb_{j,w}&\geq(\beta+z_c)\sigma_{j,w}+\overline\rho_{j,w,k},
+\quad j\in J_c.
+\label{eq:v37-audited-endpoint}
+\end{align}
+
+\begin{theorem}[Completion including audits and discovery]
+\label{thm:v37-guarded-completion}
+\label{thm:v37-audited-completion}
+For one fixed request, let $K$ be the first deterministic checkpoint supporting a complete certificate and mask in \eqref{eq:v37-audited-endpoint}, with deterministic analysis ties. If $K<\infty$, the audited guarded controller returns an answer in $\mathcal V_g^{\rm rob}(\theta)$ by cost $C(n^{(K)})$ and duration $T(n^{(K)})$ with probability at least $0.95$. For the fresh mask, the supporting condition reduces to
+\begin{equation}
+d_{c,j}\geq(\beta+z_c)\sigma_j(n^{(K)}),\quad j\in J_c.
+\label{eq:v37-fresh-endpoint}
+\end{equation}
+Every trajectory respects the original resources, including all pilot, audit, discovery, and completion reports.
+\end{theorem}
+\begin{IEEEproof}
+Fix parameters and their analysis-selected endpoint, certificate, and mask on potential tapes extending past earlier stops. On $\mathcal A$, $\widetilde U_{e,K}\leq U_{e,K}\leq\overline U_{e,K}$ makes this mask available with penalty at most $\overline\rho$. Each $Z_j=-s_c(\widehat\mu_{j,w}-\mu_j-b_{j,w})/\sigma_{j,w}$ is marginally standard Gaussian without conditioning on audits or survival. If all $Z_j<z_c$, \eqref{eq:v37-audited-endpoint} makes the verifier strict; continuity and a union bound limit endpoint failure to $0.04$. On $\mathcal A\cap\mathcal S$, earlier returns are valid; otherwise the guard reaches the endpoint. Total failure is at most $0.005+0.005+0.04$. Checkpoint domination bounds all intermediate resources. Since $K$ depends on parameters, not reports, no endpoint union is needed.
+\end{IEEEproof}
+The analysis index $K$ is not an online promise; this fixed-request guarantee does not cover a noise-selected later goal.
+
+\begin{proposition}[Physical-cost preservation for a fixed goal]
+\label{prop:v37-fixed-actions}
+Couple fresh and audited controllers to the same tapes and initial state. Let their common guarded action rule depend only on fresh counts and sums; the extension also checks historical masks and audits already charged prefixes. On every pair of trajectories, its physical cost and serialized acquisition duration are no greater. On $\mathcal A\cap\mathcal S$, every correct fresh completion implies a correct extended completion at no greater cost or duration.
+\end{proposition}
+\begin{IEEEproof}
+Identical fresh states induce identical actions until stopping. The extended verifier includes the fresh test, hence stops no later. Nonnegative prefix charges give cost/duration dominance; $\mathcal A\cap\mathcal S$ validates earlier returns.
+\end{IEEEproof}
+Equality is possible. The claim excludes computation, history-dependent actions, and sequence-wide dominance after stopping states diverge; risk allocations differ.
+
+\begin{proposition}[Unrestricted historical shifts]
+\label{prop:v37-nuisance}
+For current means $m^{(0)},m^{(1)}$, choose $\Delta^{(1)}=\Delta^{(0)}+m^{(0)}-m^{(1)}$. Historical laws then coincide. Any common capped causal controller has
+$$\operatorname{KL}(P_0,P_1)=\tfrac12\sum_e\E_0[N_e](m_e^{(0)}-m_e^{(1)})^2,$$
+where $N_e$ counts fresh reports. If the instances require different answers and each completes correctly with probability at least $1-\epsilon$, $0<\epsilon<1/2$, this quantity is at least $\kl(1-\epsilon,\epsilon)$.
+\end{proposition}
+\begin{IEEEproof}
+Equal $m+\Delta$ removes historical divergence. Padding stopped paths with common dummy symbols, the transcript KL chain rule sums fresh Gaussian divergences. Binary data processing for returning the first answer gives the bound, with unresolved outcomes counted as failures.
+\end{IEEEproof}
+Same-transcript audits add no divergence; drift bounds, structured shifts, or external validity information change the alternatives. This is a reuse limitation consistent with~\cite{yang2025}, not a new generic unknown-bias theorem.
+
+\subsection{Observable Conditional-Future Promises}
+\label{app:v37-online}
+At checkpoint $n=n^{(k)}$, let $S_e,H_e^\Sigma$ be acquired fresh and historical sums. With $\delta_C=0.01$, define
+$$\mathcal C_k=\{v:\sum_en_e(v_e-\overline Y_e)^2\leq R^2\},\quad
+R=\sqrt{-2\log(\delta_C/L)}.$$
+The fixed-checkpoint error is $\chi_2^2$, whose tail is $e^{-R^2/2}$. A union bound covers $m$ at all potential checkpoints, including selected ones, with risk $\delta_C$; historical stationarity is unnecessary.
+For a future deterministic checkpoint $N\geq n$ and available $w$, set $q_e=N_e-n_e$, $r_e=w_eh_e$, $P_e=N_e+r_e$, $F_e=S_e+w_eH_e^\Sigma$. Conditional on acquired data,
+$$\widehat m_e(N,w)=(F_e+q_em_e+Z_e)/P_e,\qquad Z_e\overset{\rm ind}{\sim}\mathcal N(0,q_e).$$
+Write $d_{c,j}=a_{c,j}^\T m+t_{c,j}$, with $(a_{F,j},t_{F,j})=(-v_j,\tau_j-b)$ and $(a_{V_j,j},t_{V_j,j})=(v_j,-\tau_j-b)$. The worst conditional mean over $\mathcal C_k$ is
+\begin{align}
+L_{c,j}={}&t_{c,j}+\sum_ea_{c,j,e}\frac{F_e+q_e\overline Y_e}{P_e}
+\nonumber\\
+&-R\sqrt{\sum_e\frac{a_{c,j,e}^2q_e^2}{P_e^2n_e}}.
+\label{eq:v37-conditional-margin}
+\end{align}
+Distinguish future variance $s_{f,c,j}^2=\sum_ea_{c,j,e}^2q_e/P_e^2$ from full-estimator variance $s_{c,j}^2=\sum_ea_{c,j,e}^2/P_e$. Freeze eligible audit bounds $U_e$ and set $\rho_{c,j}=\sum_e|a_{c,j,e}|r_eU_e/P_e$: fixed historical sums require only one transport term. For $\eta_F=0.03$ and $z_c=\Phi^{-1}(1-\eta_F/|J_c|)$, require
+\begin{equation}
+L_{c,j}>\beta s_{c,j}+\rho_{c,j}+z_cs_{f,c,j}
+\quad(j\in J_c).
+\label{eq:v37-promise-condition}
+\end{equation}
+Enumerate endpoints, masks, and certificates; choose minimum total cost with fixed duration/mask/certificate ties and strict inward numerical buffers. Zero future variance is deterministic; decreasing cached bounds preserve mask eligibility and the upper penalty.
+
+\begin{theorem}[First observable promise]
+\label{thm:v37-online-promise}
+Let $I$ denote first issuance while unresolved and $F_*$ failure to return a correct supported answer by its recorded endpoint's cost and duration. Incorrect earlier returns and unresolved status there count as failures even after later success. Then
+$$\Pr(I\cap F_*)\leq\delta_C+\eta_F\Pr(I)+\alpha+\delta_{\rm stat}\leq0.05.$$
+All paths obey the original resources. Endpoint counts include past acquisition; remaining reservations subtract cost and duration already spent.
+\end{theorem}
+\begin{IEEEproof}
+Condition on acquired history at each reached checkpoint: first issuance, endpoint, mask, and certificate are measurable; future reports remain independent. If $m\in\mathcal C_k$, \eqref{eq:v37-conditional-margin} and \eqref{eq:v37-promise-condition} bound each obligation's conditional failure by $\eta_F/|J_c|$, hence their union by $\eta_F$, without independent service errors. Summing over disjoint first-issuance events $I_k$ gives
+$$\sum_k\Pr\{I_k,m\in\mathcal C_k,\text{endpoint failure}\}\leq\eta_F\Pr(I).$$
+Planning-set failure costs $\delta_C$. On $\mathcal A\cap\mathcal S$, earlier returns are correct; if unresolved, the guard reaches the promised endpoint and checks its still-available mask. Add audit/verifier risks; legal count domination proves resource compliance.
+\end{IEEEproof}
+Issuance is not guaranteed. For $p_I=\Pr(I)>0$, conditional failure is bounded only by $\min\{1,\eta_F+(\delta_C+\alpha+\delta_{\rm stat})/p_I\}$. Record a missed first promise even if later acquisition succeeds within budget.
+
+For at most $G$ predictably chosen goals in one unchanged coefficient epoch, share absolute checkpoints, history, and ledger. With one promise per goal and $\eta_{F,g}=0.03/G$, the conditional argument gives
+$$\Pr\!\left(\bigcup_{g=1}^G(I_g\cap F_g)\right)
+\leq\delta_C+\alpha+\delta_{\rm stat}
+ +\sum_{g=1}^G\eta_{F,g}\Pr(I_g)\leq0.05.$$
+Count shared events once. Goals cannot change report laws or reset quotas. Restarting relative checkpoints at random stopping counts invalidates this finite calibration and requires a new simultaneous construction.

@@ -1,0 +1,32 @@
+% Load in the document preamble. Figures are native TikZ/PGFPlots.
+% No external graphics, conversion programs, or shell escape are required.
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc}
+\definecolor{jscNavy}{HTML}{123650}
+\definecolor{jscTeal}{HTML}{087F78}
+\definecolor{jscBlue}{HTML}{237BC1}
+\definecolor{jscAmber}{HTML}{B87708}
+\definecolor{jscGrey}{HTML}{86A2B6}
+\definecolor{jscPale}{HTML}{E9EFF3}
+\definecolor{jscBand}{HTML}{CFE5E4}
+\definecolor{jscDark}{HTML}{173B55}
+\definecolor{jscRed}{HTML}{A6423A}
+\definecolor{jscLight}{HTML}{CBD6DE}
+\definecolor{jscUnresolved}{HTML}{AB403B}
+\definecolor{jscGrid}{HTML}{DCE4E9}
+\definecolor{jscRadio}{HTML}{0072B2}
+\definecolor{jscServer}{HTML}{D55E00}
+\definecolor{jscBoth}{HTML}{009E73}
+\newcommand{\jscfont}[1]{\rmfamily\fontsize{#1}{\dimexpr#1pt+2pt\relax}\selectfont}
+\providecommand{\jscDataPath}{figures/tikz/data}
+\pgfplotsset{jsc axis/.style={
+    scale only axis,axis lines=left,axis line style={-,line width=.7pt},
+    tick align=outside,tick style={line width=.6pt},
+    tick label style={font=\jscfont{7}},
+    label style={font=\jscfont{8}},
+    title style={font=\jscfont{8}},
+    scaled ticks=false,
+    /pgf/number format/1000 sep={\,},
+    clip mode=individual,
+  }}

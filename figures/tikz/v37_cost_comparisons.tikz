@@ -1,0 +1,41 @@
+% Editable TikZ; coordinates are inches unless inside an axis.
+% Numerical values come from data/; see data/PROVENANCE.json.
+\begingroup%
+\begin{tikzpicture}[x=1in,y=1in]%
+\path[use as bounding box] (0,0) rectangle (3.5,2.55);%
+\begin{pgfinterruptboundingbox}%
+\begin{axis}[jsc axis,at={(1.435in,0.5865in)},anchor=south west,%
+width=1.995in,height=1.8615in,%
+xmin=-2.2,xmax=23,ymin=-.55,ymax=3.7,xtick={0,5,10,15,20},ytick={3,2,1,0},%
+yticklabels={{Existing wireless:\\residual / scalar},{Existing wireless:\\residual / maximin},%
+{Audited verification /\\guarded fresh},{Audited verification /\\unguarded repaired}},%
+yticklabel style={font=\jscfont{7.5},align=right},ytick style={draw=none},y axis line style={draw=none},%
+xlabel={Mean cost reduction (\%)},%
+]%
+\draw[gray,line width=.65pt] (axis cs:0,-.55)--(axis cs:0,3.7);%
+\draw[gray!40,line width=.5pt] (axis cs:-2.2,1.5)--(axis cs:23,1.5);%
+\path[fill=jscDark,fill opacity=.85] (axis cs:0,2.785) rectangle (axis cs:19.550831216690224,3.215);%
+\draw[jscDark,line width=.8pt] (axis cs:18.458995902889857,3.0)--(axis cs:20.396608603933906,3.0);%
+\draw[jscDark,line width=.8pt] ([yshift=-2pt]axis cs:18.458995902889857,3.0)--([yshift=2pt]axis cs:18.458995902889857,3.0);%
+\draw[jscDark,line width=.8pt] ([yshift=-2pt]axis cs:20.396608603933906,3.0)--([yshift=2pt]axis cs:20.396608603933906,3.0);%
+\node[anchor=south east,font=\jscfont{7.5},text=jscDark,inner sep=0] at (axis cs:22.6,3.3) {19.55\%};%
+\path[fill=jscDark,fill opacity=.85] (axis cs:0,1.785) rectangle (axis cs:2.3597073718749861,2.215);%
+\draw[jscDark,line width=.8pt] (axis cs:2.1344010295820777,2.0)--(axis cs:2.571983988487665,2.0);%
+\draw[jscDark,line width=.8pt] ([yshift=-2pt]axis cs:2.1344010295820777,2.0)--([yshift=2pt]axis cs:2.1344010295820777,2.0);%
+\draw[jscDark,line width=.8pt] ([yshift=-2pt]axis cs:2.571983988487665,2.0)--([yshift=2pt]axis cs:2.571983988487665,2.0);%
+\node[anchor=south west,font=\jscfont{7.5},text=jscDark,inner sep=0] at (axis cs:2.921983988487665,2.3) {2.36\%};%
+\path[fill=jscTeal,fill opacity=.85] (axis cs:0,0.785) rectangle (axis cs:0.13784867185336,1.215);%
+\draw[jscTeal,line width=.8pt] (axis cs:0.082286637516229999,1.0)--(axis cs:0.20054833344214001,1.0);%
+\draw[jscTeal,line width=.8pt] ([yshift=-2pt]axis cs:0.082286637516229999,1.0)--([yshift=2pt]axis cs:0.082286637516229999,1.0);%
+\draw[jscTeal,line width=.8pt] ([yshift=-2pt]axis cs:0.20054833344214001,1.0)--([yshift=2pt]axis cs:0.20054833344214001,1.0);%
+\node[anchor=south west,font=\jscfont{7.5},text=jscTeal,inner sep=0] at (axis cs:1,1.3) {0.14\%};%
+\path[fill=jscRed,fill opacity=.85] (axis cs:0,-0.215) rectangle (axis cs:-1.0233058850951799,0.215);%
+\draw[jscRed,line width=.8pt] (axis cs:-1.2327670066285701,0.0)--(axis cs:-0.81512624104683995,0.0);%
+\draw[jscRed,line width=.8pt] ([yshift=-2pt]axis cs:-1.2327670066285701,0.0)--([yshift=2pt]axis cs:-1.2327670066285701,0.0);%
+\draw[jscRed,line width=.8pt] ([yshift=-2pt]axis cs:-0.81512624104683995,0.0)--([yshift=2pt]axis cs:-0.81512624104683995,0.0);%
+\node[anchor=south west,font=\jscfont{7.5},text=jscRed,inner sep=0] at (axis cs:1,0.3) {-1.02\%};%
+\end{axis}%
+\node[font={\jscfont{7}},text=jscNavy,anchor=center,align=center,inner sep=0pt] at (2.45,0.08925) {Intervals: paired 95\% bootstrap.};%
+\end{pgfinterruptboundingbox}%
+\end{tikzpicture}%
+\endgroup%

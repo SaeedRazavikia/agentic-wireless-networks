@@ -1,0 +1,372 @@
+{
+  "comparisons": [
+    {
+      "name": "Two-stage joint vs individual-witness planning; common joint verifier",
+      "paired_units": 64,
+      "unit": "decision",
+      "proposed_mean": 138.40625,
+      "baseline_mean": 3429.25,
+      "reduction_percent": 95.96394984326018
+    },
+    {
+      "name": "stages: residual vs alternative-information maximin, both unguarded",
+      "paired_units": 32,
+      "unit": "decision",
+      "proposed_mean": 136.09375,
+      "baseline_mean": 198.25,
+      "reduction_percent": 31.352459016393443
+    },
+    {
+      "name": "wireless: residual vs alternative-information maximin, both unguarded",
+      "paired_units": 32,
+      "unit": "decision",
+      "proposed_mean": 2709.973749999997,
+      "baseline_mean": 2774.549374999998,
+      "reduction_percent": 2.3274274944197315
+    },
+    {
+      "name": "Four-goal sequence: residual joint vs scalar quotas",
+      "paired_units": 32,
+      "unit": "four-goal sequence",
+      "proposed_mean": 2663.533749999998,
+      "baseline_mean": 3342.076562499998,
+      "reduction_percent": 20.30303016135647
+    }
+  ],
+  "execution": [
+    {
+      "method": "bulk",
+      "decisions": 120,
+      "correct": 103,
+      "unresolved": 17,
+      "false": 0,
+      "reached_completion": 14,
+      "mean_expenditure_all": 4567.925,
+      "mean_expenditure_reached_completion": 32654.5
+    },
+    {
+      "method": "block",
+      "decisions": 120,
+      "correct": 103,
+      "unresolved": 17,
+      "false": 0,
+      "reached_completion": 14,
+      "mean_expenditure_all": 1194.5916666666667,
+      "mean_expenditure_reached_completion": 3740.214285714286
+    },
+    {
+      "method": "proportional",
+      "decisions": 120,
+      "correct": 103,
+      "unresolved": 17,
+      "false": 0,
+      "reached_completion": 14,
+      "mean_expenditure_all": 1023.8,
+      "mean_expenditure_reached_completion": 2276.285714285714
+    },
+    {
+      "method": "goal_directed",
+      "decisions": 120,
+      "correct": 103,
+      "unresolved": 17,
+      "false": 0,
+      "reached_completion": 14,
+      "mean_expenditure_all": 1022.7333333333333,
+      "mean_expenditure_reached_completion": 2267.1428571428573
+    }
+  ],
+  "wireless_trace": [
+    {
+      "seed": 15001,
+      "goal": "loose",
+      "deadline": 24.0,
+      "choice": 0,
+      "added_cost": 0.0,
+      "added_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phases": [],
+      "delay_lower": [
+        19.785495466088225,
+        12.612998070819332,
+        10.76779030202891,
+        16.43710242199667,
+        7.983011600895777,
+        6.093059674936406,
+        15.29684865431837,
+        6.8261717001239255,
+        4.936629929514997
+      ],
+      "delay_upper": [
+        22.534494300288255,
+        14.619301839687116,
+        12.603880966527331,
+        18.707933612057914,
+        12.074334577288768,
+        10.103657861297933,
+        17.494166710072914,
+        10.87715380839732,
+        8.906066937056032
+      ],
+      "counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        0,
+        0,
+        0
+      ],
+      "replayed_sums_match": true,
+      "terminal_certificate_rechecked": true
+    },
+    {
+      "seed": 15001,
+      "goal": "deadline",
+      "deadline": 12.6,
+      "choice": 4,
+      "added_cost": 0.0,
+      "added_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phases": [],
+      "delay_lower": [
+        19.785495466088225,
+        12.612998070819332,
+        10.76779030202891,
+        16.43710242199667,
+        7.983011600895777,
+        6.093059674936406,
+        15.29684865431837,
+        6.8261717001239255,
+        4.936629929514997
+      ],
+      "delay_upper": [
+        22.534494300288255,
+        14.619301839687116,
+        12.603880966527331,
+        18.707933612057914,
+        12.074334577288768,
+        10.103657861297933,
+        17.494166710072914,
+        10.87715380839732,
+        8.906066937056032
+      ],
+      "counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        0,
+        0,
+        0
+      ],
+      "replayed_sums_match": true,
+      "terminal_certificate_rechecked": true
+    },
+    {
+      "seed": 15001,
+      "goal": "tight",
+      "deadline": 9.5,
+      "choice": 5,
+      "added_cost": 2579.359999999998,
+      "added_counts": [
+        0,
+        0,
+        0,
+        0,
+        1168,
+        8,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phases": [
+        {
+          "phase": 0,
+          "selected": 5,
+          "request": [
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cost": 1121.2799999999993,
+          "time": 684.5869842866016
+        },
+        {
+          "phase": 1,
+          "selected": 5,
+          "request": [
+            0,
+            0,
+            0,
+            0,
+            504,
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cost": 2246.479999999998,
+          "time": 1368.8806352398733
+        },
+        {
+          "phase": 2,
+          "selected": 5,
+          "request": [
+            0,
+            0,
+            0,
+            0,
+            152,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cost": 2579.359999999998,
+          "time": 1572.1173961999602
+        }
+      ],
+      "delay_lower": [
+        20.094893195069606,
+        12.750832934066638,
+        10.77895879903018,
+        16.627326467205226,
+        9.501257794028067,
+        6.827178036974748,
+        15.296848654318385,
+        7.380364317655041,
+        5.1815089237011485
+      ],
+      "delay_upper": [
+        22.18625009685532,
+        14.50378052980207,
+        12.591354124071684,
+        18.54421727620527,
+        10.64375612132621,
+        9.433535337612685,
+        17.49416671007293,
+        10.384121218680054,
+        8.698676071867105
+      ],
+      "counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1168,
+        8,
+        1024,
+        0,
+        0,
+        0
+      ],
+      "replayed_sums_match": true,
+      "terminal_certificate_rechecked": true
+    },
+    {
+      "seed": 15001,
+      "goal": "loose_return",
+      "deadline": 24.0,
+      "choice": 0,
+      "added_cost": 0.0,
+      "added_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phases": [],
+      "delay_lower": [
+        20.094893195069606,
+        12.750832934066638,
+        10.77895879903018,
+        16.627326467205226,
+        9.501257794028067,
+        6.827178036974748,
+        15.296848654318385,
+        7.380364317655041,
+        5.1815089237011485
+      ],
+      "delay_upper": [
+        22.18625009685532,
+        14.50378052980207,
+        12.591354124071684,
+        18.54421727620527,
+        10.64375612132621,
+        9.433535337612685,
+        17.49416671007293,
+        10.384121218680054,
+        8.698676071867105
+      ],
+      "counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1168,
+        8,
+        1024,
+        0,
+        0,
+        0
+      ],
+      "replayed_sums_match": true,
+      "terminal_certificate_rechecked": true
+    }
+  ],
+  "execution_saving_all_percent": 77.61054891809009,
+  "execution_saving_subset_percent": 93.0571809179658,
+  "source_sha256": {
+    "research_v27/restored_results_audit.json": "852e477f442c0b052f68f2b7c4206ebba27326bd83ae977d640873cba351e79b",
+    "research_v19/verification/results/summary.json": "a680be27b3dcbf2eb3cc01478f3908d81d773a888b7913fbb3a2573abe725d1c"
+  },
+  "notes": [
+    "Recorded means; no new experiments, new observations, or inferred error bars.",
+    "Each normalized-cost comparison uses its own comparator mean.",
+    "The 14-trial completion-stage subset is common to all executors and belongs to the full 120-trial study.",
+    "All 120 means include pilot and unresolved-attempt expenditure; all executors return 103 correct and 17 unresolved.",
+    "The 14 completion-stage cases lie outside the earlier positive-gap oracle family."
+  ]
+}

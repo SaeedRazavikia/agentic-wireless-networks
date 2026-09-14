@@ -1,0 +1,24 @@
+% Editable TikZ; coordinates are inches unless inside an axis.
+% Numerical values come from data/; see data/PROVENANCE.json.
+\begingroup%
+\begin{tikzpicture}[x=1in,y=1in]%
+\path[use as bounding box] (0,0) rectangle (3.5,3.05);%
+\begin{pgfinterruptboundingbox}%
+\begin{axis}[jsc axis,at={(0.63in,0.5795in)},anchor=south west,%
+width=2.765in,height=2.1655in,%
+xmode=log,ymode=log,xmin=8,xmax=16000,ymin=8,ymax=16000,%
+xtick={10,100,1000,10000},ytick={10,100,1000,10000},%
+xlabel={Actual additional cost},ylabel={Advertised additional cost},%
+]%
+\addplot[only marks,mark=*,mark size=1.5pt,mark options={draw opacity=0,fill=jscDark,fill opacity=.48}] table[x=actual,y=advertised,col sep=comma] {\jscDataPath/v37_promise_points_5000.csv};%
+\addplot[only marks,mark=*,mark size=1.5pt,mark options={draw opacity=0,fill=jscTeal,fill opacity=.48}] table[x=actual,y=advertised,col sep=comma] {\jscDataPath/v37_promise_points_14000.csv};%
+\addplot[gray,dashed,line width=.8pt] coordinates {(8,8) (16000,16000)};%
+\node[anchor=south east,font=\jscfont{7},align=left,inner sep=0] at (rel axis cs:.95,.07)%
+  {\textcolor{jscDark}{$\bullet$}\quad Budget 5,000\\%
+   \textcolor{jscTeal}{$\bullet$}\quad Budget 14,000\\%
+   \textcolor{gray}{\rule[2pt]{3pt}{.5pt}\,\rule[2pt]{3pt}{.5pt}}\quad Equal cost};%
+\end{axis}%
+\node[font={\jscfont{7.5}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (0.63,2.867) {500 issued promises};%
+\end{pgfinterruptboundingbox}%
+\end{tikzpicture}%
+\endgroup%

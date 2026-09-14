@@ -1,0 +1,180 @@
+\section{Adaptive Instrument Selection and Continuation Guarantees}
+\label{app:adaptive-design}
+
+\subsection{Incompatible Pointwise Optima}
+\label{app:attainability-limit}
+
+A cheap configuration requires $\theta_1,\theta_2\leq0$; the safe backup's extra cost exceeds $\epsilon$. Unit-variance Gaussian probes observe either stage or their sum. History contains $h$ sum reports with sum $S$. No aggregate report remains; each stage has one report available, but unit cost/time/mean-cost caps permit only one. The states $(d,0),(0,d)$, $d>0$, have identical historical laws and different best instruments.
+
+\begin{proposition}[Incompatible pointwise optima]
+\label{prop:attainability-limit}
+For $0<\delta<1/2$, put $z=\Phi^{-1}(1-\delta)$ and
+$p_h^\star=\Phi(d\sqrt{h+1}-z)$. This is the exact pointwise completion
+frontier at either coefficient, whereas every single uniformly
+$\delta$-safe controller satisfies
+\begin{equation}
+ \min_{i\in\{1,2\}}\Pr_{\theta^{(i)}}(\text{return backup})
+ \leq q_h<p_h^\star,
+ \label{eq:attainment-gap}
+\end{equation}
+where $\theta^{(1)}=(d,0)$, $\theta^{(2)}=(0,d)$. Under $\Pr_0$, let
+$S\sim N(0,h)$ and $Y\sim N(0,1)$ be independent, with $S=0$ if $h=0$.
+Define
+$$
+ \begin{aligned}
+ L_h&=e^{dS-hd^2/2}\frac{1+e^{dY-d^2/2}}2,\\
+ q_h&=\mathbb E_0[L_h\mathbf1\{L_h>k_\delta\}],
+ \end{aligned}
+$$
+where $\Pr_0(L_h>k_\delta)=\delta$. Selecting either stage with equal
+probability and returning the backup iff $L_h>k_\delta$ attains $q_h$
+at both coefficients. The rule uses the declared pair and $d$, not the
+true coefficient. For $h=0$,
+\begin{equation}
+ q_0=\frac{\Phi(d-z)+\delta}{2}.
+ \label{eq:attainment-gap-no-history}
+\end{equation}
+Here the rule simply tests $Y>z$ and requires no knowledge of $d$.
+\end{proposition}
+
+\begin{IEEEproof}
+Safety bounds backup returns at zero by $\delta$, by continuity if the boundary is excluded. At $(d,0)$, measuring stage 1 and testing $(S+Y)/\sqrt{h+1}>z$ is quadrant-safe and attains $p_h^\star$. This experiment simulates any history-based choice: retain $Y$ for stage 1 or supply independent $N(0,1)$ noise for stage 2. Neyman--Pearson therefore proves pointwise optimality; exchange stages for $(0,d)$.
+
+Under the equal alternative mixture, history leaves both states equally likely. Any selected stage has law $\tfrac12N(d,1)+\tfrac12N(0,1)$ independently of $S$, giving likelihood $L_h$. Labels and residuals are ancillary; ignoring the report covers early stopping. Neyman--Pearson bounds average, hence minimum, power by $q_h$. Uniform stage choice attains it at both states, and monotonicity in $S,Y$ proves quadrant safety.
+
+To prove strictness, erase the informative report with probability $1/2$ and replace it by independent standard Gaussian noise. Any resulting test $g$ induces
+$$\tfrac12g(s,y)+\tfrac12\int g(s,u)\phi(u)\,du.$$
+It cannot equal the unique informative optimum $\mathbf1\{s+y>\sqrt{h+1}z\}$: for each finite $s$, its positive-measure zero and one sets require the same integral to be both zero and one. Attainment of the mixture optimum gives $q_h<p_h^\star$; $h=0$ gives \eqref{eq:attainment-gap-no-history}.
+
+The gap persists away from stage boundaries. Perturb to $(d+\varepsilon,-\varepsilon)$ and its exchange, leaving history unchanged. The full two-stage potential tapes change by total variation $t_\varepsilon=2\Phi(\varepsilon/\sqrt2)-1$. Thus minimum power is at most $q_h+t_\varepsilon$, while the fixed-stage safe test attains $\Phi(d\sqrt{h+1}+\varepsilon/\sqrt{h+1}-z)\geq p_h^\star$. Small $\varepsilon>0$ preserves the gap. All probabilities average historical noise.
+\end{IEEEproof}
+
+\subsection{A Finite-Resource Advantage of Adaptive Selection}
+\label{sec:adaptive-separation}
+\label{app:adaptive-separation}
+
+The cheap answer requires $r_1,r_2\leq0$ and has a known-safe fallback whose extra cost exceeds $\epsilon$. Exactly one stage $j$ satisfies $|r_j|\in[d_{\min},d_{\max}]$, while $r_{3-j}\in[-D_{\max},-D]$, with $0<d_{\min}\leq d_{\max}<D\leq D_{\max}$. Aggregate history observes fixed sums $r_i+w_i=q_i$, independently of fresh noise. Radio baselines above $D_{\max}$ and server baselines plus $q_i$ above $d_{\max}$ make absolute means positive.
+
+An independent coarse report measures both stages with coordinate variance $\sigma_D^2$ and total cost/duration $c_D,\ell_D$. A fine stage-$i$ report is $N(r_i,\sigma_i^2)$ with cost/duration $c_i^{\rm p},\ell_i$. A fixed plan chooses its potential schedule after history but before fresh reports; randomization and early stopping are allowed. Planned counts $N_e^{\rm P}$ obey the original hard deadline, budget, and caps.
+
+\begin{proposition}[Finite-resource adaptive separation]
+\label{prop:adaptive-separation}
+For $d\in[d_{\min},d_{\max}]$, correct completion at least $1-\delta$
+at each of $(\pm d,-D),(-D,\pm d)$, $0<\delta<1/2$, requires every fixed
+plan to satisfy
+\begin{equation}
+ \frac{\mathbb E N_D^{\rm P}}{\sigma_D^2}
+ +\frac{\mathbb E N_i^{\rm P}}{\sigma_i^2}
+ \geq t_\delta(d):=\frac{z_{1-\delta}^2}{d^2},\quad i=1,2,
+ \label{eq:fixed-plan-necessity}
+\end{equation}
+where $z_p=\Phi^{-1}(p)$. Expected planned counts also obey the linear
+resource limits. Even without cost or count restrictions, necessarily
+\begin{equation}
+ H\geq t_\delta(d)\min\{\ell_D\sigma_D^2,
+ \ell_1\sigma_1^2+\ell_2\sigma_2^2\}.
+ \label{eq:fixed-plan-time}
+\end{equation}
+Conversely, choose $\delta_D,\delta_C\in(0,1/2)$ with
+$\delta_D+\delta_C\leq\delta$, and set
+\begin{align}
+ n_D&=\left\lceil\frac{2\sigma_D^2z_{1-\delta_D}^2}
+ {(D+d_{\min})^2}\right\rceil,\nonumber\\
+ n_i&=\left\lceil\frac{\sigma_i^2z_{1-\delta_C}^2}{d_{\min}^2}
+ \right\rceil.
+ \label{eq:adaptive-counts}
+\end{align}
+Take $n_D$ coarse reports, select the larger coarse mean, and take $n_i$
+fine reports from that group. Return the fallback iff its fine mean is
+positive. This policy has correct completion at least $1-\delta$
+throughout the promise class whenever counts fit their caps and
+$\ell_Dn_D+\max_i\ell_i n_i\leq H$, with the analogous worst-path
+monetary inequality.
+\end{proposition}
+
+\begin{IEEEproof}
+Condition on history and plan randomization, whose law is identical under either sign. Reveal branch $i$ and all planned reports, dominating early stopping. Squared Gaussian separation is $4d^2I_i$, with $I_i=N_D^{\rm P}/\sigma_D^2+N_i^{\rm P}/\sigma_i^2$; the other coordinate carries no sign information. Bayes error is $\Phi(-d\sqrt{I_i})$. Mapping abstentions to answers yields
+$$\delta\geq\mathbb E\Phi(-d\sqrt{I_i}).$$
+For $I>0$, $f(I)=\Phi(-d\sqrt I)$ has
+$$f''(I)=\frac{d\phi(d\sqrt I)(1+d^2I)}{4I^{3/2}}>0.$$
+Jensen, including the continuous endpoint, proves \eqref{eq:fixed-plan-necessity} without per-history correctness. Expected planned counts retain the linear resource limits. With $w=\mathbb EN_D^{\rm P}/\sigma_D^2$ and $t=t_\delta(d)$, the minimum duration for $0\leq w\leq t$ is
+$$\ell_D\sigma_D^2w+(\ell_1\sigma_1^2+\ell_2\sigma_2^2)(t-w).$$
+Its endpoint minimum gives \eqref{eq:fixed-plan-time}; $w>t$ costs more. Replace durations by prices for the monetary bound.
+
+For adaptation, the coarse difference is $N(r_1-r_2,2\sigma_D^2/n_D)$. If the near stage is negative, either selected mean is at most $-d_{\min}$, giving fine sign error at most $\delta_C$. If positive, selection error is at most $\Phi(-(D+d_{\min})\sqrt{n_D}/(\sqrt2\sigma_D))\leq\delta_D$. Independent fine reports then give total error at most $\delta_D+(1-\delta_D)\delta_C\leq\delta$. Rounded counts and worst-path limits ensure completion.
+\end{IEEEproof}
+
+For
+$(d_{\min},d_{\max},D,D_{\max})=(0.1,0.25,1,2)$,
+$(\sigma_D^2,\sigma_1^2,\sigma_2^2)=(25,1,1)$,
+$(\ell_D,\ell_1,\ell_2)=(1,4,4)$, and
+$(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$,
+adaptive counts $(224,307)$ meet $H=1500$ and caps $(300,400,400)$,
+using duration $1452$; fixed plans require at least $2164.43$.
+With coarse cost one, fine costs eight, and $B=3000$, adaptive cost
+is $2680$ versus the fixed-plan lower bound $4328.87$, including
+randomized plans. This Gaussian construction specializes established
+adaptive-sensing advantages \cite{nitinawarat2013}; it requires physical
+validation and the separated-branch promise. It establishes neither
+general adaptive optimality nor an online impossibility gate.
+
+\subsection{An Implementable Continuation Guarantee}
+\label{app:continuation-construction}
+\label{app:v23selector}
+
+At a legal discovery stopping time, let $\mathcal H$ contain retained/discovery reports and $d$ the discovery counts. Completed returns are absorbing; otherwise $K_c$ executable candidates $\pi_k(\mathcal H)$ share the original verifier and remaining set $\mathcal Q_{\mathcal H}=\{n\in\mathbb Z_+^E:d+n\in\mathcal Q_{\rm int}\}$. The fixed-goal Gaussian subclass has a unique answer at every admitted regular coefficient.
+
+Choose a center $\vartheta_0=\widetilde\theta(\mathcal H)$ and an anytime set $\mathcal C(\mathcal H)$ of coverage $1-\delta_{\rm est}$. For a set $\mathcal Q_{\mathcal H,k}$ containing all possible candidate counts, put
+$$\rho_k=\sup_{v\in\mathcal C(\mathcal H)}
+\max_{n\in\mathcal Q_{\mathcal H,k}}
+\|v-\vartheta_0\|_{M_{\rm new}(n)},\qquad
+M_{\rm new}(n)=\sum_e n_eG_e.$$
+For $\mathcal C=\{v:\|v-\vartheta_0\|_P^2\leq2b\}$, $P\succeq0$, $b>0$, and componentwise quotas $n_k$, a valid radius is $\rho_k^2=2b\lambda_{\max}(P^{\dagger/2}M_{\rm new}(n_k)P^{\dagger/2})$ when $\range(M_{\rm new}(n_k))\subseteq\range(P)$; otherwise use infinity.
+
+Let $q_v^k$ be the conditional probability of any verified return when future reports use coefficient $v$, holding actual history fixed. Prespecify candidates and $L_{\rm MC}$ independent simulations per candidate under $\vartheta_0$. Simultaneous conditional $1-\delta_{\rm MC}$ intervals $[l_k^{\rm MC},u_k^{\rm MC}]$ follow from Hoeffding half-width $\sqrt{\log(2K_c/\delta_{\rm MC})/(2L_{\rm MC})}$, or Clopper--Pearson tails $\delta_{\rm MC}/(2K_c)$. Candidates may share randomness. Define $T_\pm(q,r)=\Phi(\Phi^{-1}(q)\pm r)$, with continuous endpoints, and
+\begin{equation}
+L_k=T_-(l_k^{\rm MC},\rho_k),\qquad
+U_k=T_+(u_k^{\rm MC},\rho_k).
+\label{eq:v23transport}
+\end{equation}
+Use $[0,1]$ if $\rho_k=\infty$. Execute a maximizer $\widehat k$ of $L_k$ and put $\Delta=\max_kU_k-L_{\widehat k}$; an approximate selector uses its actual lower bound.
+
+\begin{theorem}[Finite-confidence continuation intervals]
+\label{thm:v23selector}
+With probability at least $1-\delta_{\rm est}-\delta_{\rm MC}$ over
+history, discovery, and simulation randomness, simultaneously
+$$
+ L_k\leq q_\theta^k\leq U_k\quad\text{for all }k,\qquad
+ \max_k q_\theta^k-q_\theta^{\widehat k}\leq\Delta.
+$$
+The composed controller is uniformly $\delta$-safe. For conditional
+correct-completion probabilities $p_\theta^k(\mathcal H)$, define the
+same-discovery oracle for discovery strategy $D$,
+$P^*_{D,K_c}(\theta)=\mathbb E_\theta\max_k p_\theta^k(\mathcal H)$.
+Then
+\begin{equation}
+ \begin{split}
+ \Pr_\theta\{\mathrm{correct\ return}\}
+ &\geq\mathbb E_\theta L_{\widehat k}-\delta_{\rm est}-\delta_{\rm MC}-\delta,\\
+ \Pr_\theta\{\mathrm{correct\ return}\}
+ &\geq P^*_{D,K_c}(\theta)-\mathbb E_\theta\Delta\\
+ &\quad-\delta_{\rm est}-\delta_{\rm MC}-\delta.
+ \end{split}
+ \label{eq:v23classguarantee}
+\end{equation}
+\end{theorem}
+
+\begin{IEEEproof}
+Condition on $\mathcal H,k$. On $\theta\in\mathcal C(\mathcal H)$, every continuation has Gaussian information separating $\theta,\vartheta_0$ at most $\rho_k^2$. The main information-time proof and Neyman--Pearson applied to return and its complement give
+$$T_-(q_{\vartheta_0}^k,\rho_k)\leq q_\theta^k
+\leq T_+(q_{\vartheta_0}^k,\rho_k).$$
+Actual history stays fixed; the selected center is not assigned a fixed Gaussian law. Combine monotonicity with simultaneous simulation coverage, then subtract endpoints for $\Delta$. No independence between confidence events is required.
+
+Conditional on history and selection randomness, physical future reports are independent of simulations, so the composed return probability is $\mathbb E_\theta q_\theta^{\widehat k}$. Integrating the interval/gap bounds costs at most $\delta_{\rm est}+\delta_{\rm MC}$. Since $q_\theta^k\geq p_\theta^k$, subtract the common verifier's unconditional wrong-return risk $\delta$ once to obtain \eqref{eq:v23classguarantee}. Discovery returns remain absorbing.
+\end{IEEEproof}
+
+The guarantee provides neither conditional safety after selected history nor an impossibility test when $L_k$ is small. Larger quotas may enlarge $\rho_k$. Selection costs $O(K_cL_{\rm MC}NT_{\rm pl})$ for at most $N$ simulated reports and per-report computation $T_{\rm pl}$; charge this when the deadline includes computation.
+
+Comparison to unrestricted $P^\star$ additionally subtracts the restriction gap
+$$G_{D,K_c,\mathcal V}(\theta)=P^\star(\delta,B)-P^*_{D,K_c}(\theta)\geq0.$$
+The finite-class oracle shares discovery, resources, and verifier, with $\theta$ a pointwise design constant, not implemented input. Hard budget $B$ makes its mean-cost cap redundant; a smaller expected-cost ceiling requires a separate feasibility certificate. The experiments do not bound this restriction gap. Optional quota-selection variants remain in the archived derivation.

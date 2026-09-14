@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite this companion material together with the associated manuscript."
+title: "Service Certification for Agentic Wireless Networks: Extended Experiments and Code"
+type: software
+repository-code: "https://github.com/SaeedRazavikia/agentic-wireless-networks"
+url: "https://github.com/SaeedRazavikia/agentic-wireless-networks"
+authors:
+  - family-names: Razavikia
+    given-names: Saeed
+    affiliation: KTH Royal Institute of Technology
+  - family-names: Fischione
+    given-names: Carlo
+    affiliation: KTH Royal Institute of Technology
+abstract: "Companion experimental protocols, implementation specifications, supplied plotting code, a reconstructed scalar Gaussian benchmark, and figure data for Service Certification for Agentic Wireless Networks: Principles and Fundamental Limits."

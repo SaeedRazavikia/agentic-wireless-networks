@@ -1,0 +1,34 @@
+{
+  "version": 50,
+  "scope": "Presentation-only exports; no new observations.",
+  "source_sha256": {
+    "submission/figures/figure_data.json": "72ff65f9c6d7ea4b194a7ab4432fbae21032bab0d801079bc6be899d2f0c418e",
+    "submission/figures/v37_figure_data.json": "f4b76945f8ded87343291572650694be3fcf9a5f9cbe238b633e3684e27677f8",
+    "research_v37/results/final/all_results.csv": "ae0ef81ed8ed0cc3dad38e8e4d852f5f5ed2b63e5688bf1924eaece20eb297ea",
+    "research_v42/frontier/evaluation/exact_curves.csv": "ce1eee30f1b8740b36fea4cac3ab77a26eb60a32be3ef0699bf4c7e8f49a511d",
+    "submission/figures/validity_completion_outcomes.pdf": "94189720e3ef8304acbc91da5c48dde9af30e52e208da7f2fd1deca0558e222b",
+    "research_v38/supporting_records/validity_cell_table.tex": "3e061eaf6e26137ba40d5d916e637958b6a3930aa58ee023e16ef833709d9922",
+    "submission/compact/experiments.tex": "c8d107ae1f87ce9ee351b5dc460c23f986ccceeab1a27a70c61fd2e1d6b79b5d"
+  },
+  "exported_sha256": {
+    "certification_costs.csv": "a5054b357da5e3b049124f2bc7f2426638f4ae535e3d8c8a2fb067969987fddf",
+    "execution_costs.csv": "edb00f77629d7be4255b7563eeb2ebfd82272fa5b6564f0a5156e3c853992d39",
+    "frontier_accurate_radio_aggregate.csv": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+    "frontier_accurate_radio_both.csv": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+    "frontier_accurate_radio_radio.csv": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+    "frontier_accurate_radio_server.csv": "863c288a132837da3ca193af8014f0d76baf8660d8868e158c1a83bf771ff671",
+    "frontier_accurate_server_aggregate.csv": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+    "frontier_accurate_server_both.csv": "59b2755c4f3b59c561fcaed5a0f7852f281abbf57a442754da9b2ecb33cde8d8",
+    "frontier_accurate_server_radio.csv": "8a34f4c05ee209587bd95b33cae8967e3a748e04b3d877b06628f05a79974b7a",
+    "frontier_accurate_server_server.csv": "26157c83247719c41b7c497127a3affadfc21fde0ff234a810c80bb02117e795",
+    "v37_cost_comparisons.csv": "b12ed5db502385dbde67e0f1dc3b36638144920dc064fde34282258cde070a64",
+    "v37_promise_points.csv": "7cb7c09e373114de938a319be19923dc66443b2604618d989bfb4684b4124beb",
+    "v37_promise_points_14000.csv": "b5a8727d48ee6727aa4853f2d10043f23212f268c85069a11d5b2ac05dec52d4",
+    "v37_promise_points_5000.csv": "eafa57b4e52abad13ad47ff90f16f614e5ed2f8764519a458d3f38bdf853bbd7",
+    "validity_counts.csv": "98ff20b38c9231cac6216cdec52ff7dee4220676bbaa132477036c6c37c893af",
+    "wireless_trace.csv": "1fca9e1ec53cb83b3ec99d32d3b6f4b83193ba124dbece44f3f9de21a2d71d21"
+  },
+  "promise_points": 500,
+  "frontier_points": 4104,
+  "validity_provenance": "Exact published count transcription. Original trial_results.csv is absent from the supplied v49 archive; no claim of trial-level reconstruction or replay."
+}

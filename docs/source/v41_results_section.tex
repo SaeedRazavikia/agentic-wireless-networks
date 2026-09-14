@@ -1,0 +1,299 @@
+\section{Operating Boundaries and an Agent Tool Loop}
+\label{app:operating-study}
+
+This study tests the systems principle with a different, deliberately small
+response family. Its purpose is to separate three questions: whether the
+available instruments can justify the goal, whether the admitted model
+supports the observations, and whether a more elaborate allocator is useful.
+We also execute an actual language-model agent through the evidence interface.
+All observations are generated locally; no physical wireless deployment is
+claimed. The protocol, implementation, goals, sample sizes, and analysis were
+hashed before evaluation. This is a local freeze, not an externally registered
+protocol. We retain every development and evaluation attempt.
+
+\emph{Prior-information correction.} The frozen results below use zero
+lower bounds on full-stage means. Section~\ref{app:prior-sensitivity}
+replays the one-counter comparison with known nominal radio service minima
+supplied equally to both verifiers. Both then complete every trial at the
+same cost; the reported joint-versus-componentwise separation therefore
+does not persist with those physically justified priors. We retain the
+original outcomes to make that sensitivity explicit.
+
+\subsection{Population, Measurements, and Independent Evaluation}
+
+There are two radio choices and two server choices. We allow the server
+response to depend on the radio choice:
+$$
+\theta=(r_0,r_1,w_{00},w_{01},w_{10},w_{11}),
+\qquad D_{ij}=r_i+w_{ij}.
+$$
+These are full stage means, including nominal service and transport terms.
+Four probes measure aggregate response; two additional probes measure the
+radio stages. Aggregate directions have rank four, aggregate directions with
+one radio counter have rank five, and all six directions have rank six.
+The radio response remains shared across server choices by construction.
+Known configuration charges are $(1.6,2.4,2.6,3.4)$, with tolerance $0.05$.
+The joint goal requires total, radio, and server means no larger than
+$24$, $3.8$, and $8.5$ ms, respectively.
+
+We reuse the frozen finite-buffer FCFS workload populations and independently
+resample 64 virtual tasks per report. Queue populations record pre-admission
+workload, including arrivals whose subsequent work is rejected. Full virtual
+diagnostic response adds nominal stage terms. Thus the target is the mean of
+this explicitly defined diagnostic population, not completion latency over
+all offered jobs. Independent resampling justifies the report concentration
+model; it does not establish independence for consecutive physical traffic.
+The evaluator uses exact finite-population expectations, which never enter
+the controller's public state. No separately estimated physical reference
+mean is available or needed for this conditional simulator experiment.
+
+Every epoch in studies A--C starts with 256 reports per aggregate probe and
+no radio reports. We report their acquisition as sunk history. Online batches
+contain 32 reports, and each original instrument count is capped at 4096.
+For report variance proxy $\sigma_e^2$ and online error allocation
+$\delta_{\rm on}$, the simultaneous radius is
+$$
+h_e(n)=\sqrt{\frac{2\sigma_e^2}{n}
+                    \log\frac{2\cdot6\cdot4096}{\delta_{\rm on}}}.
+$$
+Known component workload caps supply the proxies, including the reduction
+from averaging independent cohort components. We intersect every admitted
+prefix interval with previous intervals, public mean bounds, and any
+calibrated contrasts. A goal change does not reset this confidence ledger.
+Empty intersections return model conflict and never authorize an action.
+
+LP dual witnesses bound candidate constraints and exclude cheaper rivals.
+We bound numerical stationarity residuals over the public variable box.
+An optimizer-independent checker verifies the saved witness inequalities
+with exact rational arithmetic applied to their binary floating-point inputs.
+This validates the certificate algebra. The statistical coverage assumptions
+and floating-point construction of confidence endpoints remain separate
+obligations; this is not a machine-checked proof of the entire stochastic
+implementation.
+
+\subsection{Study A: Joint Certification and the Instrument Boundary}
+
+We compare joint and sound componentwise verification on identical prefixes
+of one fixed acquisition stream. It selects the available probe with the
+smallest absolute report count; ties follow fast radio, slow radio, and then
+the four aggregate probes. Instrument sets are aggregate-only, aggregate plus
+the fast-radio counter, and all six probes. The 150- and 2000-unit duration
+limits truncate this same stream at completed-batch boundaries. Each rule is
+charged its own first certified prefix, or its complete unresolved prefix.
+The common trace can continue solely to evaluate the other rule. This design
+isolates the verifier, without claiming an optimal acquisition schedule.
+
+The two states add either zero or 2 ms to every radio sample and subtract
+the same amount from every full server sample. There is no clipping, and all
+full stage samples remain nonnegative. Aggregate samples are bitwise identical
+on matched tapes. Public bounds and initial history are also identical.
+This shifted pair is a constructed bounded-stage family: subtracting from
+full server response changes its original nominal service/transport baseline.
+It is not presented as two realizations of an unchanged FCFS mechanism.
+The unshifted state has acceptable answer $3$; the shifted state has no
+feasible configuration. A uniformly $\delta$-correct aggregate-only procedure
+therefore has correct-completion probability at most $\delta$ at either
+state, by the indistinguishability argument. This is distinct from its
+probability of any nonabstention, which can be as large as $2\delta$.
+
+The joint advantage has a simple operational explanation. If an aggregate
+lower bound exceeds $3.8+8.5=12.3$ ms, the two stage budgets cannot both hold.
+The verifier can exclude that configuration without determining which stage
+fails. It still needs enough stage evidence to establish the chosen
+configuration's own feasibility. Componentwise exclusion instead requires a
+particular stage to be uniformly invalid over the same confidence set.
+
+We use 32 independent acquisition seeds per condition; the two states and
+verifiers are paired, not independent additional replications.
+Table~\ref{tab:v41-capability} reports the complete 2000-unit comparison.
+The completion counts are identical at 150 units. Joint verification uses
+32 fast-radio reports; componentwise verification with all instruments uses
+32 reports from each radio counter. With one counter, componentwise
+verification remains unresolved after spending 6745.92 online cost units at
+the longer duration limit. With aggregate-only access, both rules spend
+2449.92 and remain unresolved. These costs include unsuccessful attempts.
+The common initial history costs 1920 units in every condition.
+
+\begin{table}[t]
+\centering
+\caption{Study A under the original zero-lower-bound prior: results in
+each matched state at the 2000-unit duration limit. Entries are completion count and mean new cost.
+The same completion counts hold at 150 units.}
+\label{tab:v41-capability}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Available instruments & Joint & Componentwise\\
+\midrule
+Aggregate only & $0/32$; 2449.92 & $0/32$; 2449.92\\
+Aggregate + fast radio & $32/32$; 384 & $0/32$; 6745.92\\
+All six & $32/32$; 384 & $32/32$; 768\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At 150 units, unresolved aggregate-only runs cost 169.92 and unresolved
+single-counter componentwise runs cost 768. The 95\% Wilson intervals are
+$[89.3,100]\%$ for $32/32$ completion and $[0,10.7]\%$ for $0/32$.
+These intervals describe repeated report sampling from the fixed populations.
+They do not measure variation across physical networks. No incorrect answer
+is observed. The two tested duration limits yield no additional completion
+transition; this study establishes the stated instrumentation and verifier
+contrast, rather than locating a resource-optimal completion boundary.
+
+\subsection{Study B: Interactions, Calibration, and Model Conflict}
+
+This study keeps the instrumentation boundary separate from state-specific
+stage calibration. We increase server load by the coupling coefficient times
+the radio index, capped at $0.96$, for coefficients $0$ and $0.24$. The
+two-radio scaling is explicitly different from the earlier three-radio
+diagnostic's index divided by two. The same archived queue generator creates
+the coupled populations. We compare a flexible six-mean family, a family
+with independently calibrated signed contrasts, and the nominal restriction
+$w_{1j}-w_{0j}=0$. The last is a potentially invalid negative control, not a
+guaranteed comparator under interactions.
+
+Calibration acquires 512 independent cohort reports from each of the four
+server populations. Only the two contrast intervals leave the calibrator.
+For each difference of independent server-report averages, its radius uses
+the sum of the two bounded variance proxies and a union bound over the two
+contrasts. Calibration receives error allocation $0.02$; online inference
+receives $0.03$. Flexible and nominal runs use $0.05$ online. Every calibration
+costs 24,576 acquisition units and 4096 modeled duration units. We retain all
+32 calibrations, including their observed coverage status.
+
+Operational server means then receive a common $0.4$-ms offset. This makes
+calibration's absolute means non-current while preserving the contrasts.
+Contrast transport is a declared generator property; the experiment does
+not infer a validity horizon or certify unannounced drift. All three models
+receive the same online report stream and a 2000-unit duration limit.
+
+Without coupling, all three models complete all 16 decisions correctly.
+Mean online cost is 2208 for the flexible and nominal models and 2448 for
+the calibrated model. The latter's smaller online error allocation widens
+its online bands, and its contrast information does not recover that cost
+in this fixture. With coupling $0.24$, the flexible and calibrated models
+correctly certify infeasibility from history in all 16 cases. The nominal
+model reports conflict in every case; it makes no incorrect approval.
+All 32 independently calibrated contrast intervals cover the population
+contrasts. A $16/16$ completion fraction has Wilson interval
+$[80.6,100]\%$; zero observed calibration failures is not a physical transfer
+guarantee. Including its 24,576-unit calibration ledger, the calibrated
+method provides no demonstrated cost advantage here. The flexible response
+family already handles this declared interaction without calibration.
+
+\subsection{Study C: Allocation with the Same Joint Verifier}
+
+We separately compare coverage, the archived residual minimum-cost design,
+and the archived cost-aware alternative-information maximin design. Each
+coupling receives 16 new paired seeds, with all six instruments, the flexible
+model, the joint goal, and a 2000-unit duration limit. These allocation
+objectives use Gaussian quadratic information as a heuristic; the common
+bounded-report verifier alone controls authorization. They are adaptations
+of the specified archived routines, not reproductions of a published
+networking algorithm with transferred guarantees.
+
+The adapter uses regularization only to choose a planning center, never to
+construct the certificate. If its initial center is infeasible, it searches
+the public confidence set for a feasible configuration. A linear program
+maximizes common constraint slack; a second finds the nearest center while
+retaining one quarter of that slack. Both objectives use this same rule.
+Plans are cached for at most 256 added reports. Maximin uses 12 iterations;
+residual uses the stated confidence-based quadratic target. Every cap,
+affordability failure, solver failure, and coverage fallback is recorded.
+Development initially exposed a center-selection fallback; its original
+outputs are preserved separately from the corrected, frozen implementation.
+
+All methods return all 16 decisions correctly at each coupling.
+Without coupling, coverage costs 384, maximin costs 454.08, and residual
+costs 524.16. Coverage therefore uses 70.08 fewer cost units than maximin
+and 140.16 fewer than residual. Each method takes the same number of
+batches across its 16 seeds, so the paired bootstrap cost intervals collapse
+to those respective differences. This reflects the fixed fixture and batch
+resolution, not certainty about performance elsewhere. Both information
+routines execute on all 16 nontrivial episodes without a coverage fallback.
+Their mean full-controller times are 0.076 s for maximin and 0.143 s for
+residual, compared with 0.038 s for coverage. These descriptive times include
+simulation and verification and were not obtained in a randomized timing
+benchmark. With coupling $0.24$, history already certifies infeasibility;
+all methods cost zero and invoke no acquisition planner. This adverse result
+supports simple allocation as a reasonable implementation choice. It remains
+separate from the earlier frozen 2.36\% maximin and 6.74\% G-ACOL-adapter
+comparisons.
+
+\subsection{Study D: Actual Agent Integration and Announced Epoch Changes}
+
+A fresh language-model agent receives only a public goal and evidence
+projection and uses the documented tools to propose configurations, acquire
+reports, verify answers, and authorize or return unresolved. It receives no
+fixture means, random seeds, or outcome labels. This is protocol isolation,
+not an operating-system access boundary. We retain the prompt, controller
+metadata, and every action and public response. The execution interface does
+not expose an exact model-version identifier, so this run cannot support a
+version-specific replication or model comparison.
+
+The four goals are loose total delay, the joint stage goal, loose total
+delay again, and the same joint goal after an announced state change. The
+first three share an epoch and evidence ledger. The state change quarantines
+the old reports and starts fresh inference. Each epoch receives risk $0.025$
+and separate cost and modeled-duration caps of 2000 units. Only the first
+epoch starts with the sunk aggregate history. We also execute a deterministic
+public-interface coverage controller on the same potential tapes. Invalid
+proposals, unavailable probes, stale tokens, idempotent retries, and history
+quarantine are exercised in separately labeled scripted guard tests.
+
+The actual agent closes all four goals correctly: configuration $0$,
+configuration $3$, configuration $0$, and certified infeasibility after the
+announced change. It makes 23 accepted actions, no rejected requests, and
+no unresolved terminal decisions. It acquires 64 fast-radio reports for the
+joint goal. After the epoch change, it acquires 128 aggregate reports for
+configuration 1 and 64 reports from each of aggregates 0, 2, 3 and the
+fast-radio counter. Total new acquisition is 448 reports, costing 2133.76
+units and 729.44 modeled duration units. The two loose goals require no new
+reports, including the return to the loose goal after stage acquisition.
+
+The deterministic control also closes all four goals correctly. It uses
+45 accepted actions, costs 2124.80, and spends 735.20 modeled duration units.
+Both controllers preserve evidence across goal changes and quarantine it at
+the announced epoch transition. Their observed costs are similar; this one
+functional sequence establishes neither an LLM performance advantage nor a
+population completion rate. Sixteen separate scripted guard checks pass.
+Independent loop replay passes 2944 cohort reports, 68 actions, and eight
+correct authorized certificates across the two controllers. It reconstructs
+evidence, token bindings, and epoch ledgers without importing the API or
+verifier. The tool-operation time and transcript wall times are retained, with
+orchestration delays identified; they are not isolated inference timings or
+physical decision deadlines.
+
+\subsection{Accounting, Audit, and What Remains Unresolved}
+
+The release contains all attempts, raw acquired reports, terminal witnesses,
+calibration ledgers, independent replay programs, and paired analyses.
+Completion intervals are 95\% Wilson intervals. Cost differences use 10,000
+paired seed-cluster bootstrap replicates. These intervals are descriptive;
+we make no multiplicity-adjusted superiority claim. Common-stream wall time
+includes evaluating both rules and is not isolated verifier latency.
+Allocation-controller wall times are also recorded separately from abstract
+probe durations. Logical simulator actuation has no modeled switching delay.
+We therefore do not combine these quantities into a physical deadline claim.
+
+The independent study auditor passes 320 recorded traces, 960 attempt
+rows, 6598 raw batches containing 497,856 cohort reports, and 576 saved
+algebraic certificates. It checks all 384 ordinary unresolved cost ledgers
+and identifies the 16 nominal-model conflicts separately. There are 560
+correct approvals and no observed wrong approvals across these correlated
+factorial rows; this total is not an independent sample for a pooled error
+rate interval. The auditor reconstructs tapes, calibration formulas,
+confidence polytopes, resource accounting, and outcomes without importing
+any experiment controller, verifier, or allocation adapter. It does not
+establish that the selected allocation or stopping prefix is optimal.
+
+The study supports a goal-dependent distinction between more reports and
+another instrument, and it demonstrates a functioning verifier-controlled
+agent interface. It does not establish a new general statistical result.
+The two duration limits do not locate the optimal finite-resource frontier;
+an observed unresolved prefix does not establish a budget impossibility.
+Physical response validation, measured sensing and actuation times,
+unannounced state-change handling, calibrated evidence lifetimes, larger
+configuration sets, and tail-sensitive service specifications remain open.
+The complete new study is under \texttt{research\_v41/study/}.

@@ -1,0 +1,38 @@
+% Editable TikZ; coordinates are inches unless inside an axis.
+% Numerical values come from data/; see data/PROVENANCE.json.
+\begingroup%
+\begin{tikzpicture}[x=1in,y=1in]%
+\path[use as bounding box] (0,0) rectangle (3.5,2.2);%
+\begin{pgfinterruptboundingbox}%
+\begin{axis}[jsc axis,at={(0.665in,0.539in)},anchor=south west,%
+width=2.73in,height=0.957in,%
+xmin=0,xmax=100,ymin=-.43,ymax=1.52,xtick={0,25,50,75,100},%
+ytick={1,0},yticklabels={{5,000},{14,000}},ytick style={draw=none},%
+y axis line style={draw=none},ylabel={Cost budget},xlabel={Decisions (\%)},%
+]%
+\path[fill=jscDark,draw=white,line width=.3pt] (axis cs:0,0.815) rectangle (axis cs:8.8888888888888893,1.185);%
+\node[font=\jscfont{7.7},text=white,inner sep=0] at (axis cs:4.4444444444444446,1.0) {64};%
+\path[fill=jscLight,draw=white,line width=.3pt] (axis cs:8.8888888888888893,0.815) rectangle (axis cs:99.722222222222214,1.185);%
+\node[font=\jscfont{7.7},text=jscDark,inner sep=0] at (axis cs:54.305555555555557,1.0) {654};%
+\path[fill=jscUnresolved,draw=white,line width=.3pt] (axis cs:99.722222222222214,0.815) rectangle (axis cs:99.999999999999986,1.185);%
+\draw[jscUnresolved,line width=.55pt] (axis cs:99.8611111111111,1.18)--(axis cs:98.722222222222214,1.3599999999999999);%
+\node[anchor=east,font=\jscfont{7},text=jscUnresolved,inner sep=0] at (axis cs:98.722222222222214,1.3599999999999999) {2};%
+\path[fill=jscDark,draw=white,line width=.3pt] (axis cs:0,-0.185) rectangle (axis cs:8.8888888888888893,0.185);%
+\node[font=\jscfont{7.7},text=white,inner sep=0] at (axis cs:4.4444444444444446,0.0) {64};%
+\path[fill=jscTeal,draw=white,line width=.3pt] (axis cs:8.8888888888888893,-0.185) rectangle (axis cs:14.027777777777779,0.185);%
+\node[font=\jscfont{7.7},text=white,inner sep=0] at (axis cs:11.458333333333334,0.0) {37};%
+\path[fill=jscLight,draw=white,line width=.3pt] (axis cs:14.027777777777779,-0.185) rectangle (axis cs:100,0.185);%
+\node[font=\jscfont{7.7},text=jscDark,inner sep=0] at (axis cs:57.013888888888893,0.0) {619};%
+\end{axis}%
+\path[fill=jscDark] (0.63,2.03) rectangle (0.75,2.11);%
+\node[font={\jscfont{7.4}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (0.78,2.07) {Immediate return};%
+\path[fill=jscLight] (1.9100000000000001,2.03) rectangle (2.0300000000000002,2.11);%
+\node[font={\jscfont{7.4}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (2.06,2.07) {Adaptive discovery};%
+\path[fill=jscTeal] (0.63,1.82) rectangle (0.75,1.9000000000000001);%
+\node[font={\jscfont{7.4}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (0.78,1.86) {Issued plan};%
+\path[fill=jscUnresolved] (1.9100000000000001,1.82) rectangle (2.0300000000000002,1.9000000000000001);%
+\node[font={\jscfont{7.4}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (2.06,1.86) {Unresolved};%
+\node[font={\jscfont{7.3}},text=jscNavy,anchor=center,align=center,inner sep=0pt] at (1.855,0.099) {720 decisions per budget; labels give counts.};%
+\end{pgfinterruptboundingbox}%
+\end{tikzpicture}%
+\endgroup%

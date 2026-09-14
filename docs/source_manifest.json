@@ -1,0 +1,580 @@
+{
+  "source_archive": "Agentic_Wireless_Networks__JSAC_ (1).zip",
+  "scope": "Supplied asset mapping and checksums; source fragments captured before manuscript editing.",
+  "files": [
+    {
+      "source_path": "figures/agent_architecture.pdf",
+      "repository_path": "figures/agent_architecture.pdf",
+      "source_sha256": "29d25f3faa7a213b13858e80fb3acec489b6e82f7ad95442f54937adecf6f006",
+      "repository_sha256": "29d25f3faa7a213b13858e80fb3acec489b6e82f7ad95442f54937adecf6f006",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/agent_architecture.py",
+      "repository_path": "figures/agent_architecture.py",
+      "source_sha256": "5ad4a8b347a937f7942130f394025cef26931e75910031944b294c7e6664dc08",
+      "repository_sha256": "5ad4a8b347a937f7942130f394025cef26931e75910031944b294c7e6664dc08",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/certification_costs.pdf",
+      "repository_path": "figures/certification_costs.pdf",
+      "source_sha256": "28856a6c2a07f86e3b7e7274fc36cdc18b86da3b6fe7e88345282378b8220079",
+      "repository_sha256": "28856a6c2a07f86e3b7e7274fc36cdc18b86da3b6fe7e88345282378b8220079",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/certification_costs.png",
+      "repository_path": "figures/certification_costs.png",
+      "source_sha256": "4cee5d92559b8ceb86ad787f56fd3898f98e5377b83bd81dd515618bba606717",
+      "repository_sha256": "4cee5d92559b8ceb86ad787f56fd3898f98e5377b83bd81dd515618bba606717",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/execution_stopping_costs.pdf",
+      "repository_path": "figures/execution_stopping_costs.pdf",
+      "source_sha256": "19a894a924de1610cb7c7e7a95a63d12ca27418570fb8128216a01af86d46636",
+      "repository_sha256": "19a894a924de1610cb7c7e7a95a63d12ca27418570fb8128216a01af86d46636",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/execution_stopping_costs.png",
+      "repository_path": "figures/execution_stopping_costs.png",
+      "source_sha256": "da7bfd48824a12cca6e7cedc0622313a004917ed086f7f0b6cf8a0e021dd5eb7",
+      "repository_sha256": "da7bfd48824a12cca6e7cedc0622313a004917ed086f7f0b6cf8a0e021dd5eb7",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/figure_data.json",
+      "repository_path": "figures/figure_data.json",
+      "source_sha256": "72ff65f9c6d7ea4b194a7ab4432fbae21032bab0d801079bc6be899d2f0c418e",
+      "repository_sha256": "72ff65f9c6d7ea4b194a7ab4432fbae21032bab0d801079bc6be899d2f0c418e",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/figure_overview.py",
+      "repository_path": "figures/figure_overview.py",
+      "source_sha256": "1c5907e0f9eeb91e9ffaee31bd8efbff09bc8cce606dc50e6781da22abb6cb5f",
+      "repository_sha256": "1c5907e0f9eeb91e9ffaee31bd8efbff09bc8cce606dc50e6781da22abb6cb5f",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/goal_evidence_loop.pdf",
+      "repository_path": "figures/goal_evidence_loop.pdf",
+      "source_sha256": "2b9220c2fa1c0cbb0928310473fb4a5b57dd5b1ddce7a177eac8d1be8feb379c",
+      "repository_sha256": "2b9220c2fa1c0cbb0928310473fb4a5b57dd5b1ddce7a177eac8d1be8feb379c",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/goal_evidence_loop.tex",
+      "repository_path": "figures/goal_evidence_loop.tex",
+      "source_sha256": "25ec1cd92dece47e7ced1fda56e4387d9e4df844873cffdc3b1f996c7f24db26",
+      "repository_sha256": "25ec1cd92dece47e7ced1fda56e4387d9e4df844873cffdc3b1f996c7f24db26",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/joint_exclusion_geometry.pdf",
+      "repository_path": "figures/joint_exclusion_geometry.pdf",
+      "source_sha256": "1e1f39fca269b01e2378945e12e0982d2d4fc0b400a976a659c68daa6b5651cc",
+      "repository_sha256": "1e1f39fca269b01e2378945e12e0982d2d4fc0b400a976a659c68daa6b5651cc",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/joint_exclusion_geometry.png",
+      "repository_path": "figures/joint_exclusion_geometry.png",
+      "source_sha256": "0247a0d84ff5f39351a4b4f5b1e27cbfcd8123cc1aace20f0164c71a4ed89280",
+      "repository_sha256": "0247a0d84ff5f39351a4b4f5b1e27cbfcd8123cc1aace20f0164c71a4ed89280",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/joint_geometry.pdf",
+      "repository_path": "figures/joint_geometry.pdf",
+      "source_sha256": "65c25b433697aa391a860c98e2b9c0e601e3291a99ed7c4a9118ef50403280d5",
+      "repository_sha256": "65c25b433697aa391a860c98e2b9c0e601e3291a99ed7c4a9118ef50403280d5",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/joint_service_overview.pdf",
+      "repository_path": "figures/joint_service_overview.pdf",
+      "source_sha256": "a1d4d46cb188a298d42c235ef987bf807287578fc59458d0745704d2212f829c",
+      "repository_sha256": "a1d4d46cb188a298d42c235ef987bf807287578fc59458d0745704d2212f829c",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/joint_service_overview.png",
+      "repository_path": "figures/joint_service_overview.png",
+      "source_sha256": "116e285f14aa4dbe94725d1f739155b560120bc8ffdec1de3759ef3b59e87391",
+      "repository_sha256": "116e285f14aa4dbe94725d1f739155b560120bc8ffdec1de3759ef3b59e87391",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/overview_data.json",
+      "repository_path": "figures/overview_data.json",
+      "source_sha256": "e93d9e023f2a923e6d1c8c11f5872af54c9a6ccfbe7b1c43d234030ea987820b",
+      "repository_sha256": "e93d9e023f2a923e6d1c8c11f5872af54c9a6ccfbe7b1c43d234030ea987820b",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/plot_figures.py",
+      "repository_path": "figures/plot_figures.py",
+      "source_sha256": "0356e88b2f19ab4e17e26b25ebfadb7507b4b22f8af475bc8ec19b512b93c872",
+      "repository_sha256": "0356e88b2f19ab4e17e26b25ebfadb7507b4b22f8af475bc8ec19b512b93c872",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/plot_validity_study.py",
+      "repository_path": "figures/plot_validity_study.py",
+      "source_sha256": "69a069a9b30e90eb09402074a29185829941e0a39751ba689e1a5072c55b3128",
+      "repository_sha256": "69a069a9b30e90eb09402074a29185829941e0a39751ba689e1a5072c55b3128",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/README.md",
+      "repository_path": "figures/tikz/README.md",
+      "source_sha256": "1a7dd983c1d589f58b50c7ea4bc85c8126f463b701fac8d56242bbceec43860a",
+      "repository_sha256": "f2497845264d7182cbde98763ae5d0cadc72e9e376826b1ca54ade3eb4dc99e5",
+      "unchanged": false
+    },
+    {
+      "source_path": "figures/tikz/certification_costs.tex",
+      "repository_path": "figures/tikz/certification_costs.tex",
+      "source_sha256": "92e210a93333f61152a803ef81b3ede65026d098b7fd6c8b88100c24f490e5bc",
+      "repository_sha256": "92e210a93333f61152a803ef81b3ede65026d098b7fd6c8b88100c24f490e5bc",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/certification_costs.tikz",
+      "repository_path": "figures/tikz/certification_costs.tikz",
+      "source_sha256": "3b1c2897def1515fa8fb54f298fa37cfb4814e8edc14c56ab372fb10097af42a",
+      "repository_sha256": "3b1c2897def1515fa8fb54f298fa37cfb4814e8edc14c56ab372fb10097af42a",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/common.tex",
+      "repository_path": "figures/tikz/common.tex",
+      "source_sha256": "19843bed2cc0bc51134db99224c9deba8d8d3369b031869b7c39082f916a3b57",
+      "repository_sha256": "19843bed2cc0bc51134db99224c9deba8d8d3369b031869b7c39082f916a3b57",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/PROVENANCE.json",
+      "repository_path": "figures/tikz/data/PROVENANCE.json",
+      "source_sha256": "9e70ff9596b5c075880f673cc922211ba3a791b6fd4add10dbb515864cb077da",
+      "repository_sha256": "9e70ff9596b5c075880f673cc922211ba3a791b6fd4add10dbb515864cb077da",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/certification_costs.csv",
+      "repository_path": "figures/tikz/data/certification_costs.csv",
+      "source_sha256": "a5054b357da5e3b049124f2bc7f2426638f4ae535e3d8c8a2fb067969987fddf",
+      "repository_sha256": "a5054b357da5e3b049124f2bc7f2426638f4ae535e3d8c8a2fb067969987fddf",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/execution_costs.csv",
+      "repository_path": "figures/tikz/data/execution_costs.csv",
+      "source_sha256": "edb00f77629d7be4255b7563eeb2ebfd82272fa5b6564f0a5156e3c853992d39",
+      "repository_sha256": "edb00f77629d7be4255b7563eeb2ebfd82272fa5b6564f0a5156e3c853992d39",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_radio_aggregate.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_radio_aggregate.csv",
+      "source_sha256": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+      "repository_sha256": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_radio_both.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_radio_both.csv",
+      "source_sha256": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+      "repository_sha256": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_radio_radio.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_radio_radio.csv",
+      "source_sha256": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+      "repository_sha256": "3eddab532a58498bfed3dc2e8e17a8be6794be65688b5e03bb01255e82b49edd",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_radio_server.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_radio_server.csv",
+      "source_sha256": "863c288a132837da3ca193af8014f0d76baf8660d8868e158c1a83bf771ff671",
+      "repository_sha256": "863c288a132837da3ca193af8014f0d76baf8660d8868e158c1a83bf771ff671",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_server_aggregate.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_server_aggregate.csv",
+      "source_sha256": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+      "repository_sha256": "ccb1d963a27d901bcebcf55ad4be39cfbc8b6bb5bda0f5e5a75528ae38cad1d2",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_server_both.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_server_both.csv",
+      "source_sha256": "59b2755c4f3b59c561fcaed5a0f7852f281abbf57a442754da9b2ecb33cde8d8",
+      "repository_sha256": "59b2755c4f3b59c561fcaed5a0f7852f281abbf57a442754da9b2ecb33cde8d8",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_server_radio.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_server_radio.csv",
+      "source_sha256": "8a34f4c05ee209587bd95b33cae8967e3a748e04b3d877b06628f05a79974b7a",
+      "repository_sha256": "8a34f4c05ee209587bd95b33cae8967e3a748e04b3d877b06628f05a79974b7a",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/frontier_accurate_server_server.csv",
+      "repository_path": "figures/tikz/data/frontier_accurate_server_server.csv",
+      "source_sha256": "26157c83247719c41b7c497127a3affadfc21fde0ff234a810c80bb02117e795",
+      "repository_sha256": "26157c83247719c41b7c497127a3affadfc21fde0ff234a810c80bb02117e795",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/v37_cost_comparisons.csv",
+      "repository_path": "figures/tikz/data/v37_cost_comparisons.csv",
+      "source_sha256": "b12ed5db502385dbde67e0f1dc3b36638144920dc064fde34282258cde070a64",
+      "repository_sha256": "b12ed5db502385dbde67e0f1dc3b36638144920dc064fde34282258cde070a64",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/v37_promise_points.csv",
+      "repository_path": "figures/tikz/data/v37_promise_points.csv",
+      "source_sha256": "7cb7c09e373114de938a319be19923dc66443b2604618d989bfb4684b4124beb",
+      "repository_sha256": "7cb7c09e373114de938a319be19923dc66443b2604618d989bfb4684b4124beb",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/v37_promise_points_14000.csv",
+      "repository_path": "figures/tikz/data/v37_promise_points_14000.csv",
+      "source_sha256": "b5a8727d48ee6727aa4853f2d10043f23212f268c85069a11d5b2ac05dec52d4",
+      "repository_sha256": "b5a8727d48ee6727aa4853f2d10043f23212f268c85069a11d5b2ac05dec52d4",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/v37_promise_points_5000.csv",
+      "repository_path": "figures/tikz/data/v37_promise_points_5000.csv",
+      "source_sha256": "eafa57b4e52abad13ad47ff90f16f614e5ed2f8764519a458d3f38bdf853bbd7",
+      "repository_sha256": "eafa57b4e52abad13ad47ff90f16f614e5ed2f8764519a458d3f38bdf853bbd7",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/validity_counts.csv",
+      "repository_path": "figures/tikz/data/validity_counts.csv",
+      "source_sha256": "98ff20b38c9231cac6216cdec52ff7dee4220676bbaa132477036c6c37c893af",
+      "repository_sha256": "98ff20b38c9231cac6216cdec52ff7dee4220676bbaa132477036c6c37c893af",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/data/wireless_trace.csv",
+      "repository_path": "figures/tikz/data/wireless_trace.csv",
+      "source_sha256": "1fca9e1ec53cb83b3ec99d32d3b6f4b83193ba124dbece44f3f9de21a2d71d21",
+      "repository_sha256": "1fca9e1ec53cb83b3ec99d32d3b6f4b83193ba124dbece44f3f9de21a2d71d21",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/execution_stopping_costs.tex",
+      "repository_path": "figures/tikz/execution_stopping_costs.tex",
+      "source_sha256": "bb26b8a25d1a1363e4db7faf3b0c657bf44db627a9cc8a8ffa37b7f378aeafe1",
+      "repository_sha256": "bb26b8a25d1a1363e4db7faf3b0c657bf44db627a9cc8a8ffa37b7f378aeafe1",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/execution_stopping_costs.tikz",
+      "repository_path": "figures/tikz/execution_stopping_costs.tikz",
+      "source_sha256": "aaff67819c0d3c37424ab3d3e28fd2d5bf5dfc478a9ffa4a25929fb83664cd97",
+      "repository_sha256": "aaff67819c0d3c37424ab3d3e28fd2d5bf5dfc478a9ffa4a25929fb83664cd97",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/goal_evidence_loop.tex",
+      "repository_path": "figures/tikz/goal_evidence_loop.tex",
+      "source_sha256": "4396f6ee4f4da215ad42a2cff2cbb9ea321deec471214a1006b701e919fd5686",
+      "repository_sha256": "4396f6ee4f4da215ad42a2cff2cbb9ea321deec471214a1006b701e919fd5686",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/goal_evidence_loop.tikz",
+      "repository_path": "figures/tikz/goal_evidence_loop.tikz",
+      "source_sha256": "080e024e2fa1eafb90adf7457f173fd3b2cbf5e319dd7db15862331af27b146c",
+      "repository_sha256": "080e024e2fa1eafb90adf7457f173fd3b2cbf5e319dd7db15862331af27b146c",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/joint_exclusion_geometry.tex",
+      "repository_path": "figures/tikz/joint_exclusion_geometry.tex",
+      "source_sha256": "3ac4d9649e2e5a40d08c59247e300e61732c310211077f4c11604b63cb22a6c9",
+      "repository_sha256": "3ac4d9649e2e5a40d08c59247e300e61732c310211077f4c11604b63cb22a6c9",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/joint_exclusion_geometry.tikz",
+      "repository_path": "figures/tikz/joint_exclusion_geometry.tikz",
+      "source_sha256": "29ffeb39f7a167017a53225815b8c7ff78eb8410b5870c73bd52fca4a815e084",
+      "repository_sha256": "29ffeb39f7a167017a53225815b8c7ff78eb8410b5870c73bd52fca4a815e084",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/certification_costs.pdf",
+      "repository_path": "figures/tikz/rendered/certification_costs.pdf",
+      "source_sha256": "72ebdc8d515c368f927caefad166bed36a2e75f7293b2f18ebdbd6a751b5984a",
+      "repository_sha256": "72ebdc8d515c368f927caefad166bed36a2e75f7293b2f18ebdbd6a751b5984a",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/execution_stopping_costs.pdf",
+      "repository_path": "figures/tikz/rendered/execution_stopping_costs.pdf",
+      "source_sha256": "e0762f8f6524ba5b52145b6a60d65f2450513c13e699d5acaf4de03fb2531ba0",
+      "repository_sha256": "e0762f8f6524ba5b52145b6a60d65f2450513c13e699d5acaf4de03fb2531ba0",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/goal_evidence_loop.pdf",
+      "repository_path": "figures/tikz/rendered/goal_evidence_loop.pdf",
+      "source_sha256": "b56c810cd206c0ba75eed592800836f79230256ba1de6088495ec2c4d404aeee",
+      "repository_sha256": "b56c810cd206c0ba75eed592800836f79230256ba1de6088495ec2c4d404aeee",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/joint_exclusion_geometry.pdf",
+      "repository_path": "figures/tikz/rendered/joint_exclusion_geometry.pdf",
+      "source_sha256": "d8d0d54ffd25bea8311d02f075397d1b69e6a7c6df12c6dd56c9db84db8c2d1f",
+      "repository_sha256": "d8d0d54ffd25bea8311d02f075397d1b69e6a7c6df12c6dd56c9db84db8c2d1f",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/v37_cost_comparisons.pdf",
+      "repository_path": "figures/tikz/rendered/v37_cost_comparisons.pdf",
+      "source_sha256": "dd420d08abcd3f9ae30b3c2596a151bba534f0f97d283835cfa2e0dc033ff6c7",
+      "repository_sha256": "dd420d08abcd3f9ae30b3c2596a151bba534f0f97d283835cfa2e0dc033ff6c7",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/v37_promise_reservations.pdf",
+      "repository_path": "figures/tikz/rendered/v37_promise_reservations.pdf",
+      "source_sha256": "c108365444cbe7098700fb81f9b43f55bce2dfaedf1518ddb744f8a7391bfce6",
+      "repository_sha256": "c108365444cbe7098700fb81f9b43f55bce2dfaedf1518ddb744f8a7391bfce6",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.pdf",
+      "repository_path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.pdf",
+      "source_sha256": "7d788749dd9eec34cf68438004e298eef42191ac9d3a84cb741d010dc499187c",
+      "repository_sha256": "7d788749dd9eec34cf68438004e298eef42191ac9d3a84cb741d010dc499187c",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/v44_system_model.pdf",
+      "repository_path": "figures/tikz/rendered/v44_system_model.pdf",
+      "source_sha256": "e619d50490dc20d5b3cee8c44f280a5ceffdf43d3dcf0e6ab0b8095573def785",
+      "repository_sha256": "e619d50490dc20d5b3cee8c44f280a5ceffdf43d3dcf0e6ab0b8095573def785",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/validity_completion_outcomes.pdf",
+      "repository_path": "figures/tikz/rendered/validity_completion_outcomes.pdf",
+      "source_sha256": "4b4db5e60136d97e68f426c5aaa0b33090f414339e605297ff7086f3be9a22b9",
+      "repository_sha256": "4b4db5e60136d97e68f426c5aaa0b33090f414339e605297ff7086f3be9a22b9",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/rendered/wireless_confidence_trace.pdf",
+      "repository_path": "figures/tikz/rendered/wireless_confidence_trace.pdf",
+      "source_sha256": "b2b12c599e2547ff2664c8c6aa3d7e7546e58ac8b996482a99546000fb795db3",
+      "repository_sha256": "b2b12c599e2547ff2664c8c6aa3d7e7546e58ac8b996482a99546000fb795db3",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v37_cost_comparisons.tex",
+      "repository_path": "figures/tikz/v37_cost_comparisons.tex",
+      "source_sha256": "610f07e53a393a977c268fe1aad1a45e520db43828e7cba8d124586e3d9c1780",
+      "repository_sha256": "610f07e53a393a977c268fe1aad1a45e520db43828e7cba8d124586e3d9c1780",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v37_cost_comparisons.tikz",
+      "repository_path": "figures/tikz/v37_cost_comparisons.tikz",
+      "source_sha256": "b1c1d0e2cfe3a347813b733db0090749da20f950ba39e0ca93a72febf8a7c0b2",
+      "repository_sha256": "b1c1d0e2cfe3a347813b733db0090749da20f950ba39e0ca93a72febf8a7c0b2",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v37_promise_reservations.tex",
+      "repository_path": "figures/tikz/v37_promise_reservations.tex",
+      "source_sha256": "afdb14df6ade7d6e95486be1d28dc2ab7e011008aa3f53f35fcbc1a212e007d4",
+      "repository_sha256": "afdb14df6ade7d6e95486be1d28dc2ab7e011008aa3f53f35fcbc1a212e007d4",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v37_promise_reservations.tikz",
+      "repository_path": "figures/tikz/v37_promise_reservations.tikz",
+      "source_sha256": "8990250999a4cbdb547837406ee73be9e61517eee8aca2ba89bf327fd0428256",
+      "repository_sha256": "8990250999a4cbdb547837406ee73be9e61517eee8aca2ba89bf327fd0428256",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v42_deadline_instrumentation_frontier.tex",
+      "repository_path": "figures/tikz/v42_deadline_instrumentation_frontier.tex",
+      "source_sha256": "2505619814a0914381a5e6b50fb65732fd599c984b2c601e74a4fe3b78243ccb",
+      "repository_sha256": "2505619814a0914381a5e6b50fb65732fd599c984b2c601e74a4fe3b78243ccb",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v42_deadline_instrumentation_frontier.tikz",
+      "repository_path": "figures/tikz/v42_deadline_instrumentation_frontier.tikz",
+      "source_sha256": "57105697b546562c783160b6b1e9b6352e45d3d4cf00a6a506d8d849b226cbcd",
+      "repository_sha256": "57105697b546562c783160b6b1e9b6352e45d3d4cf00a6a506d8d849b226cbcd",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v44_system_model.tex",
+      "repository_path": "figures/tikz/v44_system_model.tex",
+      "source_sha256": "a37b10eeb1d0d50424dba988910eb2e80f6c63d172392bca3e16f7068a06c12b",
+      "repository_sha256": "a37b10eeb1d0d50424dba988910eb2e80f6c63d172392bca3e16f7068a06c12b",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/v44_system_model.tikz",
+      "repository_path": "figures/tikz/v44_system_model.tikz",
+      "source_sha256": "24fe88783639143f4665a20fca982a3813aa1cdc8894dc35c70d6c8bfa014148",
+      "repository_sha256": "24fe88783639143f4665a20fca982a3813aa1cdc8894dc35c70d6c8bfa014148",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/validity_completion_outcomes.tex",
+      "repository_path": "figures/tikz/validity_completion_outcomes.tex",
+      "source_sha256": "242ff2d480f66f3165d462903266ca8ebbcfc4cd1d80e23b4cccaba06ba62421",
+      "repository_sha256": "242ff2d480f66f3165d462903266ca8ebbcfc4cd1d80e23b4cccaba06ba62421",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/validity_completion_outcomes.tikz",
+      "repository_path": "figures/tikz/validity_completion_outcomes.tikz",
+      "source_sha256": "253880652544bb6a374e730184a5dfc112c8584ceff78445e05e405433c8ad2c",
+      "repository_sha256": "253880652544bb6a374e730184a5dfc112c8584ceff78445e05e405433c8ad2c",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/wireless_confidence_trace.tex",
+      "repository_path": "figures/tikz/wireless_confidence_trace.tex",
+      "source_sha256": "5b9df79db5518c3febe608b6594d3c6751d1977b769d531ffe89c8856065d11e",
+      "repository_sha256": "5b9df79db5518c3febe608b6594d3c6751d1977b769d531ffe89c8856065d11e",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/wireless_confidence_trace.tikz",
+      "repository_path": "figures/tikz/wireless_confidence_trace.tikz",
+      "source_sha256": "42d5aeecff3c4d039e0a96b742195c4e5714178829c42d3f9faf9469729e3ef7",
+      "repository_sha256": "42d5aeecff3c4d039e0a96b742195c4e5714178829c42d3f9faf9469729e3ef7",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/v37_cost_comparisons.pdf",
+      "repository_path": "figures/v37_cost_comparisons.pdf",
+      "source_sha256": "b089f6ecd23a6a76b2e62b754e9249a596e837cc8b01a5696de798f89a494926",
+      "repository_sha256": "b089f6ecd23a6a76b2e62b754e9249a596e837cc8b01a5696de798f89a494926",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/v37_figure_data.json",
+      "repository_path": "figures/v37_figure_data.json",
+      "source_sha256": "f4b76945f8ded87343291572650694be3fcf9a5f9cbe238b633e3684e27677f8",
+      "repository_sha256": "f4b76945f8ded87343291572650694be3fcf9a5f9cbe238b633e3684e27677f8",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/v37_promise_reservations.pdf",
+      "repository_path": "figures/v37_promise_reservations.pdf",
+      "source_sha256": "0ce38a0f2a4203a1fdc501d478fb56f01775e34de608a0189b30a9e6ee0e582d",
+      "repository_sha256": "0ce38a0f2a4203a1fdc501d478fb56f01775e34de608a0189b30a9e6ee0e582d",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/v42_deadline_instrumentation_frontier.pdf",
+      "repository_path": "figures/v42_deadline_instrumentation_frontier.pdf",
+      "source_sha256": "08a9aaa5bc9819e2100f731c81b83b7dfaf0b306dc185d7aa665fe691c29a9c0",
+      "repository_sha256": "08a9aaa5bc9819e2100f731c81b83b7dfaf0b306dc185d7aa665fe691c29a9c0",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/v44_system_model.pdf",
+      "repository_path": "figures/v44_system_model.pdf",
+      "source_sha256": "bcbb3827180ce153bf64bce46a6430bb504177f2516033e26a57586f490fa481",
+      "repository_sha256": "bcbb3827180ce153bf64bce46a6430bb504177f2516033e26a57586f490fa481",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/validity_completion_outcomes.pdf",
+      "repository_path": "figures/validity_completion_outcomes.pdf",
+      "source_sha256": "94189720e3ef8304acbc91da5c48dde9af30e52e208da7f2fd1deca0558e222b",
+      "repository_sha256": "94189720e3ef8304acbc91da5c48dde9af30e52e208da7f2fd1deca0558e222b",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/wireless_confidence_trace.pdf",
+      "repository_path": "figures/wireless_confidence_trace.pdf",
+      "source_sha256": "d58100557c176ffb5aaa4f92a2ca30060076107a78019025e54cca1d44b01366",
+      "repository_sha256": "d58100557c176ffb5aaa4f92a2ca30060076107a78019025e54cca1d44b01366",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/wireless_confidence_trace.png",
+      "repository_path": "figures/wireless_confidence_trace.png",
+      "source_sha256": "b387658bad510df2960e8998988c514c69c80993ca5df50f30efecb0d173798c",
+      "repository_sha256": "b387658bad510df2960e8998988c514c69c80993ca5df50f30efecb0d173798c",
+      "unchanged": true
+    },
+    {
+      "source_path": "compact/acquisition.tex",
+      "repository_path": "docs/source/acquisition_original.tex",
+      "source_sha256": "986ac597ba42a874859fb0850e3345ff345dc8446110a8835ae063cd03135d90",
+      "repository_sha256": "986ac597ba42a874859fb0850e3345ff345dc8446110a8835ae063cd03135d90",
+      "unchanged": true
+    },
+    {
+      "source_path": "figures/tikz/README.md",
+      "repository_path": "docs/source/editable_figures_original_README.md",
+      "source_sha256": "1a7dd983c1d589f58b50c7ea4bc85c8126f463b701fac8d56242bbceec43860a",
+      "repository_sha256": "1a7dd983c1d589f58b50c7ea4bc85c8126f463b701fac8d56242bbceec43860a",
+      "unchanged": true
+    },
+    {
+      "source_path": "compact/experiments.tex",
+      "repository_path": "docs/source/experiments_original.tex",
+      "source_sha256": "780b1c79fe11870df28ef7b4c8cacefca70c3e16a0e862a5639ee03630009af0",
+      "repository_sha256": "780b1c79fe11870df28ef7b4c8cacefca70c3e16a0e862a5639ee03630009af0",
+      "unchanged": true
+    },
+    {
+      "source_path": "v37_results_section.tex",
+      "repository_path": "docs/source/v37_results_section.tex",
+      "source_sha256": "d09105afe9aa48867934152d41ecf7f6330240875a7a86bd92b657bde6f6797a",
+      "repository_sha256": "d09105afe9aa48867934152d41ecf7f6330240875a7a86bd92b657bde6f6797a",
+      "unchanged": true
+    },
+    {
+      "source_path": "v41_results_section.tex",
+      "repository_path": "docs/source/v41_results_section.tex",
+      "source_sha256": "ab365fc3aa104317002dc3446c0e45f5d5514539736a0d09970eda0700be12ea",
+      "repository_sha256": "ab365fc3aa104317002dc3446c0e45f5d5514539736a0d09970eda0700be12ea",
+      "unchanged": true
+    },
+    {
+      "source_path": "v42_results_section.tex",
+      "repository_path": "docs/source/v42_results_section.tex",
+      "source_sha256": "94f72946eaa9ffbbca4326f44d3f9c1096be53fb3c720a743d8baa4822e9d733",
+      "repository_sha256": "94f72946eaa9ffbbca4326f44d3f9c1096be53fb3c720a743d8baa4822e9d733",
+      "unchanged": true
+    },
+    {
+      "source_path": "compact/adaptive.tex",
+      "repository_path": "docs/source/adaptive_original.tex",
+      "source_sha256": "57bb7de7a5ab37344e518a8160aa14354c9bfca744f851348297966188c94c5d",
+      "repository_sha256": "57bb7de7a5ab37344e518a8160aa14354c9bfca744f851348297966188c94c5d",
+      "unchanged": true
+    }
+  ]
+}

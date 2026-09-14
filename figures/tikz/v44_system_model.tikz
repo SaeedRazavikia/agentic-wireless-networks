@@ -1,0 +1,66 @@
+% Native TikZ transcription of research_v44/draw_system_model.py.
+% Analytical diagram: no experimental data or changed model assumptions.
+\begingroup%
+\definecolor{smBlack}{HTML}{20272B}%
+\definecolor{smGray}{HTML}{5A6268}%
+\definecolor{smRule}{HTML}{BAC0C4}%
+\definecolor{smBlue}{HTML}{246181}%
+\definecolor{smBlueFill}{HTML}{EDF5FA}%
+\definecolor{smOrange}{HTML}{966019}%
+\definecolor{smOrangeFill}{HTML}{FBF3E8}%
+\definecolor{smAgg}{HTML}{395848}%
+\definecolor{smAggFill}{HTML}{F1F6F1}%
+\scalebox{0.8}{
+\begin{tikzpicture}[x=1in,y=1in,%
+  every node/.style={font=\jscfont{10},text=smBlack,align=center,inner sep=0pt},%
+  sm box/.style={rounded corners=3pt,line width=.9pt},%
+  sm arrow/.style={smBlack,line width=1pt,-{Stealth[length=5pt,width=4pt]}}]%
+\path[use as bounding box] (0,0) rectangle (7.1,2.8);%
+\begin{pgfinterruptboundingbox}%
+\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (.06,2.60)%
+  {(a) One radio--server configuration $x$};%
+\node[font=\jscfont{9.7}] at (1.72,2.35)%
+  {$\theta=(\tau_r,\tau_s)^{\mathsf T}$: full conditional stage means};%
+\path[sm box,draw=smBlue,fill=smBlueFill] (.38,1.62) rectangle (1.54,2.17);%
+\path[sm box,draw=smOrange,fill=smOrangeFill] (1.98,1.62) rectangle (3.14,2.17);%
+\node[text=smBlue,font=\jscfont{10.2}] at (.96,2) {Radio stage};%
+\node[text=smBlue,font=\jscfont{12}] at (.96,1.77) {$\tau_r$};%
+\node[text=smOrange,font=\jscfont{10.2}] at (2.56,2) {Server stage};%
+\node[text=smOrange,font=\jscfont{12}] at (2.56,1.77) {$\tau_s$};%
+\draw[sm arrow] (.08,1.89)--(.35,1.89);%
+\draw[sm arrow] (1.56,1.89)--(1.95,1.89);%
+\draw[sm arrow] (3.16,1.89)--(3.41,1.89);%
+\foreach \cx/\c/\f/\label in {.96/smBlue/smBlueFill/radio,2.56/smOrange/smOrangeFill/server}{%
+  \draw[\c,dash pattern=on 3pt off 2pt,line width=.8pt] (\cx,1.61)--(\cx,1.31);%
+  \path[draw=\c,fill=white,line width=.85pt] (\cx,1.61) circle[radius=.025in];%
+  \path[sm box,draw=\c,fill=\f,dash pattern=on 3pt off 2pt]%
+    (\cx-.62,.89) rectangle (\cx+.62,1.29);%
+  \node[text=\c,font=\jscfont{9.5}] at (\cx,1.09) {Optional \label\\counter};%
+}%
+\draw[smAgg,line width=1.05pt] (.17,1.62)--(.17,.70)--(3.34,.70)--(3.34,1.62);%
+\node[text=smAgg] at (1.755,.50) {Aggregate diagnostic: $\tau_r+\tau_s$};%
+\draw[smRule,line width=.65pt] (3.56,.43)--(3.56,2.68);%
+\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (3.72,2.60)%
+  {(b) What each diagnostic measures};%
+\node[anchor=west,font={\jscfont{9.8}\bfseries}] at (3.83,2.20) {Probe type $e$};%
+\node[font={\jscfont{9.8}\bfseries}] at (5.55,2.20) {Known $a_e$};%
+\node[font={\jscfont{9.8}\bfseries}] at (6.49,2.20) {Mean $a_e^{\mathsf T}\theta$};%
+\draw[smGray,line width=.8pt] (3.75,2.04)--(7.03,2.04);%
+\foreach \y/\label/\direction/\mean/\c in {%
+  1.85/Aggregate/{(1,1)^{\mathsf T}}/{\tau_r+\tau_s}/smAgg,%
+  1.48/{Radio counter}/{(1,0)^{\mathsf T}}/{\tau_r}/smBlue,%
+  1.11/{Server counter}/{(0,1)^{\mathsf T}}/{\tau_s}/smOrange}{%
+  \node[anchor=west,text=\c] at (3.83,\y) {\label};%
+  \node[text=\c,font=\jscfont{10.2}] at (5.55,\y) {$\direction$};%
+  \node[text=\c,font=\jscfont{10.6}] at (6.49,\y) {$\mean$};%
+  \draw[smRule,line width=.55pt] (3.75,\y-.19)--(7.03,\y-.19);%
+}%
+\node[font=\jscfont{12}] at (5.12,.66)%
+  {$Y_{e,i}=a_e^{\mathsf T}\theta+\varepsilon_{e,i}$};%
+\node[text=smGray,font=\jscfont{9.7}] at (6.43,.63) {mean + report error};%
+\draw[smRule,line width=.7pt] (.08,.28)--(7.02,.28);%
+\node at (3.55,.115)%
+  {The goal specifies required combinations; the instruments specify observed combinations.};%
+\end{pgfinterruptboundingbox}%
+\end{tikzpicture}}
+\endgroup%

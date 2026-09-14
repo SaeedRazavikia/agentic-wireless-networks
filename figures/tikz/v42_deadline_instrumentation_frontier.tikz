@@ -1,0 +1,45 @@
+% Editable TikZ; coordinates are inches unless inside an axis.
+% Numerical values come from data/; see data/PROVENANCE.json.
+\begingroup%
+\begin{tikzpicture}[x=1in,y=1in]%
+\path[use as bounding box] (0,0) rectangle (8.08143888888889,3.388913194444444);%
+\begin{pgfinterruptboundingbox}%
+\begin{axis}[jsc axis,at={(0.57in,0.84in)},anchor=south west,%
+width=3.48in,height=2.21in,%
+xmin=0,xmax=512,ymin=0,ymax=1.02,xtick={0,100,200,300,400,500},ytick={0,.2,.4,.6,.8,1},title={Accurate server counter},%
+axis lines=box,axis line style={line width=.7pt},major grid style={gray!18},grid=major,tick label style={font=\jscfont{8}},%
+xlabel={Modeled acquisition deadline},xlabel style={font=\jscfont{9}},title style={font=\jscfont{10}},%
+ylabel={Correct-completion limit},ylabel style={font=\jscfont{9}},%
+]%
+\addplot[gray,line width=1.6pt,dashed] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_server_aggregate.csv};%
+\addplot[jscRadio,line width=1.6pt] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_server_radio.csv};%
+\addplot[jscServer,line width=1.6pt] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_server_server.csv};%
+\addplot[jscBoth,line width=1.6pt,dashed] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_server_both.csv};%
+\addplot[black,dotted,line width=.8pt] coordinates {(0,.95) (512,.95)};%
+\end{axis}%
+\begin{axis}[jsc axis,at={(4.45in,0.84in)},anchor=south west,%
+width=3.48in,height=2.21in,%
+xmin=0,xmax=512,ymin=0,ymax=1.02,xtick={0,100,200,300,400,500},ytick={0,.2,.4,.6,.8,1},title={Accurate radio counter},%
+axis lines=box,axis line style={line width=.7pt},major grid style={gray!18},grid=major,tick label style={font=\jscfont{8}},%
+xlabel={Modeled acquisition deadline},xlabel style={font=\jscfont{9}},title style={font=\jscfont{10}},%
+yticklabels=\empty,%
+]%
+\addplot[gray,line width=1.6pt,dashed] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_radio_aggregate.csv};%
+\addplot[jscRadio,line width=1.6pt] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_radio_radio.csv};%
+\addplot[jscServer,line width=1.6pt] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_radio_server.csv};%
+\addplot[jscBoth,line width=1.6pt,dashed] table[x=deadline,y=correct,col sep=comma] {\jscDataPath/frontier_accurate_radio_both.csv};%
+\addplot[black,dotted,line width=.8pt] coordinates {(0,.95) (512,.95)};%
+\end{axis}%
+\draw[gray,line width=1pt,dashed] (0.67,.20)--(0.91,.20);%
+\node[font={\jscfont{8}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (0.97,0.2) {Aggregate only};%
+\draw[jscRadio,line width=1pt] (2.1,.20)--(2.34,.20);%
+\node[font={\jscfont{8}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (2.4,0.2) {Radio counter};%
+\draw[jscServer,line width=1pt] (3.62,.20)--(3.8600000000000003,.20);%
+\node[font={\jscfont{8}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (3.92,0.2) {Server counter};%
+\draw[jscBoth,line width=1pt,dashed] (5.18,.20)--(5.42,.20);%
+\node[font={\jscfont{8}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (5.4799999999999995,0.2) {Both counters};%
+\draw[black,line width=1pt,dotted] (6.7,.20)--(6.94,.20);%
+\node[font={\jscfont{8}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (7.0,0.2) {95\% target};%
+\end{pgfinterruptboundingbox}%
+\end{tikzpicture}%
+\endgroup%

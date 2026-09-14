@@ -1,0 +1,175 @@
+{
+  "implementation": "new analytical reconstruction; original simulator not recovered",
+  "passed": true,
+  "curve_points_checked": 4104,
+  "reference_margin": 0.2,
+  "absolute_tolerance": 1e-12,
+  "curves": [
+    {
+      "file": "frontier_accurate_server_aggregate.csv",
+      "points": 513,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "file": "frontier_accurate_server_radio.csv",
+      "points": 513,
+      "max_absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "file": "frontier_accurate_server_server.csv",
+      "points": 513,
+      "max_absolute_error": 2.7755575615628914e-16
+    },
+    {
+      "file": "frontier_accurate_server_both.csv",
+      "points": 513,
+      "max_absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "file": "frontier_accurate_radio_aggregate.csv",
+      "points": 513,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "file": "frontier_accurate_radio_radio.csv",
+      "points": 513,
+      "max_absolute_error": 2.7755575615628914e-16
+    },
+    {
+      "file": "frontier_accurate_radio_server.csv",
+      "points": 513,
+      "max_absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "file": "frontier_accurate_radio_both.csv",
+      "points": 513,
+      "max_absolute_error": 2.7755575615628914e-16
+    }
+  ],
+  "first_deadlines": [
+    {
+      "catalogue": "accurate_server",
+      "access": "radio",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        null,
+        271,
+        68
+      ],
+      "computed": [
+        null,
+        271,
+        68
+      ]
+    },
+    {
+      "catalogue": "accurate_server",
+      "access": "server",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        null,
+        124,
+        32
+      ],
+      "computed": [
+        null,
+        124,
+        32
+      ]
+    },
+    {
+      "catalogue": "accurate_server",
+      "access": "both",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        null,
+        121,
+        32
+      ],
+      "computed": [
+        null,
+        121,
+        32
+      ]
+    },
+    {
+      "catalogue": "accurate_radio",
+      "access": "radio",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        121,
+        31,
+        8
+      ],
+      "computed": [
+        121,
+        31,
+        8
+      ]
+    },
+    {
+      "catalogue": "accurate_radio",
+      "access": "server",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        null,
+        null,
+        272
+      ],
+      "computed": [
+        null,
+        null,
+        272
+      ]
+    },
+    {
+      "catalogue": "accurate_radio",
+      "access": "both",
+      "margins": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "expected": [
+        121,
+        31,
+        8
+      ],
+      "computed": [
+        121,
+        31,
+        8
+      ]
+    }
+  ],
+  "accurate_server_cap": {
+    "precision": 767,
+    "radio": 2,
+    "server": 85,
+    "cost": 512,
+    "duration": 342,
+    "margin": 0.1,
+    "correct_probability": 0.8696255583022073
+  },
+  "errors": []
+}

@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{ptm}
+\renewcommand{\ttdefault}{pcr}
+\renewcommand{\sfdefault}{phv}
+\usepackage{amsmath,amssymb,amsthm,graphicx,booktabs}
+\usepackage[cmintegrals]{newtxmath}
+\usepackage[margin=24mm]{geometry}
+\input{figures/tikz/common}
+\usepackage{flafter}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Service Certification for Agentic Wireless Networks: Extended Experiments and Code},pdfauthor={Saeed Razavikia and Carlo Fischione}}
+\newcommand{\T}{\mathsf{T}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newenvironment{IEEEproof}{\begin{proof}}{\end{proof}}
+\newtheorem{theorem}{Theorem}
+\title{Service Certification for Agentic Wireless Networks:\\Extended Experiments and Code}
+\author{Saeed Razavikia \and Carlo Fischione}
+\date{}
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\maketitle
+This research archive accompanies \emph{Service Certification for Agentic Wireless Networks: Principles and Fundamental Limits}. We collect the complete experimental description from the supplied supplementary source, including additional numerical comparisons, figure data, and limitations. We retain each study's own population, comparator, and resource accounting.
+
+\paragraph{Available material.} The package supplies plotting scripts, summary data, editable figures, and protocol descriptions. The original simulation/controller drivers, complete trial records, and research directories cited in the source manuscript were not supplied. Accordingly, the scripts regenerate available figures; they do not rerun those experiments. Unmodified source fragments remain in \texttt{docs/source/}, and \texttt{docs/provenance.md} maps their contents. Statements about historical numerical outcomes below report the supplied manuscript's results, without asserting a new experimental replay.
+
+\section*{Definitions for this standalone protocol}
+For the nine-pair wireless instance, $R_i$, $f_j$, and $t_j$ denote radio rate, processor rate, and transport delay. The supplied manuscript sets $R=(20.574,51.891,100.556)$ Mbit/s, $f=(1,2,3)$ GHz, and $t=(0.8,1.2,1.8)$ ms. Tasks contain 80 kbit and require eight million processor cycles. With radio and server corrections $r_i,w_j$ in ms, we use
+\begin{equation}
+\begin{aligned}
+D_{ij}(\theta)&=d^0_{ij}+r_i+w_j, &d^0_{ij}&=80/R_i+8/f_j+t_j,\\
+D_i^{\rm rad}(\theta)&=80/R_i+r_i.
+\end{aligned}
+\label{eq:wireless-delay}
+\end{equation}
+Charges satisfy $p_{ij}=p_i^{\rm rad}+p_j^{\rm srv}$, with $p^{\rm rad}=(1,2,3.6)$ and $p^{\rm srv}=(0.6,1.4,2.8)$. For goal parameters $(\alpha_g,T_g,T_g^{\rm rad})$, the service decision is
+\begin{equation}
+\begin{aligned}
+\min_{i,j}\quad &p_{ij}+\alpha_g D_{ij}(\theta)\\
+\text{subject to}\quad &D_{ij}(\theta)\leq T_g,\\
+&D_i^{\rm rad}(\theta)\leq T_g^{\rm rad}\quad\text{when requested}.
+\end{aligned}
+\label{eq:wireless-instance}
+\end{equation}
+The acquisition studies set $\alpha_g=0$. Symbol $\Phi$ denotes the standard normal cdf and $z_p=\Phi^{-1}(p)$. The following reference restates the scalar frontier used by the protocol; its proof remains in the paper and theoretical supplement.
+\begin{theorem}[Exact scalar completion reference]
+\label{thm:scalar-deadline}
+For centered Gaussian probe means $a_e\vartheta$, let $q_e=a_e^2/\sigma_e^2$ and let $A_{\max}$ be the greatest total precision available from history and a legal integer acquisition design. For $A_{\max}>0$ and $0<\delta<1/2$, the attainable correct-completion probability at $\vartheta\ne0$ is
+$$\Phi\!\left(|\vartheta|\sqrt{A_{\max}}-z_{1-\delta}\right).$$
+A maximum-precision fixed design and its two-threshold endpoint rule attain this value. Completion $1-\eta>\delta$ is possible exactly when $|\vartheta|\sqrt{A_{\max}}\geq z_{1-\delta}+z_{1-\eta}$.
+\end{theorem}
+At zero precision, operational policies abstain; the randomized reference can attain correct completion $\delta$ by assigning probability $\delta$ to each answer.
+
+\input{docs/experimental_protocol}
+
+\section{Simulation-Based Continuation Selection}
+The following construction preserves the full simulation-based selector guarantee from the original supplementary source. Probe $e$ has Gaussian mean $a_e^\T\theta$, variance $\sigma_e^2$, and one-report information matrix $G_e=a_ea_e^\T/\sigma_e^2$. The set $\mathcal Q_{\rm int}$ denotes the original legal integer fresh-count vectors under the total count, time, and cost caps; discovery counts remain charged. For $M\succeq0$, write $\|v\|_M^2=v^\T Mv$, and use $P^\dagger$ for the Moore--Penrose inverse. The common verifier has a simultaneous unconditional wrong-return risk at most $\delta$ under every admissible acquisition rule. The notation $P^\star(\delta,B)$ denotes the paper's unrestricted correct-completion frontier under this risk and resource bound. These are the assumptions under which the construction below applies.
+
+\input{docs/continuation_guarantee}
+
+\subsection{Numerical Adaptive-Instrument Reference}
+The separate finite-resource adaptive-separation example uses a near stage with absolute margin between $d_{\min}$ and $d_{\max}$ and another stage in $[-D_{\max},-D]$. Historical observations have fixed stage sums and do not reveal the relevant branch. We retain the full numerical specification:
+$$
+(d_{\min},d_{\max},D,D_{\max})=(0.1,0.25,1,2),\qquad
+(\sigma_D^2,\sigma_1^2,\sigma_2^2)=(25,1,1).
+$$
+Coarse reports measure both stages, while a fine report measures its selected stage. Their durations are $(1,4,4)$, prices are $(1,8,8)$, and report caps are $(300,400,400)$. We use $(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$, deadline $H=1500$, and budget $B=3000$. The adaptive rule takes 224 coarse reports, selects the larger coarse mean, and acquires 307 fine reports of that stage. Its duration is $224+4\cdot307=1452$ and its cost is $224+8\cdot307=2680$. The fixed-plan lower bounds in the theoretical supplement, including randomized plans, are $2164.43$ duration units and $4328.87$ cost units. This is the stated Gaussian numerical specialization under a separated-branch promise, not a replay of a physical deployment or evidence of general adaptive optimality.
+
+
+\begin{thebibliography}{9}
+\bibitem{lindner2022}
+D. Lindner, S. Tschiatschek, K. Hofmann, and A. Krause, ``Interactively learning preference constraints in linear bandits,'' in \emph{Proc. ICML}, ser. PMLR, vol. 162, 2022, pp. 13505--13527.
+\bibitem{edgedroid2019}
+M. O. J. Olgu\'{i}n Mu\~noz, J. Wang, M. Satyanarayanan, and J. Gross, ``EdgeDroid: An experimental approach to benchmarking human-in-the-loop applications,'' in \emph{Proc. ACM HotMobile}, 2019, doi: 10.1145/3301293.3302353.
+\end{thebibliography}
+\end{document}

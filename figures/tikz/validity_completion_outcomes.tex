@@ -1,0 +1,16 @@
+\documentclass[border=0pt]{standalone}
+\usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{ptm}
+\usepackage{amsmath}
+\usepackage[cmintegrals]{newtxmath}
+\IfFileExists{figures/tikz/common.tex}{%
+  \input{figures/tikz/common}%
+  \def\jscFigurePath{figures/tikz}%
+}{%
+  \input{common}%
+  \def\jscFigurePath{.}%
+  \renewcommand{\jscDataPath}{data}%
+}
+\begin{document}%
+\input{\jscFigurePath/validity_completion_outcomes.tikz}%
+\end{document}

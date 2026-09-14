@@ -1,0 +1,36 @@
+{
+  "cost_comparisons": [
+    {
+      "label": "Existing wireless:\nresidual / scalar",
+      "value": 19.550831216690224,
+      "low": 18.458995902889857,
+      "high": 20.396608603933906,
+      "population": "32 paired four-goal wireless sequences"
+    },
+    {
+      "label": "Existing wireless:\nresidual / maximin",
+      "value": 2.359707371874986,
+      "low": 2.1344010295820777,
+      "high": 2.571983988487665,
+      "population": "32 paired four-goal wireless sequences"
+    },
+    {
+      "label": "Audited verification /\nguarded fresh",
+      "value": 0.13784867185336,
+      "low": 0.08228663751623,
+      "high": 0.20054833344214001,
+      "population": "1344 paired single-goal two-instrument decisions"
+    },
+    {
+      "label": "Audited verification /\nunguarded repaired",
+      "value": -1.02330588509518,
+      "low": -1.23276700662857,
+      "high": -0.81512624104684,
+      "population": "1344 paired single-goal two-instrument decisions"
+    }
+  ],
+  "promise_points": 500,
+  "mean_advertised_remaining": 7352.624,
+  "mean_actual_remaining": 347.894,
+  "scope": "Separate populations and controllers; two-instrument figures include all attempts unless explicitly conditioned on issued promises."
+}

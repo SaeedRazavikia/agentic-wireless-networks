@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-14",
+  "python_version": "3.12.14",
+  "numpy_version": "2.3.5",
+  "matplotlib_version": "3.10.8",
+  "supplied_python": {
+    "agent_architecture.py": "passed",
+    "figure_overview.py": "passed",
+    "plot_figures.py": "passed with documented build-copy Poppler path adaptation",
+    "plot_validity_study.py": "blocked: original trial_results.csv absent"
+  },
+  "native_tikz_figures_compiled": 10,
+  "csv_provenance_checks_passed": 16,
+  "scalar_curve_points_checked": 4104,
+  "scalar_max_absolute_error": 3.3306690738754696e-16,
+  "scalar_deadline_cells_checked": 18,
+  "remote_creation": "not attempted; publish helper only invoked without --publish",
+  "extended_protocol_pages": 11,
+  "extended_protocol_build": "two passes succeeded; no undefined references or overfull boxes",
+  "extended_protocol_visual_check": "all original pages inspected; final changed pages 2 and 9\u201311 inspected",
+  "adaptive_numerical_reference": "counts 224/307, duration 1452, cost 2680, and fixed lower bounds 2164.43/4328.87 verified analytically"
+}
