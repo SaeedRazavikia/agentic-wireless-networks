@@ -1,10 +1,11 @@
-% Original native TikZ with original 4pt border.
+% Compact native TikZ: simplified two-row layout with the original palette and icons.
 % Joint service certification for agentic wireless network optimization.
 % Pure TikZ: every icon, label, and connector is editable.
 % Required in the parent document:
 %   \usepackage{tikz}
 %   \usetikzlibrary{arrows.meta,calc}
-% Designed for a two-column figure. All coordinates are in centimetres.
+% Designed for a two-column figure; input at the same width as the original.
+% Required libraries are unchanged. Coordinates are in centimetres.
 \begingroup%
 \definecolor{wiNavy}{HTML}{123650}%
 \definecolor{wiBlue}{HTML}{237BC1}%
@@ -42,7 +43,6 @@
   wi arrow label/.style={font=\rmfamily\bfseries\fontsize{11.5}{13}\selectfont,%
     text=wiNavy,fill=white,inner sep=2pt},%
   wi icon/.style={draw=wiNavy,line width=0.9pt,line cap=round,line join=round},%
-  % Radio access / radio-profile icon, centred at the local origin.
   pics/wi radio/.style={code={%
     \path[wi icon,fill=wiPaleBlue] (0,0.50)--(-0.47,-0.74)--(0.47,-0.74)--cycle;%
     \draw[wi icon] (-0.34,-0.41)--(0.20,-0.03)--(-0.15,0.13)%
@@ -59,7 +59,6 @@
       }%
     \end{scope}%
   }},%
-  % Three stacked server units.
   pics/wi server/.style={code={%
     \foreach \y in {-0.34,0,0.34}{%
       \path[wi icon,fill=wiNavy!88,rounded corners=1.5pt]%
@@ -69,14 +68,6 @@
       \fill[wiCyan] (0.17,\y) circle (0.039);%
       \fill[wiMint] (0.32,\y) circle (0.039);%
     }%
-  }},%
-  pics/wi stopwatch/.style={code={%
-    \path[wi icon,fill=white] (0,0) circle (0.34);%
-    \path[wi icon,fill=wiNavy] (-0.10,0.39) rectangle (0.10,0.46);%
-    \draw[wi icon] (0,0.34)--(0,0.40) (0.24,0.25)--(0.30,0.31);%
-    \draw[draw=wiBlue,line width=1.2pt,line cap=round]%
-      (0,0.22)--(0,0)--(0.15,-0.07);%
-    \fill[wiNavy] (0,0) circle (0.035);%
   }},%
   pics/wi target/.style={code={%
     \path[wi icon,fill=wiCyan!32] (0,0) circle (0.91);%
@@ -112,14 +103,6 @@
       -{Stealth[length=5pt,width=4.5pt]}]%
       (215:0.33) arc[start angle=215,end angle=355,radius=0.33];%
   }},%
-  pics/wi report/.style={code={%
-    \path[wi icon,fill=white] (-0.22,-0.31)--(0.22,-0.31)--(0.22,0.17)%
-      --(0.08,0.31)--(-0.22,0.31)--cycle;%
-    \draw[wi icon] (0.08,0.31)--(0.08,0.17)--(0.22,0.17);%
-    \foreach \y in {-0.17,-0.04,0.09}{%
-      \draw[draw=wiMuted,line width=0.65pt] (-0.12,\y)--(0.12,\y);%
-    }%
-  }},%
   pics/wi certificate/.style={code={%
     \path[draw=wiTeal,line width=1.5pt,fill=wiMint,line join=round]%
       (-0.88,-1.14)--(0.88,-1.14)--(0.88,0.83)--(0.57,1.14)%
@@ -136,238 +119,108 @@
         (-0.57,\y)--(\endx,\y);%
     }%
   }},%
-  pics/wi unresolved/.style={code={%
-    \path[draw=wiAmber,line width=1.35pt,fill=wiCream,line join=round]%
-      (-0.65,-0.78)--(0.65,-0.78)--(0.65,0.57)--(0.42,0.80)%
-      --(-0.65,0.80)--cycle;%
-    \path[draw=wiAmber,line width=0.8pt,fill=wiAmber!13]%
-      (0,0.26) circle (0.30);%
-    \node[text=wiAmber,font=\rmfamily\bfseries\fontsize{21}{21}\selectfont]%
-      at (0,0.26) {?};%
-    \draw[draw=wiAmber!72,line width=1.8pt,line cap=round]%
-      (-0.38,-0.30)--(0.38,-0.30)%
-      (-0.38,-0.53)--(0.14,-0.53);%
-  }},%
-  pics/wi phone/.style={code={%
-    \path[wi icon,fill=wiCyan!45,rounded corners=2pt]%
-      (-0.23,-0.40) rectangle (0.23,0.40);%
-    \draw[white,line width=1pt] (-0.07,0.30)--(0.07,0.30);%
-    \draw[wi icon,line width=0.65pt] (-0.07,-0.31)--(0.07,-0.31);%
-  }},%
-  pics/wi cloud/.style={code={%
-    \path[fill=wiCyan!48,draw=wiCyan!60,line width=0.65pt]%
-      (-0.66,-0.20) .. controls (-1.02,-0.17) and (-0.99,0.29) .. (-0.62,0.31)%
-      .. controls (-0.64,0.75) and (0.03,0.90) .. (0.22,0.50)%
-      .. controls (0.71,0.62) and (0.93,0.09) .. (0.61,-0.13)%
-      .. controls (0.43,-0.25) and (-0.32,-0.19) .. (-0.66,-0.20)--cycle;%
-  }},%
-  pics/wi coins/.style={code={%
-    \foreach \y in {-0.13,0.04,0.21}{%
-      \path[draw=wiAmber,line width=0.7pt,fill=wiAmber!38]%
-        (-0.32,\y)--(-0.32,\y-0.12)%
-        arc[start angle=180,end angle=360,x radius=0.32,y radius=0.11]%
-        --(0.32,\y)--cycle;%
-      \path[draw=wiAmber,line width=0.7pt,fill=wiCream]%
-        (0,\y) ellipse (0.32 and 0.11);%
-    }%
-  }},%
-  pics/wi caps/.style={code={%
-    \foreach \x/\h in {-0.28/0.18,-0.06/0.34,0.16/0.50}{%
-      \path[fill=wiBlue] (\x,-0.22) rectangle (\x+0.15,\h-0.22);%
-    }%
-    \draw[draw=wiNavy,line width=0.75pt]%
-      (-0.34,0.35)--(-0.34,0.43)--(0.38,0.43)--(0.38,0.35);%
-  }}%
 }%
+
 \begin{tikzpicture}[x=1cm,y=1cm,line cap=round,line join=round]%
-  \path[use as bounding box] (-0.140584,-0.220584) rectangle (28.290584,14.340584);%
-  % Named anchors keep all information-flow connections editable.
-  \coordinate (goal-out) at (4.46,10.15);%
-  \coordinate (proposal-in) at (5.10,10.15);%
-  \coordinate (proposal-out) at (12.35,10.15);%
-  \coordinate (verify-in) at (13.30,10.15);%
-  \coordinate (verify-pass) at (22.85,10.15);%
-  \coordinate (certified-in) at (24.82,10.15);%
-  \coordinate (verify-needs) at (16.00,7.28);%
-  \coordinate (acquire-top) at (16.00,6.26);%
-  \coordinate (acquire-evidence) at (12.30,4.73);%
-  \coordinate (acquire-out) at (20.80,3.83);%
-  \coordinate (network-in) at (21.76,3.83);%
-  \coordinate (network-reports) at (23.15,2.28);%
-  \coordinate (memory-reports) at (6.59,4.30);%
-  \coordinate (memory-verifier) at (7.91,5.86);%
-  \coordinate (memory-acquire) at (9.30,4.73);%
-  \coordinate (unresolved-in) at (25.28,6.15);%
-  % ---- Panel backgrounds --------------------------------------------
-  \path[wi panel] (0.42,7.03) rectangle (4.46,9.08);%
-  \path[wi panel] (5.10,8.06) rectangle (12.35,12.86);%
-  \path[wi verify panel] (13.30,7.28) rectangle (22.85,13.16);%
-  \path[wi inner] (13.61,8.17) rectangle (17.97,12.13);%
-  \path[wi inner] (18.19,8.17) rectangle (22.54,12.13);%
-  \path[wi panel] (12.30,1.36) rectangle (20.80,6.26);%
-  % ---- Information flow --------------------------------------------
+  \path[use as bounding box] (-0.140584,-0.220584) rectangle (28.290584,8.800584);%
+  % Main sequence and feedback anchors.
+  \coordinate (goal-out) at (4.46,6.55);%
+  \coordinate (proposal-in) at (5.10,6.55);%
+  \coordinate (proposal-out) at (10.75,6.55);%
+  \coordinate (verify-in) at (11.90,6.55);%
+  \coordinate (verify-pass) at (21.95,6.55);%
+  \coordinate (certified-in) at (24.65,6.55);%
+  \coordinate (verify-needs) at (17.00,5.20);%
+  \coordinate (acquire-top) at (17.00,3.85);%
+  \coordinate (memory-verifier) at (7.95,3.85);%
+  \coordinate (memory-acquire) at (10.75,2.70);%
+  \coordinate (acquire-evidence) at (11.90,2.70);%
+  \coordinate (acquire-out) at (21.95,2.70);%
+  \coordinate (network-in) at (23.40,2.70);%
+  \coordinate (network-reports) at (26.62,2.58);%
+  \coordinate (memory-reports) at (7.95,1.40);%
+  \coordinate (unresolved-in) at (24.50,4.46);%
+  % Four simple panels replace the detailed nested panels.
+  \path[wi panel] (5.10,5.20) rectangle (10.75,7.90);%
+  \path[wi verify panel] (11.90,5.20) rectangle (21.95,7.90);%
+  \path[wi panel] (5.10,1.40) rectangle (10.75,3.85);%
+  \path[wi panel] (11.90,1.40) rectangle (21.95,3.85);%
+  % Information flow; physical reports return to shared evidence.
   \draw[wi flow] (goal-out)--(proposal-in);%
   \draw[wi flow] (proposal-out)--(verify-in);%
   \draw[wi flow] (verify-pass)--(certified-in);%
-  \draw[wi goal flow] (3.25,11.96)%
-    .. controls (6.15,14.00) and (9.40,14.07) .. (13.33,13.31);%
-  \node[wi arrow label] at (8.15,13.80) {Goal change};%
-  \draw[wi flow] (memory-verifier)--(7.91,7.45)--(12.57,7.45)--(13.17,8.03);%
+  \draw[wi goal flow] (2.76,7.80)%
+    .. controls (5.05,8.66) and (9.34,8.66) .. (12.45,7.90);%
+  \node[wi arrow label] at (7.55,8.49) {Goal change};%
+  \draw[wi flow] (memory-verifier)--(7.95,4.55)--(13.20,4.55)--(13.20,5.20);%
   \draw[wi flow] (memory-acquire)--(acquire-evidence);%
   \draw[wi flow] (verify-needs)--(acquire-top);%
-  \node[wi arrow label,anchor=west] at (16.28,6.79) {Evidence needed};%
+  \node[wi arrow label,anchor=west] at (17.28,4.52) {Evidence needed};%
   \draw[wi flow] (acquire-out)--(network-in);%
-  % Physical reports return to memory, not to the proposal generator.
-  \draw[wi flow] (network-reports)--(21.49,2.28)--(21.49,0.51)--(5.81,0.51)%
-    --(5.81,4.30)--(memory-reports);%
-  \node[wi arrow label] at (14.52,0.15) {Physical reports};%
-  % Certified and unresolved are separate terminal outcomes.
-  \draw[wi limit flow] (20.80,5.42)--(21.42,5.42)--(22.17,6.15)--(unresolved-in);%
-  \node[wi arrow label,text=wiAmber] at (23.28,6.51) {Limits reached};%
-  % ---- Goal and observed context ------------------------------------
-  \pic[scale=1.12] at (2.33,11.22) {wi target};%
-  \node[wi label] at (2.43,9.68) {Goal $g$\,\textperiodcentered\, Context $s$};%
-  \draw[draw=wiBorder,line width=0.9pt] (2.39,7.26)--(2.39,8.86);%
-  \pic[scale=1.02] at (1.40,8.36) {wi stopwatch};%
-  \node[wi small,font=\rmfamily\fontsize{11}{13}\selectfont]%
-    at (1.40,7.62) {Service\\limits};%
-  \node[text=wiNavy,font=\fontsize{24}{24}\selectfont] at (3.40,8.34) {$\varepsilon$};%
-  \node[wi small,font=\rmfamily\fontsize{11}{13}\selectfont]%
-    at (3.41,7.62) {Optimization\\tolerance};%
-  % ---- Joint radio / edge operating proposal ------------------------
-  \path[draw=wiBlue,fill=white,line width=1.2pt,rounded corners=6pt]%
-    (5.45,9.39) rectangle (9.43,12.33);%
-  \path[draw=wiBlue,fill=wiPaleBlue,line width=0.9pt,rounded corners=4pt]%
-    (5.66,9.62) rectangle (7.20,12.05);%
-  \path[draw=wiTeal,fill=wiMint,line width=0.9pt,rounded corners=4pt]%
-    (7.68,9.62) rectangle (9.22,12.05);%
-  \pic[scale=0.80] at (6.43,10.90) {wi radio};%
-  \pic[scale=1.25] at (8.45,10.96) {wi server};%
-  \node[wi label,font=\fontsize{18}{20}\selectfont] at (6.43,9.96) {$R_i$};%
-  \node[wi label,font=\fontsize{18}{20}\selectfont] at (8.45,9.96) {$S_j$};%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{20}{20}\selectfont] at (7.44,10.95) {$+$};%
-  \foreach \y in {10.05,11.55}{%
-    \path[draw=wiBorder,line width=0.8pt,fill=white,rounded corners=4pt]%
-      (9.77,\y-0.55) rectangle (12.03,\y+0.57);%
-    \begin{scope}[opacity=0.42]%
-      \pic[scale=0.35] at (10.27,\y) {wi radio};%
-      \node[wi small] at (10.88,\y) {$+$};%
-      \pic[scale=0.65] at (11.48,\y) {wi server};%
-    \end{scope}%
-  }%
-  \foreach \x in {10.55,10.91,11.27}{\fill[wiMuted] (\x,9.17) circle (0.055);}%
-  \node[wi label] at (8.73,8.58) {Radio--edge proposal $x$};%
-  % ---- Common verifier: the two necessary obligations ---------------
+  \draw[wi flow] (network-reports)--(27.95,2.58)--(27.95,0.62)%
+    --(7.95,0.62)--(memory-reports);%
+  \node[wi arrow label] at (17.00,0.17) {Physical reports};%
+  \draw[wi limit flow] (21.95,3.58)--(22.42,3.58)%
+    --(23.02,4.46)--(unresolved-in);%
+  \node[wi arrow label,text=wiAmber,font=\rmfamily\bfseries\fontsize{10}{12}\selectfont] at (23.37,3.96) {Limits reached};%
+  % Goal: retain the target and a single requirements line.
+  \pic[scale=0.68] at (2.20,6.89) {wi target};%
+  \node[wi label] at (2.43,5.73) {Goal $g$\,$\cdot$\, Context $s$};%
+  \node[wi small,font=\rmfamily\fontsize{11}{13}\selectfont] at (2.43,5.17) {Service limits\,$\cdot$\, Tolerance $\epsilon$};%
+  % One radio--server proposal, without repeated alternatives.
+  \node[wi label] at (7.925,7.49) {Proposal $x$};%
+  \pic[scale=0.63] at (6.74,6.40) {wi radio};%
+  \pic[scale=1.05] at (9.12,6.40) {wi server};%
+  \node[wi label,font=\rmfamily\bfseries\fontsize{20}{20}\selectfont]%
+    at (7.925,6.42) {$+$};%
+  \node[wi label] at (6.74,5.55) {$R_i$};%
+  \node[wi label] at (9.12,5.55) {$S_j$};%
+  % The verifier retains its two obligations, now as compact checks.
   \node[wi label,font=\rmfamily\bfseries\fontsize{19}{21}\selectfont]%
-    at (18.08,12.66) {Common verifier};%
-  \path[draw=wiBlue,fill=wiPaleBlue,line width=1pt,rounded corners=4pt]%
-    (13.91,9.69) rectangle (17.66,11.88);%
-  \pic[scale=0.64] at (14.83,10.96) {wi radio};%
-  \pic[scale=1.04] at (16.71,10.97) {wi server};%
-  \node[wi label,font=\fontsize{17}{18}\selectfont] at (14.83,10.06) {$R_i$};%
-  \node[wi label,font=\fontsize{17}{18}\selectfont] at (16.71,10.06) {$S_j$};%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{18}{19}\selectfont] at (15.77,10.94) {$+$};%
-  \foreach \x in {14.62,16.63}{%
-    \pic[scale=0.70] at (\x,9.14) {wi stopwatch};%
-    \pic[scale=0.95] at (\x+0.53,9.28) {wi check};%
-    \foreach \dy/\len in {0/0.53,-0.14/0.43,-0.28/0.33}{%
-      \draw[draw=wiMuted,line width=0.95pt,line cap=round]%
-        (\x+0.30,8.98+\dy)--(\x+0.30+\len,8.98+\dy);%
-    }%
-  }%
+    at (16.925,7.45) {Common verifier};%
+  \path[wi inner] (12.23,5.62) rectangle (16.50,6.84);%
+  \path[wi inner] (16.78,5.62) rectangle (21.62,6.84);%
+  \pic[scale=0.95] at (12.82,6.23) {wi check};%
   \node[wi label,font=\rmfamily\bfseries\fontsize{13}{15}\selectfont]%
-    at (15.79,8.49) {Own feasibility};%
-  % Each rival is a joint radio--server offer. Cross out the joint
-  % feasibility assertion while leaving the individual stage unresolved.
-  \foreach \y in {9.55,10.46,11.37}{%
-    \pic[scale=0.35] at (19.14,\y) {wi radio};%
-    \pic[scale=0.65] at (21.14,\y) {wi server};%
-    \node[wi label,font=\rmfamily\bfseries\fontsize{17}{18}\selectfont]%
-      at (19.83,\y+0.02) {?};%
-    \node[wi label,font=\rmfamily\bfseries\fontsize{17}{18}\selectfont]%
-      at (21.91,\y+0.02) {?};%
-  }%
-  \draw[draw=wiNavy,line width=1.2pt,rounded corners=3pt]%
-    (18.65,11.88)--(18.44,11.88)--(18.44,9.06)--(18.65,9.06);%
-  \foreach \y in {9.98,10.90}{%
-    \draw[draw=wiBorder,line width=0.7pt] (18.81,\y)--(22.11,\y);%
-  }%
-  \draw[draw=wiRed,line width=7pt,opacity=0.87,line cap=round]%
-    (19.04,9.30)--(21.50,11.62)%
-    (19.04,11.62)--(21.50,9.30);%
+    at (14.66,6.23) {Own feasibility};%
+  \draw[wi icon,draw=wiRed,line width=2pt]%
+    (17.21,6.04)--(17.59,6.42) (17.21,6.42)--(17.59,6.04);%
   \node[wi label,font=\rmfamily\bfseries\fontsize{13}{15}\selectfont]%
-    at (20.37,8.49) {$\varepsilon$-better rivals};%
-  \node[wi small,font=\rmfamily\bfseries\fontsize{12}{14}\selectfont]%
-    at (18.08,7.69) {Exclude all invalidating models};%
-  % ---- Terminal outputs --------------------------------------------
-  \pic[scale=1.38] at (26.07,10.96) {wi certificate};%
+    at (19.60,6.23) {Exclude $\epsilon$-better\\competitors};%
+  % Certified and unresolved remain distinct terminal outcomes.
+  \pic[scale=0.78] at (25.70,6.93) {wi certificate};%
   \node[wi label,font=\rmfamily\bfseries\fontsize{17}{19}\selectfont]%
-    at (26.07,8.93) {Certified $x$};%
-  \node[wi small] at (26.07,8.48) {Feasible\,\textperiodcentered\, $\varepsilon$-optimal};%
-  \pic[scale=1.04] at (26.07,6.12) {wi unresolved};%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{14}{16}\selectfont]%
-    at (26.07,5.03) {Unresolved};%
-  % ---- Evidence shared across supported configurations -------------
-  \pic at (7.91,4.63) {wi database};%
-  \foreach \x/\y in {7.02/4.49,7.20/4.34,7.36/4.18,8.36/4.54,8.53/4.38}{%
-    \pic[scale=0.84] at (\x,\y) {wi report};%
-  }%
-  \pic at (9.01,3.66) {wi reuse};%
-  \node[wi label] at (7.91,2.98) {Shared evidence};%
-  \node[wi small] at (7.91,2.48) {Retained + new reports};%
-  \node[wi small] at (7.91,2.06) {Same coefficient epoch};%
-  % ---- Evidence-directed acquisition under original resources ------
-  \node[wi label] at (16.55,5.85) {Directional acquisition};%
-  \draw[draw=wiNavy,line width=0.95pt,rounded corners=4pt]%
-    (13.83,4.97)--(13.83,5.29)--(19.30,5.29)--(19.30,4.97);%
-  \draw[draw=wiNavy,line width=0.95pt] (16.55,5.48)--(16.55,4.97);%
-  \path[draw=wiNavy,fill=white,line width=0.95pt] (16.55,5.44) circle (0.10);%
-  \foreach \xa/\xb in {12.54/15.08,15.26/17.84,18.02/20.56}{%
-    \path[draw=wiBorder,fill=white,line width=0.9pt,rounded corners=4pt]%
-      (\xa,2.81) rectangle (\xb,4.96);%
-  }%
-  % Highlight a possible selection, not a universally optimal instrument.
-  \path[draw=wiBlue,line width=1.4pt,rounded corners=4pt]%
-    (12.54,2.81) rectangle (15.08,4.96);%
-  \pic[scale=0.58] at (13.80,4.48) {wi stopwatch};%
-  \pic[scale=0.34] at (13.07,3.79) {wi radio};%
-  \pic[scale=0.62] at (14.47,3.79) {wi server};%
-  \draw[draw=wiNavy,line width=0.95pt,-{Stealth[length=4pt,width=3.7pt]}]%
-    (13.45,3.80)--(13.99,3.80);%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{12}{14}\selectfont]%
-    at (13.81,3.11) {Aggregate};%
-  \pic[scale=0.57] at (16.11,4.00) {wi radio};%
-  \pic[scale=0.49] at (17.16,3.76) {wi stopwatch};%
-  \pic[scale=0.51] at (17.12,4.39) {wi caps};%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{12}{14}\selectfont]%
-    at (16.55,3.11) {Radio};%
-  \pic[scale=0.97] at (18.90,4.09) {wi server};%
-  \pic[scale=0.49] at (19.94,3.76) {wi stopwatch};%
-  \pic[scale=0.51] at (19.90,4.39) {wi caps};%
-  \node[wi label,font=\rmfamily\bfseries\fontsize{12}{14}\selectfont]%
-    at (19.29,3.11) {Server};%
-  \path[draw=wiBorder,fill=white,line width=0.8pt,rounded corners=4pt]%
-    (12.54,1.65) rectangle (20.56,2.59);%
-  \pic[scale=0.73] at (13.19,2.09) {wi stopwatch};%
-  \pic[scale=0.85] at (14.18,2.09) {wi coins};%
-  \pic[scale=0.78] at (15.25,2.05) {wi caps};%
+    at (25.70,5.65) {Certified $x$};%
+  \node[wi small] at (25.70,5.17) {Feasible\,$\cdot$\, $\epsilon$-optimal};%
+  \path[draw=wiAmber,fill=wiCream,line width=1.15pt,rounded corners=5pt]%
+    (24.50,4.08) rectangle (28.15,4.84);%
+  \node[text=wiAmber,font=\rmfamily\bfseries\fontsize{16}{17}\selectfont]%
+    at (24.94,4.46) {?};%
+  \node[wi label,text=wiAmber,font=\rmfamily\bfseries\fontsize{14}{16}\selectfont]%
+    at (26.58,4.46) {Unresolved};%
+  % Shared evidence: a single database and reuse symbol.
+  \pic[scale=0.52] at (6.10,2.77) {wi database};%
+  \pic[scale=0.50] at (6.65,2.20) {wi reuse};%
+  \node[wi label,font=\rmfamily\bfseries\fontsize{12.5}{14.5}\selectfont]%
+    at (8.80,3.28) {Shared evidence};%
   \node[wi small,font=\rmfamily\fontsize{11.5}{13}\selectfont]%
-    at (18.10,2.11) {Time\,\textperiodcentered\, Cost\,\textperiodcentered\, Probe caps};%
-  % ---- Physical radio--transport--edge measurement domain ------------
-  \path[fill=wiPaleBlue] (24.73,2.66) ellipse (3.10 and 0.53);%
-  \draw[draw=wiNavy,line width=1.05pt,dash pattern=on 3pt off 3pt]%
-    (22.17,3.15)--(24.00,3.83)%
-    (22.49,4.02)--(24.00,3.83);%
-  \draw[draw=wiTeal,line width=1.45pt,rounded corners=5pt]%
-    (24.49,3.13)--(25.20,3.13)--(25.20,3.57)--(26.07,3.57);%
-  \draw[draw=wiTeal!65,line width=1.05pt,rounded corners=5pt]%
-    (26.20,3.92)--(26.20,4.18)--(27.05,4.18);%
-  \pic[scale=0.82] at (22.17,3.16) {wi phone};%
-  \pic[scale=0.88] at (22.49,4.02) {wi phone};%
-  \pic[scale=0.94] at (24.06,3.62) {wi radio};%
-  \pic[scale=1.16] at (26.04,3.48) {wi server};%
-  \pic[scale=0.95] at (27.05,2.91) {wi server};%
-  \pic[scale=0.58] at (27.12,4.20) {wi cloud};%
-  \node[wi label] at (24.77,1.74) {Wireless--edge system};%
+    at (8.80,2.51) {Retained + new\\reports};%
+  \node[wi small,font=\rmfamily\fontsize{11.5}{13}\selectfont]%
+    at (7.925,1.75) {Model-validity interval};%
+  % Acquisition choices and resource limits, with no miniature subdiagrams.
+  \node[wi label] at (16.925,3.36) {Directional acquisition};%
+  \foreach \x/\labeltext in {13.90/Aggregate,16.925/Radio,19.95/Server}{%
+    \path[draw=wiBorder,fill=white,line width=0.9pt,rounded corners=4pt]%
+      (\x-1.27,2.22) rectangle (\x+1.27,2.94);%
+    \node[wi label,font=\rmfamily\bfseries\fontsize{12}{14}\selectfont]%
+      at (\x,2.58) {\labeltext};%
+  }%
+  \node[wi small] at (16.925,1.79) {Time\,$\cdot$\, Cost\,$\cdot$\, Count limits};%
+  % Physical system: one radio, one server, and their connection.
+  \draw[draw=wiTeal,line width=1.45pt,rounded corners=4pt]%
+    (24.55,2.65)--(25.04,2.65)--(25.04,2.93)--(25.60,2.93);%
+  \pic[scale=0.67] at (24.10,2.76) {wi radio};%
+  \pic[scale=1.02] at (26.12,2.76) {wi server};%
+  \node[wi label,font=\rmfamily\bfseries\fontsize{14}{16}\selectfont] at (25.23,1.66) {Wireless--edge system};%
 \end{tikzpicture}%
 \endgroup%

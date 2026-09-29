@@ -27,20 +27,20 @@ fig=plt.figure(figsize=(7.2,4.25),facecolor='white')
 canvas=fig.add_axes([0,0,1,1]); canvas.set(xlim=(0,1),ylim=(0,1));canvas.axis('off')
 def txt(x,y,s,size=8,color=navy,**kw):
     return canvas.text(x,y,s,fontsize=size,color=color,**kw)
-def box(x,y,w,h,title,body,edge=navy,fill='#F5F8FA'):
+def box(x,y,w,h,title,body,edge=navy,fill='#F5F8FA',title_size=8.2,body_size=7.5):
     canvas.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.006,rounding_size=0.01',
                                   linewidth=.8,edgecolor=edge,facecolor=fill))
-    txt(x+w/2,y+h*.73,title,8.2,ha='center',va='center',fontweight='bold',color=edge)
-    txt(x+w/2,y+h*.30,body,7.5,ha='center',va='center',color=edge)
+    txt(x+w/2,y+h*.73,title,title_size,ha='center',va='center',fontweight='bold',color=edge)
+    txt(x+w/2,y+h*.30,body,body_size,ha='center',va='center',color=edge)
 def arrow(x1,y1,x2,y2,color=navy,**kw):
     canvas.add_patch(FancyArrowPatch((x1,y1),(x2,y2),arrowstyle='-|>',mutation_scale=8,
                                    linewidth=.8,color=color,**kw))
 
 txt(.015,.972,'(a) A goal-driven evidence loop',10,fontweight='bold',va='center')
 box(.015,.775,.185,.13,'Goal changes',r'$24\;\to\;12.6\;\to\;9.5$ ms')
-box(.258,.775,.200,.13,'P2  Reuse evidence','Same valid epoch\nCounts, sums, operators',edge=teal,fill='#EFF8F5')
-box(.516,.775,.205,.13,'P1  Check obligations','Own feasibility +\nexclude cheaper rivals')
-box(.785,.775,.200,.13,'P3  Select a probe','Target remaining gaps\nwithin shared resources',edge=orange,fill='#FCF5ED')
+box(.258,.775,.200,.13,'P2  Reuse evidence','Same model-validity interval\nCounts, sums, operators',edge=teal,fill='#EFF8F5',body_size=6.8)
+box(.516,.775,.205,.13,'P1  Check obligations','Own feasibility +\nexclude cheaper competitors')
+box(.785,.775,.200,.13,'P3  Select a measurement','Target remaining gaps\nwithin shared resources',edge=orange,fill='#FCF5ED',title_size=7.0)
 for a,b in [(.20,.258),(.458,.516),(.721,.785)]:arrow(a,.836,b,.836)
 txt(.748,.851,'open',6.5,ha='center')
 # Measurement feedback uses a separate upper route.
@@ -72,7 +72,7 @@ ax.axhline(0,color=muted,lw=.65);ax.axvline(0,color=muted,lw=.65)
 ax.set_xticks([-1,0,1,2]);ax.set_yticks([-1,0,1,2]);ax.tick_params(labelsize=6.6,length=2)
 ax.set_xlabel('Radio-stage excess',fontsize=7,labelpad=2)
 ax.set_ylabel('Server-stage excess',fontsize=7,labelpad=3)
-ax.text(-.68,-.64,'Jointly\nfeasible rival',fontsize=6.7,ha='center',va='center',color=navy)
+ax.text(-.68,-.64,'Jointly feasible\ncompetitor',fontsize=6.7,ha='center',va='center',color=navy)
 ax.text(1.45,1.58,'Retained\nconfidence band',fontsize=6.7,ha='center',color=teal)
 ax.spines[['top','right']].set_visible(False)
 txt(.015,.030,'The band excludes joint feasibility;\neither individual stage can still be feasible.',7.4,
@@ -91,7 +91,7 @@ ax2.set_xticks([6,8,9.5,12],['6','8','9.5','12'])
 ax2.tick_params(axis='both',labelsize=6.8,length=2)
 ax2.spines[['top','right','left']].set_visible(False)
 ax2.tick_params(axis='y',length=0)
-ax2.set_xlabel('Mean completion time (ms)',fontsize=7,labelpad=2)
+ax2.set_xlabel('Mean task delay (ms)',fontsize=7,labelpad=2)
 ax2.text(6.1,3.9,'Retained evidence',color=muted,fontsize=6.9,va='bottom')
 ax2.text(6.1,1.50,'After targeted reports',color=teal,fontsize=6.9,va='bottom')
 txt(.495,.069,r'$L_{22}=9.501>9.5;\quad U_{23}=9.434<9.5$ ms.',7.4)

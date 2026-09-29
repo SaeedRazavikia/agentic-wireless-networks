@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-29",
+  "manuscript_title": "Service Certification for Agentic Wireless Networks",
+  "source_archive": "SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip",
+  "source_archive_sha256": "aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46",
+  "base_commit": "778be9d179e9b2a6816e8c3696c81468666d16b8",
+  "authoritative_paper_sources": {
+    "main.tex": "172f98239121e815c3d0502246da40056268e9d57bc9bface01f6d6af6fcd3ee",
+    "supplement.tex": "3948788301ce18f8c6eb2fb42aa885048bc7857760dfc55709989f74d1f95c3d",
+    "code/extended_experiments.tex": "6c74796782d125226ba3ad5419352cbdd70d8ab815cfdc57c47a8d5ca0d4f554"
+  },
+  "scope": "Presentation and documentation alignment; no new experimental observations. Original source_manifest.json and figure-data provenance remain historical snapshots.",
+  "figure_sources": {
+    "figures/agent_architecture.py": {
+      "manuscript_sha256": "80e6fa262b648386b2be5cd76497bcf26c70e713f32a7a2646709d1da5096239",
+      "repository_sha256": "c23a7b386b3dec3d168dbbcd9ac369b0c07343755feb2248fb28e05063924b52",
+      "treatment": "Manuscript terminology with typography adjustments to prevent label overflow."
+    },
+    "figures/figure_overview.py": {
+      "manuscript_sha256": "1b3f4fcffc5698c29c75cc0bb4ef15e676e4d6fc1a8066e1c8827e6f6364777e",
+      "repository_sha256": "fdbab5a350988cff74177eb2c4dd2568c9e550a16c64bd31f6b9b40bd0f5f59b",
+      "treatment": "Manuscript terminology with typography adjustments to prevent label overflow."
+    },
+    "figures/plot_figures.py": {
+      "manuscript_sha256": "ef78c041d17c68fd5f3410d8c28e08b647a20b51a693b70512ad57fec6529142",
+      "repository_sha256": "ef78c041d17c68fd5f3410d8c28e08b647a20b51a693b70512ad57fec6529142",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/common.tex": {
+      "manuscript_sha256": "c4ab331c63ec18799f22777dadf3f5ecaa793cbec281a3e696fd9dfc71e71ae1",
+      "repository_sha256": "c4ab331c63ec18799f22777dadf3f5ecaa793cbec281a3e696fd9dfc71e71ae1",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/wireless_confidence_trace.tikz": {
+      "manuscript_sha256": "85e64beaea00401de7b810bad4d119d34731c143615c18f325eabeca1de1f030",
+      "repository_sha256": "85e64beaea00401de7b810bad4d119d34731c143615c18f325eabeca1de1f030",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/execution_stopping_costs.tikz": {
+      "manuscript_sha256": "48beb5eda4d6be58c02b90ba4198b85b11f285069cae65bc14452875b70cb55b",
+      "repository_sha256": "48beb5eda4d6be58c02b90ba4198b85b11f285069cae65bc14452875b70cb55b",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/v44_system_model.tikz": {
+      "manuscript_sha256": "04a86dc01a40a8684b502808bb825601858a02e4b8900923d9daeab69cd822f7",
+      "repository_sha256": "04a86dc01a40a8684b502808bb825601858a02e4b8900923d9daeab69cd822f7",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/certification_costs.tikz": {
+      "manuscript_sha256": "439d0e4c83d85dba03fce4fa402b4f7175758ac727da59aa83c0a57974012534",
+      "repository_sha256": "439d0e4c83d85dba03fce4fa402b4f7175758ac727da59aa83c0a57974012534",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/goal_evidence_loop.tikz": {
+      "manuscript_sha256": "e6b95149da5bd8c09bba0e16de71123b78ee579e5cf27cd7d513306f93d9ad46",
+      "repository_sha256": "e6b95149da5bd8c09bba0e16de71123b78ee579e5cf27cd7d513306f93d9ad46",
+      "treatment": "Copied unchanged from the updated manuscript."
+    },
+    "figures/tikz/joint_exclusion_geometry.tikz": {
+      "manuscript_sha256": "288f847cef5fd2dd77de6152fa35f0950bb69d06eed2657ff4ae08dd3c4cc082",
+      "repository_sha256": "288f847cef5fd2dd77de6152fa35f0950bb69d06eed2657ff4ae08dd3c4cc082",
+      "treatment": "Copied unchanged from the updated manuscript."
+    }
+  }
+}

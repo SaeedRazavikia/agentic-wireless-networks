@@ -1,0 +1,420 @@
+{
+  "date": "2026-09-29",
+  "base_commit": "778be9d179e9b2a6816e8c3696c81468666d16b8",
+  "scope": "Manuscript alignment and presentation rebuild; no historical experiment replay.",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8",
+    "Pillow": "12.3.0",
+    "pypdf": "6.10.0"
+  },
+  "build_results": [
+    {
+      "task": "agent_architecture",
+      "exit_code": 0,
+      "log": "logs/agent_architecture.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/agent_architecture.pdf",
+            "valid": true,
+            "bytes": 12881,
+            "pages": 1
+          },
+          {
+            "path": "figures/agent_architecture.png",
+            "valid": true,
+            "bytes": 70839,
+            "size": [
+              1305,
+              360
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "figure_overview",
+      "exit_code": 0,
+      "log": "logs/figure_overview.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/joint_service_overview.pdf",
+            "valid": true,
+            "bytes": 45348,
+            "pages": 1
+          },
+          {
+            "path": "figures/joint_service_overview.png",
+            "valid": true,
+            "bytes": 259536,
+            "size": [
+              1584,
+              935
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "plot_figures",
+      "exit_code": 0,
+      "log": "logs/plot_figures.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/joint_exclusion_geometry.pdf",
+            "valid": true,
+            "bytes": 40972,
+            "pages": 1
+          },
+          {
+            "path": "figures/joint_exclusion_geometry.png",
+            "valid": true,
+            "bytes": 51730,
+            "size": [
+              805,
+              610
+            ]
+          },
+          {
+            "path": "figures/wireless_confidence_trace.pdf",
+            "valid": true,
+            "bytes": 52552,
+            "pages": 1
+          },
+          {
+            "path": "figures/wireless_confidence_trace.png",
+            "valid": true,
+            "bytes": 42784,
+            "size": [
+              805,
+              621
+            ]
+          },
+          {
+            "path": "figures/certification_costs.pdf",
+            "valid": true,
+            "bytes": 37524,
+            "pages": 1
+          },
+          {
+            "path": "figures/certification_costs.png",
+            "valid": true,
+            "bytes": 82786,
+            "size": [
+              805,
+              690
+            ]
+          },
+          {
+            "path": "figures/execution_stopping_costs.pdf",
+            "valid": true,
+            "bytes": 29900,
+            "pages": 1
+          },
+          {
+            "path": "figures/execution_stopping_costs.png",
+            "valid": true,
+            "bytes": 67388,
+            "size": [
+              805,
+              700
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_certification_costs",
+      "exit_code": 0,
+      "log": "logs/tikz_certification_costs.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/certification_costs.pdf",
+            "valid": true,
+            "bytes": 55345,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_execution_stopping_costs",
+      "exit_code": 0,
+      "log": "logs/tikz_execution_stopping_costs.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/execution_stopping_costs.pdf",
+            "valid": true,
+            "bytes": 29295,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_goal_evidence_loop",
+      "exit_code": 0,
+      "log": "logs/tikz_goal_evidence_loop.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/goal_evidence_loop.pdf",
+            "valid": true,
+            "bytes": 48811,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_joint_exclusion_geometry",
+      "exit_code": 0,
+      "log": "logs/tikz_joint_exclusion_geometry.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/joint_exclusion_geometry.pdf",
+            "valid": true,
+            "bytes": 57576,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_v37_cost_comparisons",
+      "exit_code": 0,
+      "log": "logs/tikz_v37_cost_comparisons.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/v37_cost_comparisons.pdf",
+            "valid": true,
+            "bytes": 44499,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_v37_promise_reservations",
+      "exit_code": 0,
+      "log": "logs/tikz_v37_promise_reservations.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/v37_promise_reservations.pdf",
+            "valid": true,
+            "bytes": 69427,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_v42_deadline_instrumentation_frontier",
+      "exit_code": 0,
+      "log": "logs/tikz_v42_deadline_instrumentation_frontier.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/v42_deadline_instrumentation_frontier.pdf",
+            "valid": true,
+            "bytes": 65002,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_v44_system_model",
+      "exit_code": 0,
+      "log": "logs/tikz_v44_system_model.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/v44_system_model.pdf",
+            "valid": true,
+            "bytes": 100951,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_validity_completion_outcomes",
+      "exit_code": 0,
+      "log": "logs/tikz_validity_completion_outcomes.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/validity_completion_outcomes.pdf",
+            "valid": true,
+            "bytes": 44240,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "tikz_wireless_confidence_trace",
+      "exit_code": 0,
+      "log": "logs/tikz_wireless_confidence_trace.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/wireless_confidence_trace.pdf",
+            "valid": true,
+            "bytes": 69194,
+            "pages": 1
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "protocol_pass_1",
+      "exit_code": 0,
+      "log": "logs/protocol_pass_1.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "extended_experiments.pdf",
+            "valid": true,
+            "bytes": 279473,
+            "pages": 11
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "protocol_pass_2",
+      "exit_code": 0,
+      "log": "logs/protocol_pass_2.log",
+      "removed_existing_outputs": [
+        "extended_experiments.pdf"
+      ],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "extended_experiments.pdf",
+            "valid": true,
+            "bytes": 280037,
+            "pages": 11
+          }
+        ]
+      },
+      "success": true
+    }
+  ],
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 9,
+    "failed": 0
+  },
+  "scalar_verification": {
+    "passed": true,
+    "curve_points": 4104,
+    "deadline_entries": 18,
+    "max_absolute_error": 3.3306690738754696e-16,
+    "source_unchanged": true
+  },
+  "data_provenance": {
+    "exported_csv_hashes_passed": 16,
+    "numeric_json_csv_unchanged": true,
+    "archived_source_fragments_unchanged": true
+  },
+  "protocol": {
+    "pages": 11,
+    "unresolved_references_or_citations": false,
+    "overfull_boxes": false,
+    "duplicate_label_warnings": false,
+    "visual_review": "All 11 pages inspected."
+  },
+  "figures": {
+    "unique_pdfs_generated": 16,
+    "pngs_generated": 6,
+    "native_tikz_figures": 10,
+    "visual_review": "All updated native figures and Python/PGF presentations inspected.",
+    "minor_warning": "Standalone v44_system_model has font-size substitutions of at most 0.5 pt."
+  },
+  "uploaded_manuscript_readonly_check": {
+    "main": {
+      "pages": 13,
+      "underfull_hboxes": 7,
+      "overfull_hboxes": 0,
+      "font_warnings": 0,
+      "undefined_refs_or_cites": false,
+      "missing_characters": false
+    },
+    "supplement": {
+      "pages": 8,
+      "underfull_hboxes": 11,
+      "overfull_hboxes": 0,
+      "font_warnings": 0,
+      "undefined_refs_or_cites": false,
+      "missing_characters": false
+    }
+  },
+  "compatibility_wrapper": {
+    "file": "figures/goal_evidence_loop.tex",
+    "compiled_from_figures_directory": true
+  },
+  "refreshed_tracked_assets": {
+    "pdf": 24,
+    "png": 6
+  },
+  "limitations": [
+    "Original controller and trial records remain absent.",
+    "No multivariate Bellman solver is supplied.",
+    "No new historical outcome or bootstrap interval is inferred."
+  ]
+}

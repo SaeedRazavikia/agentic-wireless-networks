@@ -11,4 +11,4 @@ authors:
   - family-names: Fischione
     given-names: Carlo
     affiliation: KTH Royal Institute of Technology
-abstract: "Companion experimental protocols, implementation specifications, supplied plotting code, a reconstructed scalar Gaussian benchmark, and figure data for Service Certification for Agentic Wireless Networks: Principles and Fundamental Limits."
+abstract: "Companion experimental protocols, implementation specifications, supplied plotting code, a reconstructed scalar Gaussian benchmark, and figure data for Service Certification for Agentic Wireless Networks. The multivariate Bellman frontier is not implemented."

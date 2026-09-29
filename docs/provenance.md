@@ -1,6 +1,6 @@
 # Source mapping and provenance
 
-The supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This package reorganizes those manuscript assets and supplies documentation/build utilities. The original simulation research directories were absent from the attachment.
+The initial supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This package reorganizes those manuscript assets and supplies documentation/build utilities. The original simulation research directories were absent from the attachment. A presentation and documentation synchronization on 29 September 2026 uses `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`; see [manuscript_alignment.md](manuscript_alignment.md) and [manuscript_alignment.json](manuscript_alignment.json) for the exact version and mapping.
 
 ## File mapping
 
@@ -18,7 +18,7 @@ The supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This package
 
 The standalone protocol adds the wireless-instance definitions and scalar reference from the supplied paper/supplement so its numerical descriptions do not depend on unresolved cross-references. It does not add experimental observations. The original LaTeX fragments in `docs/source/` still contain their historical external references and are provenance records, not standalone documents.
 
-[`source_manifest.json`](source_manifest.json) records source/package paths and SHA-256 checksums for 82 supplied assets, including the preserved source fragments. The one intentional change to an existing asset is the active TikZ README. New documentation, helpers, and the independently reconstructed scalar benchmark are identified by their own documentation.
+[`source_manifest.json`](source_manifest.json) records the initial source/package paths and SHA-256 checksums for 82 supplied assets, including the preserved source fragments. At the initial import, the active TikZ README was the only intentional change to an existing asset. This manifest is a historical import record, not a checksum declaration for subsequently revised figure sources and previews. The 29 September synchronization updates active drawings, labels, metadata, and build-output validation; its source mapping is recorded separately. Original fragments under `docs/source/` and all numerical CSV/JSON figure data remain unchanged. New documentation, helpers, and the independently reconstructed scalar benchmark are identified by their own documentation.
 
 ## Figure data
 

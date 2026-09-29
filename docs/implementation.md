@@ -2,6 +2,14 @@
 
 This guide collects implementation details stated in the supplied manuscript and supplementary acquisition source. It specifies the reported controller interfaces and safeguards. The original controller implementations are not present; the four supplied Python programs draw figures. The complete original acquisition derivation is preserved in [`source/acquisition_original.tex`](source/acquisition_original.tex), while the paper and theoretical supplement retain the proof prerequisites.
 
+The executable analytical benchmark is [`scripts/scalar_frontier.py`](../scripts/scalar_frontier.py). It implements integer precision maximization and the scalar Gaussian endpoint test. The updated manuscript's multivariate finite-witness frontier, likelihood-state Bellman recursion, multiplier optimization, and feasible-policy recovery are not implemented. Controller specifications below describe the supplied studies; they do not imply that their original implementations are available. See [`manuscript_alignment.md`](manuscript_alignment.md) for the manuscript mapping and the missing-record inventory.
+
+## Paired coarse acquisition convention
+
+The adaptive-separation example extends the scalar-report notation by acquiring two independent scalar observations as one coarse bundle. A coarse acquisition returns one observation of each stage, with independent Gaussian coordinate errors of variance `sigma_D²`. It consumes one coarse count and the declared total bundle price `c_D` and duration `ell_D`. A fine acquisition returns one scalar observation of its selected stage. All fresh errors are independent across acquisitions and coordinates.
+
+The coarse count therefore measures pairs, not individual coordinates. The bundle supplies information about both stages while its cost and duration are charged once. In the numerical example, 224 coarse acquisitions and 307 selected-stage fine reports retain duration `224 + 4 × 307 = 1452` and cost `224 + 8 × 307 = 2680`, with coarse/fine caps `(300, 400, 400)`. This convention clarifies accounting without changing the example's formulas, bounds, or numerical values.
+
 ## Verification and acquisition loop
 
 The reported execution order is:

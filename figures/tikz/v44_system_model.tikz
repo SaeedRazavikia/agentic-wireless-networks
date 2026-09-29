@@ -10,14 +10,14 @@
 \definecolor{smOrangeFill}{HTML}{FBF3E8}%
 \definecolor{smAgg}{HTML}{395848}%
 \definecolor{smAggFill}{HTML}{F1F6F1}%
-\scalebox{0.8}{
+\scalebox{0.8}{%
 \begin{tikzpicture}[x=1in,y=1in,%
   every node/.style={font=\jscfont{10},text=smBlack,align=center,inner sep=0pt},%
   sm box/.style={rounded corners=3pt,line width=.9pt},%
   sm arrow/.style={smBlack,line width=1pt,-{Stealth[length=5pt,width=4pt]}}]%
-\path[use as bounding box] (0,0) rectangle (7.1,2.8);%
-\begin{pgfinterruptboundingbox}%
-\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (.06,2.60)%
+% Reserve the intended canvas while including every label in automatic sizing.
+\path (0,0) rectangle (7.1,2.8);%
+\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (.06,2.55)%
   {(a) One radio--server configuration $x$};%
 \node[font=\jscfont{9.7}] at (1.72,2.35)%
   {$\theta=(\tau_r,\tau_s)^{\mathsf T}$: full conditional stage means};%
@@ -39,11 +39,11 @@
 }%
 \draw[smAgg,line width=1.05pt] (.17,1.62)--(.17,.70)--(3.34,.70)--(3.34,1.62);%
 \node[text=smAgg] at (1.755,.50) {Aggregate diagnostic: $\tau_r+\tau_s$};%
-\draw[smRule,line width=.65pt] (3.56,.43)--(3.56,2.68);%
-\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (3.72,2.60)%
+\draw[smRule,line width=.65pt] (3.56,.43)--(3.56,2.63);%
+\node[anchor=west,font={\jscfont{10.5}\bfseries}] at (3.72,2.55)%
   {(b) What each diagnostic measures};%
-\node[anchor=west,font={\jscfont{9.8}\bfseries}] at (3.83,2.20) {Probe type $e$};%
-\node[font={\jscfont{9.8}\bfseries}] at (5.55,2.20) {Known $a_e$};%
+\node[anchor=west,font={\jscfont{9.8}\bfseries}] at (3.83,2.20) {Measurement type $e$};%
+\node[font={\jscfont{9.8}\bfseries}] at (5.70,2.20) {Known $a_e$};%
 \node[font={\jscfont{9.8}\bfseries}] at (6.49,2.20) {Mean $a_e^{\mathsf T}\theta$};%
 \draw[smGray,line width=.8pt] (3.75,2.04)--(7.03,2.04);%
 \foreach \y/\label/\direction/\mean/\c in {%
@@ -51,7 +51,7 @@
   1.48/{Radio counter}/{(1,0)^{\mathsf T}}/{\tau_r}/smBlue,%
   1.11/{Server counter}/{(0,1)^{\mathsf T}}/{\tau_s}/smOrange}{%
   \node[anchor=west,text=\c] at (3.83,\y) {\label};%
-  \node[text=\c,font=\jscfont{10.2}] at (5.55,\y) {$\direction$};%
+  \node[text=\c,font=\jscfont{10.2}] at (5.70,\y) {$\direction$};%
   \node[text=\c,font=\jscfont{10.6}] at (6.49,\y) {$\mean$};%
   \draw[smRule,line width=.55pt] (3.75,\y-.19)--(7.03,\y-.19);%
 }%
@@ -61,6 +61,5 @@
 \draw[smRule,line width=.7pt] (.08,.28)--(7.02,.28);%
 \node at (3.55,.115)%
   {The goal specifies required combinations; the instruments specify observed combinations.};%
-\end{pgfinterruptboundingbox}%
-\end{tikzpicture}}
+\end{tikzpicture}}%
 \endgroup%

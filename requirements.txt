@@ -1,3 +1,5 @@
 # Versions used for validation are recorded in docs/reproduction.md.
 matplotlib>=3.6,<4
 numpy>=1.23,<3
+Pillow>=9.2,<13
+pypdf>=5,<7

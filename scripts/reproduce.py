@@ -6,13 +6,139 @@ This utility does not simulate measurements or reconstruct missing trial records
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 import json
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
+from PIL import Image
+from pypdf import PdfReader
+
 ROOT = Path(__file__).resolve().parents[1]
+
+
+@dataclass(frozen=True)
+class BuildTask:
+    name: str
+    command: tuple[str, ...]
+    cwd: Path
+    outputs: tuple[Path, ...]
+
+
+def build_tasks(output: Path, *, python: bool, pgf: bool, tikz: bool,
+                protocol: bool, pdflatex: str | None) -> list[BuildTask]:
+    """Declare every expected product before executing any producer."""
+    tasks = []
+    figures = output / 'figures'
+    if python:
+        for script, product in (('agent_architecture', 'agent_architecture'),
+                                ('figure_overview', 'joint_service_overview')):
+            tasks.append(BuildTask(script, (sys.executable, str(figures / (script + '.py'))),
+                                   output, tuple(figures / (product + suffix)
+                                                 for suffix in ('.pdf', '.png'))))
+    if pgf:
+        products = ('joint_exclusion_geometry', 'wireless_confidence_trace',
+                    'certification_costs', 'execution_stopping_costs')
+        tasks.append(BuildTask('plot_figures', (sys.executable, str(figures / 'plot_figures.py')),
+                               output, tuple(figures / (product + suffix)
+                                             for product in products for suffix in ('.pdf', '.png'))))
+    if tikz or protocol:
+        if pdflatex is None:
+            raise ValueError('pdflatex is required for TeX tasks.')
+        options = (pdflatex, '-interaction=nonstopmode', '-halt-on-error')
+        if tikz:
+            for source in sorted((figures / 'tikz').glob('*.tex')):
+                if source.name != 'common.tex':
+                    tasks.append(BuildTask('tikz_' + source.stem, options + (source.name,),
+                                           source.parent, (source.with_suffix('.pdf'),)))
+        if protocol:
+            # Keep the passes sequential and preserve their shared auxiliary files.
+            for index in (1, 2):
+                tasks.append(BuildTask(f'protocol_pass_{index}',
+                                       options + ('extended_experiments.tex',), output,
+                                       (output / 'extended_experiments.pdf',)))
+    return tasks
+
+
+def validate_output(path: Path, output: Path) -> dict:
+    """Read complete PDFs/PNGs, rejecting missing, empty, or damaged products."""
+    result = {'path': path.relative_to(output).as_posix(), 'valid': False}
+    try:
+        result['bytes'] = path.stat().st_size
+        if not result['bytes']:
+            raise ValueError('Output is empty.')
+        if path.suffix.lower() == '.pdf':
+            with path.open('rb') as stream:
+                if stream.read(5) != b'%PDF-':
+                    raise ValueError('Missing PDF header.')
+                stream.seek(max(0, result['bytes'] - 1024))
+                if not stream.read().rstrip().endswith(b'%%EOF'):
+                    raise ValueError('Missing final PDF EOF marker; output may be truncated.')
+                stream.seek(0)
+                reader = PdfReader(stream, strict=True)
+                result['pages'] = len(reader.pages)
+                if not result['pages']:
+                    raise ValueError('PDF has no pages.')
+                for page in reader.pages:
+                    if page.mediabox.width <= 0 or page.mediabox.height <= 0:
+                        raise ValueError('PDF page has invalid dimensions.')
+                    contents = page.get_contents()
+                    if contents is not None:
+                        # Parse and decode every page stream, rather than only its header.
+                        contents.get_data()
+                        _ = contents.operations
+        elif path.suffix.lower() == '.png':
+            with path.open('rb') as stream:
+                stream.seek(max(0, result['bytes'] - 12))
+                if stream.read() != b'\x00\x00\x00\x00IEND\xaeB\x60\x82':
+                    raise ValueError('Missing complete final PNG IEND chunk; output may be truncated.')
+            with Image.open(path) as picture:
+                if picture.format != 'PNG':
+                    raise ValueError('Output is not a PNG image.')
+                picture.verify()
+            with Image.open(path) as picture:
+                picture.load()
+                result['size'] = list(picture.size)
+        else:
+            raise ValueError(f'Unsupported output format: {path.suffix}')
+        result['valid'] = True
+    except Exception as exc:
+        # Parsing libraries expose several exception types; retain the failure in
+        # the build manifest and continue checking the remaining expected files.
+        result['error'] = f'{type(exc).__name__}: {exc}'
+    return result
+
+
+def run_task(task: BuildTask, output: Path, logs: Path) -> dict:
+    print(f'Running {task.name}', flush=True)
+    result = {'task': task.name, 'exit_code': None, 'log': f'logs/{task.name}.log',
+              'removed_existing_outputs': []}
+    log = ''
+    try:
+        # Supplied figures and previous runs may already contain valid products.
+        # Delete only this task's products so a no-op producer cannot pass, while
+        # preserving LaTeX auxiliary files between the two protocol passes.
+        for path in task.outputs:
+            if path.exists() or path.is_symlink():
+                path.unlink()
+                result['removed_existing_outputs'].append(path.relative_to(output).as_posix())
+        proc = subprocess.run(task.command, cwd=task.cwd, capture_output=True, text=True)
+        result['exit_code'] = proc.returncode
+        log = proc.stdout + proc.stderr
+    except OSError as exc:
+        log = f'{type(exc).__name__}: {exc}\n'
+        result['execution_error'] = log.strip()
+    validation = [validate_output(path, output) for path in task.outputs]
+    result['validation'] = {'passed': all(item['valid'] for item in validation),
+                            'outputs': validation}
+    result['success'] = result['exit_code'] == 0 and result['validation']['passed']
+    log += '\nOutput validation:\n' + json.dumps(result['validation'], indent=2) + '\n'
+    (logs / f'{task.name}.log').write_text(log, encoding='utf-8')
+    if not result['success']:
+        print(f'  Failed; see {logs / (task.name + ".log")}', file=sys.stderr)
+    return result
 
 
 def main() -> int:
@@ -38,37 +164,19 @@ def main() -> int:
     shutil.copytree(ROOT / 'figures', output / 'figures', dirs_exist_ok=True)
     logs = output / 'logs'
     logs.mkdir(exist_ok=True)
-    results = []
-
-    def run(name: str, command: list[str], cwd: Path) -> None:
-        print(f'Running {name}', flush=True)
-        proc = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
-        (logs / f'{name}.log').write_text(proc.stdout + proc.stderr)
-        results.append({'task': name, 'exit_code': proc.returncode, 'log': f'logs/{name}.log'})
-        if proc.returncode:
-            print(f'  Failed; see {logs / (name + ".log")}', file=sys.stderr)
-
-    if args.python:
-        for script in ('agent_architecture.py', 'figure_overview.py'):
-            run(script.removesuffix('.py'), [sys.executable, str(output / 'figures' / script)], output)
     if args.pgf:
         script = output / 'figures' / 'plot_figures.py'
         # The supplied script fixes the Poppler path to /usr/bin. Adapt only this
         # build copy to the executable discovered on the current system.
         script.write_text(script.read_text().replace("'/usr/bin/pdftoppm'", repr(pdftoppm)))
-        run('plot_figures', [sys.executable, str(script)], output)
-    if args.tikz:
-        for source in sorted((output / 'figures' / 'tikz').glob('*.tex')):
-            if source.name == 'common.tex':
-                continue
-            run('tikz_' + source.stem, [pdflatex, '-interaction=nonstopmode', '-halt-on-error', source.name], source.parent)
     if args.protocol:
         shutil.copytree(ROOT / 'docs', output / 'docs', dirs_exist_ok=True)
         shutil.copy2(ROOT / 'extended_experiments.tex', output / 'extended_experiments.tex')
-        for index in (1, 2):
-            run(f'protocol_pass_{index}', [pdflatex, '-interaction=nonstopmode', '-halt-on-error', 'extended_experiments.tex'], output)
+    tasks = build_tasks(output, python=args.python, pgf=args.pgf, tikz=args.tikz,
+                        protocol=args.protocol, pdflatex=pdflatex)
+    results = [run_task(task, output, logs) for task in tasks]
     (output / 'build_results.json').write_text(json.dumps(results, indent=2) + '\n')
-    failed = sum(result['exit_code'] != 0 for result in results)
+    failed = sum(not result['success'] for result in results)
     print(f'{len(results) - failed}/{len(results)} build tasks succeeded. Outputs: {output}')
     return 1 if failed else 0
 

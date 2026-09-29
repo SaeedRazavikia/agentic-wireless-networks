@@ -21,9 +21,13 @@
 \setlength{\emergencystretch}{2em}
 \begin{document}
 \maketitle
-This research archive accompanies \emph{Service Certification for Agentic Wireless Networks: Principles and Fundamental Limits}. We collect the complete experimental description from the supplied supplementary source, including additional numerical comparisons, figure data, and limitations. We retain each study's own population, comparator, and resource accounting.
+This research archive accompanies \emph{Service Certification for Agentic Wireless Networks}. We collect the complete experimental description from the supplied supplementary source, including additional numerical comparisons, figure data, and limitations. We retain each study's own population, comparator, and resource accounting.
 
 \paragraph{Available material.} The package supplies plotting scripts, summary data, editable figures, and protocol descriptions. The original simulation/controller drivers, complete trial records, and research directories cited in the source manuscript were not supplied. Accordingly, the scripts regenerate available figures; they do not rerun those experiments. Unmodified source fragments remain in \texttt{docs/source/}, and \texttt{docs/provenance.md} maps their contents. Statements about historical numerical outcomes below report the supplied manuscript's results, without asserting a new experimental replay.
+
+\paragraph{Manuscript alignment and implementation scope.} The updated source consists of \texttt{main.tex}, \texttt{supplement.tex}, and \texttt{code/extended\_experiments.tex} in the supplied manuscript archive. We map these sources to the companion material in \texttt{docs/manuscript\_alignment.md}. The executable benchmark implements the exact scalar Gaussian frontier. The paper's multivariate finite-witness frontier and joint likelihood-state Bellman recursion have no numerical solver or policy-recovery implementation in this repository. The original experimental records cannot be reconstructed from the retained summaries; the alignment document lists the records required for replay.
+
+\paragraph{Reader access.} The companion GitHub repository is private and requires explicit reader access. General availability requires an owner-approved public release or a separately accessible archival deposit.
 
 \section*{Definitions for this standalone protocol}
 For the nine-pair wireless instance, $R_i$, $f_j$, and $t_j$ denote radio rate, processor rate, and transport delay. The supplied manuscript sets $R=(20.574,51.891,100.556)$ Mbit/s, $f=(1,2,3)$ GHz, and $t=(0.8,1.2,1.8)$ ms. Tasks contain 80 kbit and require eight million processor cycles. With radio and server corrections $r_i,w_j$ in ms, we use
@@ -65,7 +69,7 @@ $$
 (d_{\min},d_{\max},D,D_{\max})=(0.1,0.25,1,2),\qquad
 (\sigma_D^2,\sigma_1^2,\sigma_2^2)=(25,1,1).
 $$
-Coarse reports measure both stages, while a fine report measures its selected stage. Their durations are $(1,4,4)$, prices are $(1,8,8)$, and report caps are $(300,400,400)$. We use $(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$, deadline $H=1500$, and budget $B=3000$. The adaptive rule takes 224 coarse reports, selects the larger coarse mean, and acquires 307 fine reports of that stage. Its duration is $224+4\cdot307=1452$ and its cost is $224+8\cdot307=2680$. The fixed-plan lower bounds in the theoretical supplement, including randomized plans, are $2164.43$ duration units and $4328.87$ cost units. This is the stated Gaussian numerical specialization under a separated-branch promise, not a replay of a physical deployment or evidence of general adaptive optimality.
+Each coarse acquisition returns a pair of scalar stage observations with independent Gaussian errors of variance $\sigma_D^2$ per coordinate. We treat this pair as one vector-valued acquisition bundle: its declared price, duration, and coarse count apply once to the pair. A fine report measures its selected stage, and all fresh report errors are independent. Bundle/fine durations are $(1,4,4)$, prices are $(1,8,8)$, and acquisition caps are $(300,400,400)$. We use $(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$, deadline $H=1500$, and budget $B=3000$. The adaptive rule takes 224 coarse acquisitions, selects the larger coarse mean, and acquires 307 fine reports of that stage. Its duration is $224+4\cdot307=1452$ and its cost is $224+8\cdot307=2680$. The fixed-plan lower bounds in the theoretical supplement, including randomized plans, are $2164.43$ duration units and $4328.87$ cost units. This is the stated Gaussian numerical specialization under a separated-branch promise, not a replay of a physical deployment or evidence of general adaptive optimality.
 
 
 \begin{thebibliography}{9}

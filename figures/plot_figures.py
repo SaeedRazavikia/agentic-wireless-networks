@@ -41,7 +41,7 @@ ax.scatter([-.55,1.95],[1.95,-.55],s=19,color=NAVY,zorder=3)
 ax.axhline(0,color=GREY,lw=.7);ax.axvline(0,color=GREY,lw=.7)
 ax.set_xticks([-1,0,1,2]);ax.set_yticks([-1,0,1,2])
 ax.set_xlabel('Radio-stage excess',labelpad=3);ax.set_ylabel('Server-stage excess',labelpad=4)
-ax.text(-.68,-.64,'Jointly feasible\nrival',fontsize=7.3,ha='center',va='center',color=NAVY)
+ax.text(-.68,-.64,'Jointly feasible\ncompetitor',fontsize=7.3,ha='center',va='center',color=NAVY)
 ax.text(1.44,1.66,'Retained\nconfidence band',fontsize=7.5,ha='center',color=TEAL)
 ax.spines[['top','right']].set_visible(False)
 fig.text(.53,.035,'Joint feasibility is excluded; the violated stage is unidentified.',ha='center',fontsize=7,color=NAVY)
@@ -61,10 +61,10 @@ ax.set_yticks([3.3,2.4,.9,0],['R2-S2','R2-S3','R2-S2','R2-S3'])
 ax.set_xticks([6,8,9.5,12],['6','8','9.5','12'])
 ax.tick_params(axis='y',length=0)
 ax.spines[['top','right','left']].set_visible(False)
-ax.set_xlabel('Mean completion time (ms)',labelpad=4)
+ax.set_xlabel('Mean task delay (ms)',labelpad=4)
 ax.text(6.0,3.93,'Retained evidence',fontsize=8,color=GREY)
 ax.text(6.0,1.52,'After targeted reports',fontsize=8,color=TEAL)
-fig.text(.59,.945,'Current deadline: 9.5 ms',fontsize=8.2,color=AMBER,ha='center')
+fig.text(.59,.945,'Mean-delay limit: 9.5 ms',fontsize=8.2,color=AMBER,ha='center')
 fig.text(.53,.080,r'$L_{22}=9.501>9.5;\quad U_{23}=9.434<9.5$',fontsize=8,ha='center')
 fig.text(.53,.028,'Exclude R2-S2 and certify R2-S3.',fontsize=8.2,ha='center',color=TEAL,fontweight='bold')
 save(fig,'wireless_confidence_trace')
@@ -75,9 +75,9 @@ fig.subplots_adjust(left=.055,bottom=.145,right=.96,top=.865)
 ys=np.array([3.55,2.50,1.45,.40])
 ratios=[100*r['proposed_mean']/r['baseline_mean'] for r in DATA['comparisons']]
 labels=[
-    'Two-stage witness allocation (64 decisions)',
-    'Two-stage maximin allocation (32 decisions)',
-    'Wireless maximin allocation (32 decisions)',
+    'Stage-witness allocation (64 decisions)',
+    'Unguarded two-stage maximin (32 decisions)',
+    'Unguarded wireless maximin (32 decisions)',
     'Scalar quotas with reuse (32 goal sequences)',
 ]
 ax.barh(ys,np.full(4,100),height=.20,color=PALE,edgecolor=GREY,linewidth=.55)
@@ -85,7 +85,7 @@ ax.barh(ys,ratios,height=.20,color=TEAL,edgecolor=TEAL,linewidth=.55)
 ax.set(xlim=(0,100),ylim=(-.08,4.10))
 ax.set_yticks([])
 ax.set_xticks([0,25,50,75,100])
-ax.set_xlabel('Mean cost relative to the named comparator (%)',fontsize=7.6,labelpad=4)
+ax.set_xlabel('Mean acquisition cost relative to comparator (%)',fontsize=7.6,labelpad=4)
 ax.spines[['top','right','left']].set_visible(False)
 for y,label,row in zip(ys,labels,DATA['comparisons']):
     ax.text(0,y+.30,label,fontsize=7.8,color=NAVY,ha='left',va='center')
@@ -104,8 +104,8 @@ subset=np.array([r['mean_expenditure_reached_completion'] for r in DATA['executi
 b1=ax.barh(ys+.15,allmeans,height,color=BLUE,label='All 120 trials')
 b2=ax.barh(ys-.15,subset,height,color=AMBER,label='Common 14-trial completion subset')
 ax.set_xlim(0,46500);ax.set_ylim(-.5,3.50)
-ax.set_yticks(ys,['Full quota','Block\nprefix','Proportional\nprefix','Goal-directed\nprefix'],fontsize=7.8)
-ax.set_xlabel('Mean additional cost (modeled units)',fontsize=7.6,labelpad=4)
+ax.set_yticks(ys,['Full-quota\nacquisition','Block\nprefix','Proportional\nprefix','Goal-directed\nprefix'],fontsize=7.8)
+ax.set_xlabel('Mean acquisition cost (modeled units)',fontsize=7.6,labelpad=4)
 ax.xaxis.set_major_formatter(FuncFormatter(lambda value,pos:f'{value:,.0f}'))
 ax.set_xticks([0,15000,30000]);ax.xaxis.grid(True,color='#DCE4E9',lw=.55);ax.set_axisbelow(True)
 ax.tick_params(axis='y',length=0,pad=6)

@@ -2,13 +2,13 @@
 % Numerical values come from data/; see data/PROVENANCE.json.
 \begingroup%
 \begin{tikzpicture}[x=1in,y=1in]%
-\path[use as bounding box] (0,0) rectangle (3.5,2.7);%
-\begin{pgfinterruptboundingbox}%
+% Reserve the intended canvas while including every label in automatic sizing.
+\path (0,0) rectangle (3.5,2.7);%
 \begin{axis}[jsc axis,at={(0.7in,0.756in)},anchor=south west,%
 width=2.66in,height=1.62in,%
 xmin=5.8,xmax=12.5,ymin=-.40,ymax=4.08,xtick={6,8,9.5,12},xticklabels={6,8,9.5,12},%
 ytick={3.3,2.4,.9,0},yticklabels={R2-S2,R2-S3,R2-S2,R2-S3},%
-ytick style={draw=none},y axis line style={draw=none},xlabel={Mean completion time (ms)},%
+ytick style={draw=none},y axis line style={draw=none},xlabel={Mean task delay (ms)},%
 ]%
 \draw[jscAmber,line width=1.1pt,dash pattern=on 3pt off 2pt] (axis cs:9.5,-.40)--(axis cs:9.5,4.08);%
 \draw[jscGrey,line width=2.2pt,line cap=round] (axis cs:7.983011600895777,3.2999999999999998)--(axis cs:12.074334577288768,3.2999999999999998);%
@@ -26,9 +26,8 @@ ytick style={draw=none},y axis line style={draw=none},xlabel={Mean completion ti
 \node[anchor=west,font=\jscfont{8},text=jscGrey,inner sep=0] at (axis cs:6,3.93) {Retained evidence};%
 \node[anchor=west,font=\jscfont{8},text=jscTeal,inner sep=0] at (axis cs:6,1.52) {After targeted reports};%
 \end{axis}%
-\node[font={\jscfont{8.2}},text=jscAmber,anchor=center,align=center,inner sep=0pt] at (2.065,2.5515) {Current deadline: 9.5 ms};%
+\node[font={\jscfont{8.2}},text=jscAmber,anchor=center,align=center,inner sep=0pt] at (2.065,2.49) {Mean-delay limit: 9.5 ms};%
 \node[font={\jscfont{8}},text=jscNavy,anchor=center,align=center,inner sep=0pt] at (1.855,0.216) {$L_{22}=9.501>9.5;\quad U_{23}=9.434<9.5$};%
 \node[font={\jscfont{8.2}\bfseries},text=jscTeal,anchor=center,align=center,inner sep=0pt] at (1.855,0.0756) {Exclude R2-S2 and certify R2-S3.};%
-\end{pgfinterruptboundingbox}%
 \end{tikzpicture}%
 \endgroup%
