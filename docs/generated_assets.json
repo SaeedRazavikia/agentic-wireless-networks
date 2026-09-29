@@ -1,19 +1,7 @@
 {
   "date": "2026-09-29",
-  "scope": "Regenerated presentations of unchanged frozen data; aliases are copied from the canonical native builds.",
+  "scope": "Current figure exports of unchanged frozen data. Native figure PDFs are canonical; PNG previews support the Markdown experiment document.",
   "assets": [
-    {
-      "path": "figures/agent_architecture.pdf",
-      "generator": "reproduce.py --python",
-      "sha256": "e0d4e36012b5c9872dff92621a1e2bf7703f39e358b76dd902f445964880ea8a",
-      "bytes": 12881
-    },
-    {
-      "path": "figures/agent_architecture.png",
-      "generator": "reproduce.py --python",
-      "sha256": "ab52832e450335856ed8fd325a1baad82d7e743343f8b760f1b7542ad7967407",
-      "bytes": 70839
-    },
     {
       "path": "figures/joint_service_overview.pdf",
       "generator": "reproduce.py --python",
@@ -135,52 +123,28 @@
       "bytes": 69194
     },
     {
-      "path": "figures/goal_evidence_loop.pdf",
-      "generator": "Alias of figures/tikz/rendered/goal_evidence_loop.pdf",
-      "sha256": "5062f24c32a721a789d78b03c22f3fa8f420a460916ca8db66621578c58faa9f",
-      "bytes": 48811
+      "path": "figures/tikz/rendered/v37_cost_comparisons.png",
+      "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
+      "sha256": "ca5473240e960de26b0f9005a5504106c838f1c87cd0e9966a418b5d683691dc",
+      "bytes": 33103
     },
     {
-      "path": "figures/v37_cost_comparisons.pdf",
-      "generator": "Alias of figures/tikz/rendered/v37_cost_comparisons.pdf",
-      "sha256": "7de3b3ef81a18463351462e6de4f8b1497f87cbf90f1315bbfbf9d3652df6764",
-      "bytes": 44499
+      "path": "figures/tikz/rendered/v37_promise_reservations.png",
+      "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
+      "sha256": "230bac9d61daf5104f0895eb5e033851448cca4512cc677cf9c8e54948971b78",
+      "bytes": 36448
     },
     {
-      "path": "figures/v37_promise_reservations.pdf",
-      "generator": "Alias of figures/tikz/rendered/v37_promise_reservations.pdf",
-      "sha256": "761ea206c1273690a8b97aade2e21b9fa26ab39b46fd8ea3479b6ccbc25bfd8d",
-      "bytes": 69427
+      "path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.png",
+      "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
+      "sha256": "5565aac5ad73d7ccbb1bd93921fd5befb25e7dcd5476a8985cd6fc7e1ca9dc88",
+      "bytes": 52907
     },
     {
-      "path": "figures/v42_deadline_instrumentation_frontier.pdf",
-      "generator": "Alias of figures/tikz/rendered/v42_deadline_instrumentation_frontier.pdf",
-      "sha256": "20ffd02925eb7325e3f79802acbc03fdca97699ad946f4e2605380253919d0a4",
-      "bytes": 65002
-    },
-    {
-      "path": "figures/v44_system_model.pdf",
-      "generator": "Alias of figures/tikz/rendered/v44_system_model.pdf",
-      "sha256": "c53a5426e135c26c616de329d13f2e6ff83e56e92bf95c3d7b76ad4a78d7ebd9",
-      "bytes": 100951
-    },
-    {
-      "path": "figures/validity_completion_outcomes.pdf",
-      "generator": "Alias of figures/tikz/rendered/validity_completion_outcomes.pdf",
-      "sha256": "e3c3d6dd18dcd6f545b04f20b09e51e3765d2f796d8aab6a59eef09c9c22dfc2",
-      "bytes": 44240
-    },
-    {
-      "path": "figures/joint_geometry.pdf",
-      "generator": "Alias of figures/tikz/rendered/joint_exclusion_geometry.pdf",
-      "sha256": "88f807f078ae8a8c8ff89988b803f869b78f11f884f6ce81690eada6fb18473a",
-      "bytes": 57576
-    },
-    {
-      "path": "extended_experiments.pdf",
-      "generator": "reproduce.py --protocol",
-      "sha256": "184bb47f21c3d1ab415745ff73f1e44f05943f3cc35e8e458c15c4cd78157d1c",
-      "bytes": 280037
+      "path": "figures/tikz/rendered/validity_completion_outcomes.png",
+      "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
+      "sha256": "d845365fc341d00c81b193947c229060d4b91ccf151c5d2a78abe26ac8520484",
+      "bytes": 24899
     }
   ]
 }

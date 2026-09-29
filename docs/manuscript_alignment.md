@@ -1,8 +1,8 @@
 # Updated manuscript alignment
 
-The alignment target is **Service Certification for Agentic Wireless Networks**, by Saeed Razavikia and Carlo Fischione, in the supplied `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`. The archive SHA-256 is `aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46`. The consistency review dated 29 September 2026 compared this source with repository commit `778be9d179e9b2a6816e8c3696c81468666d16b8`. This document records the resulting source alignment; current build results are recorded separately in [`reproduction.md`](reproduction.md).
+The alignment target is **Service Certification for Agentic Wireless Networks** in the supplied `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`. The archive SHA-256 is `aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46`. The consistency review dated 29 September 2026 compared this source with repository commit `778be9d179e9b2a6816e8c3696c81468666d16b8`. This document records the source alignment; build instructions and dated validation records are described in [`reproduction.md`](reproduction.md).
 
-The paper title has no subtitle. The companion software and standalone protocol retain the distinct title **Service Certification for Agentic Wireless Networks: Extended Experiments and Code**.
+The paper title has no subtitle. The companion protocol is presented as **Extended Experiments**, without an author byline, in [`extended_experiments.md`](../extended_experiments.md).
 
 ## Source mapping
 
@@ -10,18 +10,18 @@ Paths in the first column are relative to the uploaded manuscript archive, not t
 
 | Updated manuscript source | Corresponding repository material | Scope |
 | --- | --- | --- |
-| `main.tex` | [`README.md`](../README.md), [`CITATION.cff`](../CITATION.cff), [`extended_experiments.tex`](../extended_experiments.tex), and active figure sources | Associated paper title, scientific terminology, and presentation alignment. |
+| `main.tex` | [`README.md`](../README.md), [`CITATION.cff`](../CITATION.cff), [`extended_experiments.md`](../extended_experiments.md), and active figure sources | Associated paper title, scientific terminology, and presentation alignment. |
 | `main.tex`: five active TikZ imports | [`figures/tikz/`](../figures/tikz/) fragments `goal_evidence_loop`, `joint_exclusion_geometry`, `wireless_confidence_trace`, `certification_costs`, and `execution_stopping_costs` | Updated layouts, annotations, mean-delay terminology, and “Unguarded” maximin qualifiers; numerical data retained. |
-| `figures/agent_architecture.py`, `figures/figure_overview.py`, and `figures/plot_figures.py` | The same relative repository paths | Consistent measurement, model-validity, and mean-delay terminology across rendering paths. |
-| `code/extended_experiments.tex` | [`docs/experimental_protocol.tex`](experimental_protocol.tex), included by [`extended_experiments.tex`](../extended_experiments.tex) | Experimental populations, comparator definitions, retained outcomes, and limitations; standalone cross-references and missing-source disclosures are preserved. |
+| `figures/figure_overview.py` and `figures/plot_figures.py` | The same relative repository paths | Consistent measurement, model-validity, and mean-delay terminology across retained rendering paths. |
+| `code/extended_experiments.tex` | [`extended_experiments.md`](../extended_experiments.md) | Experimental populations, comparator definitions, retained outcomes, and limitations; cross-references and missing-source disclosures are preserved in Markdown. |
 | `main.tex`: scalar completion theorem; `supplement.tex`: scalar proof and numerical benchmark | [`scripts/scalar_frontier.py`](../scripts/scalar_frontier.py), [`docs/scalar_frontier.md`](scalar_frontier.md), and `figures/tikz/data/frontier_*.csv` | Executable scalar precision maximization, exact completion curves, deadline table, and separately identified endpoint Monte Carlo. |
 | `main.tex`: multivariate frontier and Bellman recursion; `supplement.tex`: its proof | The coverage statements in this document and [`implementation.md`](implementation.md) | Theoretical characterization only; no multivariate numerical solver or policy recovery is supplied. |
-| `supplement.tex`: adaptive-separation proposition and numerical example | “Numerical Adaptive-Instrument Reference” in [`extended_experiments.tex`](../extended_experiments.tex) and the paired coarse acquisition convention in [`implementation.md`](implementation.md) | Analytical example with unchanged formulas, resource bounds, and numerical values. |
+| `supplement.tex`: adaptive-separation proposition and numerical example | “Numerical Adaptive-Instrument Reference” in [`extended_experiments.md`](../extended_experiments.md) and the paired coarse acquisition convention in [`implementation.md`](implementation.md) | Analytical example with unchanged formulas, resource bounds, and numerical values. |
 | `figures/*.json` and `figures/tikz/data/*.csv` | The same relative repository paths | Frozen supplied summaries and exact-reference plotting values; alignment does not modify observations or recompute historical intervals. |
 
 The historical source mapping and original checksums remain in [`provenance.md`](provenance.md) and [`source_manifest.json`](source_manifest.json). The fragments under [`docs/source/`](source/) are historical records and are intentionally unchanged. Differences between those fragments and current active sources do not imply an incomplete synchronization.
 
-[`manuscript_alignment.json`](manuscript_alignment.json) distinguishes the archive source hashes from the final repository hashes. The Python architecture and overview retain the updated terminology with small font-size, line-wrap, and arrow-label adjustments so the longer labels fit. The active TikZ drawing fragments are copied unchanged from the updated manuscript. The compatibility entry point `figures/goal_evidence_loop.tex` now inputs the canonical drawing instead of duplicating its content.
+[`manuscript_alignment.json`](manuscript_alignment.json) records the source hashes and scope of the manuscript synchronization. The overview retains the updated terminology with small typography adjustments so longer labels fit. Active TikZ drawing fragments match the updated manuscript. The superseded architecture assets, duplicate top-level native PDFs, and duplicate goal/evidence wrapper have been removed; native sources and canonical previews remain under [`figures/tikz/`](../figures/tikz/).
 
 ## Numerical implementation coverage
 

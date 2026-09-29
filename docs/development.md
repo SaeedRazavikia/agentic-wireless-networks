@@ -9,6 +9,6 @@ python -m pip install -r requirements.txt
 python scripts/scalar_frontier.py verify
 ```
 
-See `docs/reproduction.md` for all figure and document build commands. Generated `build/` outputs are ignored by Git. Preserve the original files under `docs/source/` and the supplied data provenance; identify newly generated experiments separately from the historical results.
+Edit [`extended_experiments.md`](../extended_experiments.md) directly to update the experimental documentation. Its title is **Extended Experiments**, without an author byline. See [`reproduction.md`](reproduction.md) for figure and PNG-preview commands. Generated `build/` outputs are ignored by Git. Preserve the original files under `docs/source/` and the supplied data provenance; identify newly generated experiments separately from the historical results.
 
 The manuscript cites this repository using the `razavikia2026code` entry in `docs/repository_citation.bib`. Keep author, title, and URL metadata consistent with `CITATION.cff`.

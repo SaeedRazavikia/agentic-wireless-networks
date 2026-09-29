@@ -7,16 +7,16 @@ The initial supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This
 | Original path | Repository path | Treatment |
 | --- | --- | --- |
 | `compact/experiments.tex` | `docs/source/experiments_original.tex` | Preserved byte for byte before manuscript edits. |
-| `compact/experiments.tex` | `docs/experimental_protocol.tex` | Full experimental content retained; unavailable record references are clarified, the acquisition cross-reference names the theoretical supplement, and long inline lists are reformatted for standalone readability. |
+| `compact/experiments.tex` | [`extended_experiments.md`](../extended_experiments.md) | Full experimental content retained in Markdown; unavailable record references and the theoretical-supplement context are clarified. |
 | `compact/acquisition.tex` | `docs/source/acquisition_original.tex` | Original derivation retained for implementation traceability; the paper's theoretical supplement remains the authoritative proof context. |
 | `compact/adaptive.tex` | `docs/source/adaptive_original.tex` | Complete original adaptive-selection source retained; its simulation-based continuation theorem and proof are included in the extended protocol. |
 | `v37_results_section.tex` | `docs/source/v37_results_section.tex` | Unmodified older results fragment; not substituted for the current protocol. |
 | `v41_results_section.tex` | `docs/source/v41_results_section.tex` | Unmodified older results fragment; not substituted for the current protocol. |
 | `v42_results_section.tex` | `docs/source/v42_results_section.tex` | Unmodified older results fragment; not substituted for the current protocol. |
-| `figures/` | `figures/` | All supplied scripts, data, images, PDFs, native TikZ, and wrappers retained. |
+| `figures/` | `figures/` | Active plotting sources and previews retained; frozen numerical data are unchanged. Superseded architecture assets, duplicate top-level native PDFs, and the duplicate goal/evidence wrapper were removed. Canonical native sources and PDF previews remain under `figures/tikz/`. |
 | `figures/tikz/README.md` | `docs/source/editable_figures_original_README.md` | Original README preserved; the active figure README now points to the supplied portable build helper. |
 
-The standalone protocol adds the wireless-instance definitions and scalar reference from the supplied paper/supplement so its numerical descriptions do not depend on unresolved cross-references. It does not add experimental observations. The original LaTeX fragments in `docs/source/` still contain their historical external references and are provenance records, not standalone documents.
+Extended Experiments includes the wireless-instance definitions and scalar reference from the supplied paper/supplement so its numerical descriptions do not depend on unresolved cross-references. It does not add experimental observations. The original LaTeX fragments in `docs/source/` still contain their historical external references and are provenance records, not standalone documents. The active protocol is maintained only in Markdown; its former PDF and LaTeX entry points are no longer distributed.
 
 [`source_manifest.json`](source_manifest.json) records the initial source/package paths and SHA-256 checksums for 82 supplied assets, including the preserved source fragments. At the initial import, the active TikZ README was the only intentional change to an existing asset. This manifest is a historical import record, not a checksum declaration for subsequently revised figure sources and previews. The 29 September synchronization updates active drawings, labels, metadata, and build-output validation; its source mapping is recorded separately. Original fragments under `docs/source/` and all numerical CSV/JSON figure data remain unchanged. New documentation, helpers, and the independently reconstructed scalar benchmark are identified by their own documentation.
 

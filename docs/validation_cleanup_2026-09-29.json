@@ -1,0 +1,160 @@
+{
+  "date": "2026-09-29",
+  "base_commit": "d84f55d009e3174c1e9708a891076cb876364858",
+  "scope": "Markdown documentation conversion and obsolete/duplicate presentation cleanup; no experimental rerun.",
+  "document": {
+    "path": "extended_experiments.md",
+    "title": "Extended Experiments",
+    "format": "GitHub Markdown",
+    "author_byline": false,
+    "tables": 6,
+    "inline_figures": 4
+  },
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 8,
+    "failed": 0
+  },
+  "build_command": "python scripts/reproduce.py --python --previews",
+  "build_results": [
+    {
+      "task": "figure_overview",
+      "exit_code": 0,
+      "log": "logs/figure_overview.log",
+      "removed_existing_outputs": [
+        "figures/joint_service_overview.pdf",
+        "figures/joint_service_overview.png"
+      ],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/joint_service_overview.pdf",
+            "valid": true,
+            "bytes": 45348,
+            "pages": 1
+          },
+          {
+            "path": "figures/joint_service_overview.png",
+            "valid": true,
+            "bytes": 259536,
+            "size": [
+              1584,
+              935
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "preview_validity_completion_outcomes",
+      "exit_code": 0,
+      "log": "logs/preview_validity_completion_outcomes.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/rendered/validity_completion_outcomes.png",
+            "valid": true,
+            "bytes": 24899,
+            "size": [
+              560,
+              352
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "preview_v37_cost_comparisons",
+      "exit_code": 0,
+      "log": "logs/preview_v37_cost_comparisons.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/rendered/v37_cost_comparisons.png",
+            "valid": true,
+            "bytes": 33103,
+            "size": [
+              560,
+              408
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "preview_v37_promise_reservations",
+      "exit_code": 0,
+      "log": "logs/preview_v37_promise_reservations.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/rendered/v37_promise_reservations.png",
+            "valid": true,
+            "bytes": 36448,
+            "size": [
+              560,
+              488
+            ]
+          }
+        ]
+      },
+      "success": true
+    },
+    {
+      "task": "preview_v42_deadline_instrumentation_frontier",
+      "exit_code": 0,
+      "log": "logs/preview_v42_deadline_instrumentation_frontier.log",
+      "removed_existing_outputs": [],
+      "validation": {
+        "passed": true,
+        "outputs": [
+          {
+            "path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.png",
+            "valid": true,
+            "bytes": 52907,
+            "size": [
+              1294,
+              543
+            ]
+          }
+        ]
+      },
+      "success": true
+    }
+  ],
+  "integrity": {
+    "numerical_csv_json_files": 20,
+    "numerical_csv_json_unchanged": true,
+    "archived_source_fragments_unchanged": true,
+    "native_figure_sources_unchanged": true,
+    "scalar_benchmark_source_unchanged": true
+  },
+  "visual_review": "All four canonical PNG previews checked; figure content remains unchanged.",
+  "removed_files": [
+    "extended_experiments.pdf",
+    "extended_experiments.tex",
+    "docs/experimental_protocol.tex",
+    "docs/continuation_guarantee.tex",
+    "figures/goal_evidence_loop.tex",
+    "figures/agent_architecture.py",
+    "figures/agent_architecture.pdf",
+    "figures/agent_architecture.png",
+    "figures/goal_evidence_loop.pdf",
+    "figures/joint_geometry.pdf",
+    "figures/v37_cost_comparisons.pdf",
+    "figures/v37_promise_reservations.pdf",
+    "figures/v42_deadline_instrumentation_frontier.pdf",
+    "figures/v44_system_model.pdf",
+    "figures/validity_completion_outcomes.pdf"
+  ]
+}

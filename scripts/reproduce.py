@@ -28,37 +28,41 @@ class BuildTask:
 
 
 def build_tasks(output: Path, *, python: bool, pgf: bool, tikz: bool,
-                protocol: bool, pdflatex: str | None) -> list[BuildTask]:
+                previews: bool, pdflatex: str | None,
+                pdftoppm: str | None) -> list[BuildTask]:
     """Declare every expected product before executing any producer."""
     tasks = []
     figures = output / 'figures'
     if python:
-        for script, product in (('agent_architecture', 'agent_architecture'),
-                                ('figure_overview', 'joint_service_overview')):
-            tasks.append(BuildTask(script, (sys.executable, str(figures / (script + '.py'))),
-                                   output, tuple(figures / (product + suffix)
-                                                 for suffix in ('.pdf', '.png'))))
+        tasks.append(BuildTask('figure_overview',
+                               (sys.executable, str(figures / 'figure_overview.py')),
+                               output, tuple(figures / ('joint_service_overview' + suffix)
+                                             for suffix in ('.pdf', '.png'))))
     if pgf:
         products = ('joint_exclusion_geometry', 'wireless_confidence_trace',
                     'certification_costs', 'execution_stopping_costs')
         tasks.append(BuildTask('plot_figures', (sys.executable, str(figures / 'plot_figures.py')),
                                output, tuple(figures / (product + suffix)
                                              for product in products for suffix in ('.pdf', '.png'))))
-    if tikz or protocol:
+    if tikz:
         if pdflatex is None:
             raise ValueError('pdflatex is required for TeX tasks.')
         options = (pdflatex, '-interaction=nonstopmode', '-halt-on-error')
-        if tikz:
-            for source in sorted((figures / 'tikz').glob('*.tex')):
-                if source.name != 'common.tex':
-                    tasks.append(BuildTask('tikz_' + source.stem, options + (source.name,),
-                                           source.parent, (source.with_suffix('.pdf'),)))
-        if protocol:
-            # Keep the passes sequential and preserve their shared auxiliary files.
-            for index in (1, 2):
-                tasks.append(BuildTask(f'protocol_pass_{index}',
-                                       options + ('extended_experiments.tex',), output,
-                                       (output / 'extended_experiments.pdf',)))
+        for source in sorted((figures / 'tikz').glob('*.tex')):
+            if source.name != 'common.tex':
+                tasks.append(BuildTask('tikz_' + source.stem, options + (source.name,),
+                                       source.parent, (source.with_suffix('.pdf'),)))
+    if previews:
+        if pdftoppm is None:
+            raise ValueError('pdftoppm is required for PNG previews.')
+        rendered = figures / 'tikz' / 'rendered'
+        source_dir = figures / 'tikz' if tikz else rendered
+        for name in ('validity_completion_outcomes', 'v37_cost_comparisons',
+                     'v37_promise_reservations', 'v42_deadline_instrumentation_frontier'):
+            tasks.append(BuildTask('preview_' + name,
+                                   (pdftoppm, '-png', '-singlefile', '-r', '160',
+                                    str(source_dir / (name + '.pdf')), str(rendered / name)),
+                                   output, (rendered / (name + '.png'),)))
     return tasks
 
 
@@ -118,8 +122,7 @@ def run_task(task: BuildTask, output: Path, logs: Path) -> dict:
     log = ''
     try:
         # Supplied figures and previous runs may already contain valid products.
-        # Delete only this task's products so a no-op producer cannot pass, while
-        # preserving LaTeX auxiliary files between the two protocol passes.
+        # Delete only this task's products so a no-op producer cannot pass.
         for path in task.outputs:
             if path.exists() or path.is_symlink():
                 path.unlink()
@@ -143,23 +146,23 @@ def run_task(task: BuildTask, output: Path, logs: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--python', action='store_true', help='render architecture and overview with Matplotlib')
+    parser.add_argument('--python', action='store_true', help='render the overview with Matplotlib')
     parser.add_argument('--pgf', action='store_true', help='render four legacy PGF plots; requires pdflatex and pdftoppm')
     parser.add_argument('--tikz', action='store_true', help='compile all native TikZ figures; requires pdflatex')
-    parser.add_argument('--protocol', action='store_true', help='compile the standalone extended protocol twice')
+    parser.add_argument('--previews', action='store_true', help='render four native plot previews; requires pdftoppm')
     parser.add_argument('--output', type=Path, default=ROOT / 'build' / 'reproduction')
     args = parser.parse_args()
-    if not any((args.python, args.pgf, args.tikz, args.protocol)):
+    if not any((args.python, args.pgf, args.tikz, args.previews)):
         args.python = True
     output = args.output.resolve()
     if output == ROOT or ROOT.is_relative_to(output) or output.is_relative_to(ROOT / 'figures') or output.is_relative_to(ROOT / 'docs'):
         parser.error('Choose a build/output directory distinct from the repository sources.')
     pdflatex = shutil.which('pdflatex')
     pdftoppm = shutil.which('pdftoppm')
-    if (args.pgf or args.tikz or args.protocol) and pdflatex is None:
+    if (args.pgf or args.tikz) and pdflatex is None:
         parser.error('pdflatex is required for the requested tasks.')
-    if args.pgf and pdftoppm is None:
-        parser.error('pdftoppm is required for PNG previews of the PGF plots.')
+    if (args.pgf or args.previews) and pdftoppm is None:
+        parser.error('pdftoppm is required for PNG previews.')
     output.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / 'figures', output / 'figures', dirs_exist_ok=True)
     logs = output / 'logs'
@@ -169,11 +172,10 @@ def main() -> int:
         # The supplied script fixes the Poppler path to /usr/bin. Adapt only this
         # build copy to the executable discovered on the current system.
         script.write_text(script.read_text().replace("'/usr/bin/pdftoppm'", repr(pdftoppm)))
-    if args.protocol:
-        shutil.copytree(ROOT / 'docs', output / 'docs', dirs_exist_ok=True)
-        shutil.copy2(ROOT / 'extended_experiments.tex', output / 'extended_experiments.tex')
+    if args.previews:
+        (output / 'figures' / 'tikz' / 'rendered').mkdir(parents=True, exist_ok=True)
     tasks = build_tasks(output, python=args.python, pgf=args.pgf, tikz=args.tikz,
-                        protocol=args.protocol, pdflatex=pdflatex)
+                        previews=args.previews, pdflatex=pdflatex, pdftoppm=pdftoppm)
     results = [run_task(task, output, logs) for task in tasks]
     (output / 'build_results.json').write_text(json.dumps(results, indent=2) + '\n')
     failed = sum(not result['success'] for result in results)

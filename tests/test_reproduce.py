@@ -1,7 +1,6 @@
 """Regression checks for fresh, readable reproduction products (no TeX required)."""
 from __future__ import annotations
 
-from dataclasses import replace
 import importlib.util
 import io
 import json
@@ -118,11 +117,10 @@ class ReproductionValidationTests(unittest.TestCase):
         for name in ('common', 'first', 'second'):
             (tikz / (name + '.tex')).write_text('fixture')
         tasks = reproduce.build_tasks(self.output, python=True, pgf=True, tikz=True,
-                                      protocol=True, pdflatex='pdflatex')
+                                      previews=True, pdflatex='pdflatex', pdftoppm='pdftoppm')
         actual = {task.name: [path.relative_to(self.output).as_posix() for path in task.outputs]
                   for task in tasks}
         self.assertEqual(actual, {
-            'agent_architecture': ['figures/agent_architecture.pdf', 'figures/agent_architecture.png'],
             'figure_overview': ['figures/joint_service_overview.pdf', 'figures/joint_service_overview.png'],
             'plot_figures': [f'figures/{name}.{extension}'
                             for name in ('joint_exclusion_geometry', 'wireless_confidence_trace',
@@ -130,50 +128,37 @@ class ReproductionValidationTests(unittest.TestCase):
                             for extension in ('pdf', 'png')],
             'tikz_first': ['figures/tikz/first.pdf'],
             'tikz_second': ['figures/tikz/second.pdf'],
-            'protocol_pass_1': ['extended_experiments.pdf'],
-            'protocol_pass_2': ['extended_experiments.pdf'],
+            **{'preview_' + name: ['figures/tikz/rendered/' + name + '.png']
+               for name in ('validity_completion_outcomes', 'v37_cost_comparisons',
+                            'v37_promise_reservations', 'v42_deadline_instrumentation_frontier')},
         })
-        self.assertEqual([task.name for task in tasks[-2:]], ['protocol_pass_1', 'protocol_pass_2'])
-
-    def test_protocol_preserves_auxiliary_state_but_requires_a_fresh_pdf_each_pass(self):
-        tasks = reproduce.build_tasks(self.output, python=False, pgf=False, tikz=False,
-                                      protocol=True, pdflatex='pdflatex')
-        results = []
-        for index, task in enumerate(tasks):
-            source = (
-                "from pathlib import Path\n"
-                "aux = Path('extended_experiments.aux')\n"
-                f"assert (int(aux.read_text()) if aux.exists() else 0) == {index}\n"
-                "assert not Path('extended_experiments.pdf').exists()\n"
-                f"aux.write_text({str(index + 1)!r})\n"
-                f"Path('extended_experiments.pdf').write_bytes(Path({str(self.fixture_pdf)!r}).read_bytes())\n")
-            results.append(self.run_task(replace(task, command=(sys.executable, '-c', source))))
-        self.assertTrue(all(result['success'] for result in results))
-        self.assertEqual((self.output / 'extended_experiments.aux').read_text(), '2')
-        self.assertEqual(results[1]['removed_existing_outputs'], ['extended_experiments.pdf'])
-        # A third zero-exit pass cannot reuse the PDF left by the second pass.
-        failed = self.run_task(replace(tasks[1], command=(sys.executable, '-c', 'pass')))
-        self.assertFalse(failed['success'])
+        # Combined builds must render the newly compiled PDFs, not bundled copies.
+        for task in tasks[-4:]:
+            name = task.name.removeprefix('preview_')
+            self.assertEqual(Path(task.command[-2]), tikz / (name + '.pdf'))
+        standalone = reproduce.build_tasks(self.output, python=False, pgf=False, tikz=False,
+                                            previews=True, pdflatex=None, pdftoppm='pdftoppm')
+        for task in standalone:
+            name = task.name.removeprefix('preview_')
+            self.assertEqual(Path(task.command[-2]), tikz / 'rendered' / (name + '.pdf'))
 
     def test_main_rejects_copied_prebuilt_assets_and_records_validation(self):
         source_root = self.root / 'source'
         figures = source_root / 'figures'
         figures.mkdir(parents=True)
-        for script in ('agent_architecture', 'figure_overview'):
-            (figures / (script + '.py')).write_text('pass\n')
-        for product in ('agent_architecture', 'joint_service_overview'):
-            (figures / (product + '.pdf')).write_bytes(self.fixture_pdf.read_bytes())
-            (figures / (product + '.png')).write_bytes(self.fixture_png.read_bytes())
+        (figures / 'figure_overview.py').write_text('pass\n')
+        (figures / 'joint_service_overview.pdf').write_bytes(self.fixture_pdf.read_bytes())
+        (figures / 'joint_service_overview.png').write_bytes(self.fixture_png.read_bytes())
         with patch.object(reproduce, 'ROOT', source_root), \
                 patch.object(sys, 'argv', [str(SCRIPT), '--python', '--output', str(self.output)]), \
                 redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
             status = reproduce.main()
         self.assertEqual(status, 1)
         results = json.loads((self.output / 'build_results.json').read_text())
-        self.assertEqual(len(results), 2)
+        self.assertEqual(len(results), 1)
         self.assertTrue(all(result['exit_code'] == 0 and not result['success'] for result in results))
         self.assertTrue(all(len(result['removed_existing_outputs']) == 2 for result in results))
-        self.assertTrue((figures / 'agent_architecture.pdf').exists())
+        self.assertTrue((figures / 'joint_service_overview.pdf').exists())
 
 
 if __name__ == '__main__':
