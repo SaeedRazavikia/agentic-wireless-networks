@@ -1,27 +1,27 @@
 # Updated manuscript alignment
 
-The alignment target is **Service Certification for Agentic Wireless Networks** in the supplied `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`. The archive SHA-256 is `aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46`. The consistency review dated 29 September 2026 compared this source with repository commit `778be9d179e9b2a6816e8c3696c81468666d16b8`. This document records the source alignment; build instructions and dated validation records are described in [`reproduction.md`](reproduction.md).
+The current alignment target is **Service Certification for Agentic Wireless Networks**, comprising a 13-page main paper and a 7-page theoretical supplement as of 30 September 2026. Active documentation uses the current supplement's adaptive-example parameters and acquisition caps. The paper links directly to this repository, and its supplement identifies the root-level [`extended_experiments.md`](../extended_experiments.md) as the companion protocol. Build instructions and dated validation records are described in [`reproduction.md`](reproduction.md).
 
-The paper title has no subtitle. The companion protocol is presented as **Extended Experiments**, without an author byline, in [`extended_experiments.md`](../extended_experiments.md).
+The earlier alignment dated 29 September 2026 used `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`, with SHA-256 `aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46`, and compared it with repository commit `778be9d179e9b2a6816e8c3696c81468666d16b8`. That archive and the preserved fragments under `docs/source/` document earlier source versions; they are not the current paper and supplement.
 
 ## Source mapping
 
-Paths in the first column are relative to the uploaded manuscript archive, not to this repository. The repository distributes companion material; it does not contain the complete updated `main.tex` and `supplement.tex`.
+The first column identifies paper sources and the historical protocol source. These source paths are not repository entry points. The repository distributes companion material; it does not contain the complete current `main.tex` and `supplement.tex`.
 
-| Updated manuscript source | Corresponding repository material | Scope |
+| Paper or historical source | Corresponding repository material | Scope |
 | --- | --- | --- |
 | `main.tex` | [`README.md`](../README.md), [`CITATION.cff`](../CITATION.cff), [`extended_experiments.md`](../extended_experiments.md), and active figure sources | Associated paper title, scientific terminology, and presentation alignment. |
 | `main.tex`: five active TikZ imports | [`figures/tikz/`](../figures/tikz/) fragments `goal_evidence_loop`, `joint_exclusion_geometry`, `wireless_confidence_trace`, `certification_costs`, and `execution_stopping_costs` | Updated layouts, annotations, mean-delay terminology, and “Unguarded” maximin qualifiers; numerical data retained. |
 | `figures/figure_overview.py` and `figures/plot_figures.py` | The same relative repository paths | Consistent measurement, model-validity, and mean-delay terminology across retained rendering paths. |
-| `code/extended_experiments.tex` | [`extended_experiments.md`](../extended_experiments.md) | Experimental populations, comparator definitions, retained outcomes, and limitations; cross-references and missing-source disclosures are preserved in Markdown. |
+| Historical `code/extended_experiments.tex` | [`extended_experiments.md`](../extended_experiments.md) | Experimental populations, comparator definitions, retained outcomes, and limitations; cross-references and missing-source disclosures are preserved in Markdown. The current supplement points directly to this Markdown file. |
 | `main.tex`: scalar completion theorem; `supplement.tex`: scalar proof and numerical benchmark | [`scripts/scalar_frontier.py`](../scripts/scalar_frontier.py), [`docs/scalar_frontier.md`](scalar_frontier.md), and `figures/tikz/data/frontier_*.csv` | Executable scalar precision maximization, exact completion curves, deadline table, and separately identified endpoint Monte Carlo. |
 | `main.tex`: multivariate frontier and Bellman recursion; `supplement.tex`: its proof | The coverage statements in this document and [`implementation.md`](implementation.md) | Theoretical characterization only; no multivariate numerical solver or policy recovery is supplied. |
-| `supplement.tex`: adaptive-separation proposition and numerical example | “Numerical Adaptive-Instrument Reference” in [`extended_experiments.md`](../extended_experiments.md) and the paired coarse acquisition convention in [`implementation.md`](implementation.md) | Analytical example with unchanged formulas, resource bounds, and numerical values. |
+| `supplement.tex`: adaptive-separation proposition and numerical example | “Numerical Adaptive-Instrument Reference” in [`extended_experiments.md`](../extended_experiments.md) and the paired coarse acquisition convention in [`implementation.md`](implementation.md) | Current parameters and acquisition caps; analytical duration 1452 and acquisition cost 2680. |
 | `figures/*.json` and `figures/tikz/data/*.csv` | The same relative repository paths | Frozen supplied summaries and exact-reference plotting values; alignment does not modify observations or recompute historical intervals. |
 
 The historical source mapping and original checksums remain in [`provenance.md`](provenance.md) and [`source_manifest.json`](source_manifest.json). The fragments under [`docs/source/`](source/) are historical records and are intentionally unchanged. Differences between those fragments and current active sources do not imply an incomplete synchronization.
 
-[`manuscript_alignment.json`](manuscript_alignment.json) records the source hashes and scope of the manuscript synchronization. The overview retains the updated terminology with small typography adjustments so longer labels fit. Active TikZ drawing fragments match the updated manuscript. The superseded architecture assets, duplicate top-level native PDFs, and duplicate goal/evidence wrapper have been removed; native sources and canonical previews remain under [`figures/tikz/`](../figures/tikz/).
+[`manuscript_alignment.json`](manuscript_alignment.json) records the source hashes and scope of the manuscript synchronization. The overview retains the updated terminology with small typography adjustments so longer labels fit. Active TikZ drawings follow the current manuscript, with presentation clarifications including explicit “Unguarded” labels for the maximin comparators. The Python overview and plots also clarify labels; numerical data are unchanged. The superseded architecture assets, duplicate top-level native PDFs, and duplicate goal/evidence wrapper have been removed; native sources and canonical previews remain under [`figures/tikz/`](../figures/tikz/).
 
 ## Numerical implementation coverage
 
@@ -29,7 +29,7 @@ The scalar benchmark maximizes total precision over legal integer acquisition de
 
 The multivariate result characterizes a completion frontier using finite witness sets, a continuous likelihood-ratio state, nonnegative risk/cost multipliers, and an infimum over witness sets. The repository has no implementation of the associated numerical integration, state approximation, multiplier optimization, witness refinement, or feasible optimal-policy recovery. Implementing those components would require a separately documented numerical method and accuracy assessment. The theoretical result must not be described as a reproduced multivariate experiment.
 
-The adaptive-separation example is also analytical. A coarse acquisition is a pair of independent scalar stage observations, charged as one bundle with its stated total cost and duration. Thus 224 coarse acquisitions count as 224 bundles; the reported duration 1452 and cost 2680 remain unchanged. This vector-valued acquisition convention does not modify the scalar benchmark.
+The adaptive-separation example is also analytical. It uses no historical reports, `(d_min, d_max, D, D_max) = (0.1, 0.2, 1, 1)`, and coarse/fine caps `(224, 307, 307)`, matching the current supplement. A coarse acquisition is a pair of independent scalar stage observations, charged as one bundle with its stated total cost and duration. Thus 224 coarse acquisitions count as 224 bundles; with 307 selected-stage fine reports, the duration is 1452 and the acquisition cost is 2680. This vector-valued acquisition convention does not modify the scalar benchmark.
 
 ## Records required for experimental replay
 
@@ -50,4 +50,4 @@ The cited `research_v*` and `archive_v*` research directories are absent. A rest
 
 ## Reader access
 
-The repository is private. Readers need explicit GitHub permission to open its files; a repository URL in the manuscript does not provide that permission. Before describing the companion material as generally available, the owner must provide an accessible archival deposit or authorize a public repository release. This alignment does not change repository visibility.
+The companion files are maintained in the [GitHub repository](https://github.com/SaeedRazavikia/agentic-wireless-networks), whose visibility and access permissions are managed by the owner.

@@ -2,7 +2,7 @@
 
 `scripts/scalar_frontier.py` is a **new implementation of the analytical benchmark specified in the supplied manuscript**. It is not the recovered original simulator. It computes exact completion curves and optimal integer report allocations; an optional command samples the endpoint sufficient statistic. It does not reconstruct the unavailable original trial tapes, the 1,966,080-outcome evaluation, sequential stopping, or the practical wireless controllers.
 
-The specification comes from “Completion Frontiers and Practical Curves” in `docs/source/experiments_original.tex` and the exact scalar completion theorem in the paper's supplement. The figure caption identifies the eight supplied frontier CSVs as curves at absolute margin 0.2. Their columns are `deadline,correct`, with 513 deadlines per curve. The original presentation-export provenance remains in `figures/tikz/data/PROVENANCE.json`.
+The specification comes from “Completion Frontiers and Practical Curves” in `docs/source/experiments_original.tex` and the exact scalar completion theorem in the paper and its supplementary proof. The figure caption identifies the eight supplied frontier CSVs as curves at absolute margin 0.2. Their columns are `deadline,correct`, with 513 deadlines per curve. The original presentation-export provenance remains in `figures/tikz/data/PROVENANCE.json`.
 
 ## Model and computation
 

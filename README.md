@@ -4,9 +4,7 @@ Companion code, experimental protocols, and figure data for **Service Certificat
 
 This repository collects the simulation-related material supplied with the manuscript. The full experimental protocol, numerical comparisons, additional plots, and implementation notes are separated from the theoretical supplement so that the supplement can focus on its proofs.
 
-The current manuscript alignment uses `main.tex`, `supplement.tex`, and `code/extended_experiments.tex` from the supplied `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`. See [`docs/manuscript_alignment.md`](docs/manuscript_alignment.md) for the source mapping, implementation coverage, and records required for full experimental replay.
-
-**Reader access:** This repository is private. Its links require explicit GitHub access; a manuscript citation alone does not grant access. General reader access requires an owner-approved public release or a separately accessible archival deposit.
+The active documentation is aligned with the current 13-page main paper and 7-page theoretical supplement as of 30 September 2026. The companion protocol is [`extended_experiments.md`](extended_experiments.md). Earlier manuscript sources remain identified as historical records in [`docs/manuscript_alignment.md`](docs/manuscript_alignment.md), together with the source mapping, implementation coverage, and records required for full experimental replay.
 
 ## Contents
 

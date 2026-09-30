@@ -12,9 +12,7 @@ We collect the complete experimental description from the supplied supplementary
 
 **Available material.** The package supplies plotting scripts, summary data, editable figures, and protocol descriptions. The original simulation/controller drivers, complete trial records, and research directories cited in the source manuscript were not supplied. Accordingly, the scripts regenerate available figures; they do not rerun those experiments. Unmodified source fragments remain in [`docs/source/`](docs/source/), and [`docs/provenance.md`](docs/provenance.md) maps their contents. Statements about historical numerical outcomes below report the supplied manuscript's results, without asserting a new experimental replay.
 
-**Manuscript alignment and implementation scope.** The updated source consists of `main.tex`, `supplement.tex`, and `code/extended_experiments.tex` in the supplied manuscript archive. We map these sources to the companion material in [`docs/manuscript_alignment.md`](docs/manuscript_alignment.md). The executable benchmark implements the exact scalar Gaussian frontier. The paper's multivariate finite-witness frontier and joint likelihood-state Bellman recursion have no numerical solver or policy-recovery implementation in this repository. The original experimental records cannot be reconstructed from the retained summaries; the alignment document lists the records required for replay.
-
-**Reader access.** The companion GitHub repository is private and requires explicit reader access. General availability requires an owner-approved public release or a separately accessible archival deposit.
+**Manuscript alignment and implementation scope.** The active documentation is aligned with the current 13-page main paper and 7-page theoretical supplement as of 30 September 2026. This root-level Markdown file is the companion protocol referenced by the supplement. [`docs/manuscript_alignment.md`](docs/manuscript_alignment.md) distinguishes current documentation from preserved historical sources. The executable benchmark implements the exact scalar Gaussian frontier. The paper's multivariate finite-witness frontier and joint likelihood-state Bellman recursion have no numerical solver or policy-recovery implementation in this repository. The original experimental records cannot be reconstructed from the retained summaries; the alignment document lists the records required for replay.
 
 ## Definitions for this standalone protocol
 
@@ -82,7 +80,7 @@ $$
 \sigma_e^2=(4m_{\rm coh})^{-1}\sum_k a_{e,k}^2\overline w_k^2.
 $$
 
-This independence concerns synthetic diagnostics, not production packets. Aggregate costs/durations are $1+.35p_{ij}$ and $1+d_{ij}^0/20$; the R1 counter uses $12/2$ units. The window is 20000, caps are $\bar n_e=h_e+\lfloor20000/\ell_e\rfloor$, and no monetary cap binds separately.
+This independence concerns synthetic diagnostics, not production packets. Aggregate costs/durations are $1+.35p_{ij}$ and $1+d_{ij}^0/20$; the R1 counter uses $12/2$ units. The window is 20000, and total-count caps are $\bar n_e=n_e^0+\lfloor20000/\ell_e\rfloor$, where $n_e^0$ is the historical type-$e$ report count. No monetary cap binds separately.
 
 <a id="legacy-comparison-scope"></a>
 
@@ -207,7 +205,7 @@ Primary/guarded fresh issue 500/484 promises, and all primary promises complete.
 
 Separate four-goal epochs share an evidence/cap ledger and risk $.03/4$ across thresholds $(5.8,4.8)\to(2.9,1.9)\to(1.4,.9)\to(5.8,4.8)$. Both primary/guarded fresh complete 563/576 epochs, costing $2196.56/2210.54$ (saving $.633\%$, interval $[.319,1.022]\%$). Primary can cost more at goal three; final relaxed goals need no reports. History-guided/balanced variants cost $2184.72/2379.14$ with 563/562 completions.
 
-The separate nine-pair confirmation uses 32 new four-goal sequences/interface. Residual reaches estimated alternative distance $1.10\beta^2$ at minimum cost. Custom information-maximin maximizes minimum distance using an added-cost planning allowance of current-goal expenditure plus $\sum_ec_e$ (64 iterations, tolerance $.005$). This allowance is not a hard budget; the shared executor enforces original count/time limits, unlike resource-aware planning in the acquisition-design section of the theoretical supplement. Residual/scalar costs are $2661.84/3308.72$ (19.55%, interval 18.46–20.40%); residual/custom-maximin costs are $2739.90/2806.12$ (2.36%, interval 2.13–2.57%). All 512 decisions are correct; 22/32 intermediate and all loose requests need no reports. The development/final attempts, detailed audit records, and vendored comparison source cited by the original manuscript were not supplied. The two-instrument controller is not evaluated on nine pairs.
+The separate nine-pair confirmation uses 32 new four-goal sequences/interface. Residual reaches estimated alternative distance $1.10\beta^2$ at minimum cost. Custom information-maximin maximizes minimum distance using an added-cost planning allowance of current-goal expenditure plus $\sum_ec_e$ (64 iterations, tolerance $.005$). This allowance is not a hard budget; the shared executor enforces original count/time limits, unlike the resource-aware planning rule described in [the implementation guide](docs/implementation.md#residual-and-comparator-allocations). Residual/scalar costs are $2661.84/3308.72$ (19.55%, interval 18.46–20.40%); residual/custom-maximin costs are $2739.90/2806.12$ (2.36%, interval 2.13–2.57%). All 512 decisions are correct; 22/32 intermediate and all loose requests need no reports. The development/final attempts, detailed audit records, and vendored comparison source cited by the original manuscript were not supplied. The two-instrument controller is not evaluated on nine pairs.
 
 ## System Boundaries and Evidence Scope
 
@@ -393,14 +391,14 @@ The finite-class oracle shares discovery, resources, and verifier, with $\theta$
 
 ### Numerical Adaptive-Instrument Reference
 
-The separate finite-resource adaptive-separation example uses a near stage with absolute margin between $d_{\min}$ and $d_{\max}$ and another stage in $[-D_{\max},-D]$. Historical observations have fixed stage sums and do not reveal the relevant branch. We retain the full numerical specification:
+The separate finite-resource adaptive-separation example uses a near stage with absolute margin between $d_{\min}$ and $d_{\max}$ and another stage in $[-D_{\max},-D]$. The numerical example uses no historical reports. Its parameters match the current theoretical supplement:
 
 $$
-(d_{\min},d_{\max},D,D_{\max})=(0.1,0.25,1,2),\qquad
+(d_{\min},d_{\max},D,D_{\max})=(0.1,0.2,1,1),\qquad
 (\sigma_D^2,\sigma_1^2,\sigma_2^2)=(25,1,1).
 $$
 
-Each coarse acquisition returns a pair of scalar stage observations with independent Gaussian errors of variance $\sigma_D^2$ per coordinate. We treat this pair as one vector-valued acquisition bundle: its declared price, duration, and coarse count apply once to the pair. A fine report measures its selected stage, and all fresh report errors are independent. Bundle/fine durations are $(1,4,4)$, prices are $(1,8,8)$, and acquisition caps are $(300,400,400)$. We use $(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$, deadline $H=1500$, and budget $B=3000$. The adaptive rule takes 224 coarse acquisitions, selects the larger coarse mean, and acquires 307 fine reports of that stage. Its duration is $224+4\cdot307=1452$ and its cost is $224+8\cdot307=2680$. The fixed-plan lower bounds in the theoretical supplement, including randomized plans, are $2164.43$ duration units and $4328.87$ cost units. This is the stated Gaussian numerical specialization under a separated-branch promise, not a replay of a physical deployment or evidence of general adaptive optimality.
+Each coarse acquisition returns a pair of scalar stage observations with independent Gaussian errors of variance $\sigma_D^2$ per coordinate. We treat this pair as one vector-valued acquisition bundle: its declared price, duration, and coarse count apply once to the pair. A fine report measures its selected stage, and all fresh report errors are independent. Bundle/fine durations are $(1,4,4)$, prices are $(1,8,8)$, and acquisition caps are $(224,307,307)$. We use $(\delta,\delta_D,\delta_C)=(0.05,0.01,0.04)$, deadline $H=1500$, and budget $B=3000$. The adaptive rule takes 224 coarse acquisitions, selects the larger coarse mean, and acquires 307 fine reports of that stage. Its duration is $224+4\cdot307=1452$ and its cost is $224+8\cdot307=2680$. The fixed-plan lower bounds in the theoretical supplement, including randomized plans, are $2164.43$ duration units and $4328.87$ cost units. This is the stated Gaussian numerical specialization under a separated-branch promise, not a replay of a physical deployment or evidence of general adaptive optimality.
 
 ## References
 

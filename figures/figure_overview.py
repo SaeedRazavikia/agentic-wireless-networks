@@ -1,7 +1,7 @@
 """Vector scientific overview: schematic joint geometry and one frozen trace.
 
 Run here, or from the packaged figures directory beside overview_data.json.
-No image generation and no synthetic performance points are used.
+All displayed performance values come from the retained data.
 """
 from pathlib import Path
 import json
@@ -53,7 +53,7 @@ txt(.628,.712,'pass',6.8,color=teal)
 box(.785,.589,.200,.079,'Unresolved','No admissible continuation',edge=muted,fill='#F3F4F5')
 arrow(.885,.775,.885,.668,color=muted)
 txt(.901,.709,'no legal\nreport',6.5,color=muted)
-txt(.023,.695,'The agent chooses what to measure\nand when the evidence is sufficient.',8.1,
+txt(.023,.695,'The agent chooses what to measure;\nthe verifier checks whether the evidence suffices.',8.1,
     va='center',linespacing=1.5)
 txt(.023,.600,'P1: decision-relative observability\nP2: goal-dependent evidence value\nP3: information for instrument choice',7.1,
     va='center',linespacing=1.4,color=muted)

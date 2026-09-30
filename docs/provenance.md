@@ -1,6 +1,6 @@
 # Source mapping and provenance
 
-The initial supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This package reorganizes those manuscript assets and supplies documentation/build utilities. The original simulation research directories were absent from the attachment. A presentation and documentation synchronization on 29 September 2026 uses `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`; see [manuscript_alignment.md](manuscript_alignment.md) and [manuscript_alignment.json](manuscript_alignment.json) for the exact version and mapping.
+The initial supplied source was `Agentic_Wireless_Networks__JSAC_ (1).zip`. This package reorganizes those manuscript assets and supplies documentation/build utilities. The original simulation research directories were absent from the attachment. The earlier presentation and documentation synchronization on 29 September 2026 used `SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip`; see [manuscript_alignment.md](manuscript_alignment.md) and [manuscript_alignment.json](manuscript_alignment.json) for the current 30 September alignment and the earlier source mapping.
 
 ## File mapping
 

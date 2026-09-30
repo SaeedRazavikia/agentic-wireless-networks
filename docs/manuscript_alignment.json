@@ -1,66 +1,80 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-09-30",
   "manuscript_title": "Service Certification for Agentic Wireless Networks",
-  "source_archive": "SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip",
-  "source_archive_sha256": "aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46",
-  "base_commit": "778be9d179e9b2a6816e8c3696c81468666d16b8",
+  "source_archive": "Service_Certification_GitHub_Aligned_Package.zip",
+  "base_commit": "8f7188731929c7f00dab634990af71c896c22e96",
   "authoritative_paper_sources": {
-    "main.tex": "172f98239121e815c3d0502246da40056268e9d57bc9bface01f6d6af6fcd3ee",
-    "supplement.tex": "3948788301ce18f8c6eb2fb42aa885048bc7857760dfc55709989f74d1f95c3d",
-    "code/extended_experiments.tex": "6c74796782d125226ba3ad5419352cbdd70d8ab815cfdc57c47a8d5ca0d4f554"
+    "main.tex": "75c131f514cccc71efbe75e28f2185aecf91530741d5ae591e50aa34b3f9d112",
+    "supplement.tex": "763099d440a697321eefb0972b9bb27943f634afb453f7f6e0af902068c9f7a6"
   },
   "scope": "Presentation and documentation alignment; no new experimental observations. Original source_manifest.json and figure-data provenance remain historical snapshots.",
   "figure_sources": {
     "figures/figure_overview.py": {
       "manuscript_sha256": "1b3f4fcffc5698c29c75cc0bb4ef15e676e4d6fc1a8066e1c8827e6f6364777e",
-      "repository_sha256": "fdbab5a350988cff74177eb2c4dd2568c9e550a16c64bd31f6b9b40bd0f5f59b",
-      "treatment": "Manuscript terminology with typography adjustments to prevent label overflow."
+      "repository_sha256": "f41c845cb67cf64dcf913fd964724e29d77b5d774788618a531a8e5ca972be93",
+      "treatment": "Companion overview clarifies that the agent selects measurements and the verifier determines evidence sufficiency; typography adjustments preserve fit."
     },
     "figures/plot_figures.py": {
-      "manuscript_sha256": "ef78c041d17c68fd5f3410d8c28e08b647a20b51a693b70512ad57fec6529142",
-      "repository_sha256": "ef78c041d17c68fd5f3410d8c28e08b647a20b51a693b70512ad57fec6529142",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "manuscript_sha256": "6e002ac230b7f708a6e139a25606ac7a0cde13be5d0439f0f5f9df059867d31c",
+      "repository_sha256": "e9b213d23db5c587d3ff9b760006bd809e70b8a029657ce2f97b4a8494e05da8",
+      "treatment": "Adds explicit Unguarded qualifiers to the legacy maximin labels; plotted numerical values match the current manuscript."
     },
     "figures/tikz/common.tex": {
       "manuscript_sha256": "c4ab331c63ec18799f22777dadf3f5ecaa793cbec281a3e696fd9dfc71e71ae1",
       "repository_sha256": "c4ab331c63ec18799f22777dadf3f5ecaa793cbec281a3e696fd9dfc71e71ae1",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Byte-identical to the current manuscript source."
     },
     "figures/tikz/wireless_confidence_trace.tikz": {
       "manuscript_sha256": "85e64beaea00401de7b810bad4d119d34731c143615c18f325eabeca1de1f030",
       "repository_sha256": "85e64beaea00401de7b810bad4d119d34731c143615c18f325eabeca1de1f030",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Byte-identical to the current manuscript source."
     },
     "figures/tikz/execution_stopping_costs.tikz": {
-      "manuscript_sha256": "48beb5eda4d6be58c02b90ba4198b85b11f285069cae65bc14452875b70cb55b",
-      "repository_sha256": "48beb5eda4d6be58c02b90ba4198b85b11f285069cae65bc14452875b70cb55b",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "manuscript_sha256": "87d55d7a727e2a47c1617a0d733bce75a8eed0d9ec1af263bc35f7efdfcb7a80",
+      "repository_sha256": "87d55d7a727e2a47c1617a0d733bce75a8eed0d9ec1af263bc35f7efdfcb7a80",
+      "treatment": "Byte-identical to the current manuscript source."
     },
     "figures/tikz/v44_system_model.tikz": {
       "manuscript_sha256": "04a86dc01a40a8684b502808bb825601858a02e4b8900923d9daeab69cd822f7",
       "repository_sha256": "04a86dc01a40a8684b502808bb825601858a02e4b8900923d9daeab69cd822f7",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Byte-identical to the current manuscript source."
     },
     "figures/tikz/certification_costs.tikz": {
-      "manuscript_sha256": "439d0e4c83d85dba03fce4fa402b4f7175758ac727da59aa83c0a57974012534",
+      "manuscript_sha256": "dfa4e574aea079ae0291ca753babaef814a40152cfc17c72a7157116abf848e1",
       "repository_sha256": "439d0e4c83d85dba03fce4fa402b4f7175758ac727da59aa83c0a57974012534",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Adds explicit Unguarded qualifiers to the legacy maximin labels; plotted numerical values match the current manuscript."
     },
     "figures/tikz/goal_evidence_loop.tikz": {
       "manuscript_sha256": "e6b95149da5bd8c09bba0e16de71123b78ee579e5cf27cd7d513306f93d9ad46",
       "repository_sha256": "e6b95149da5bd8c09bba0e16de71123b78ee579e5cf27cd7d513306f93d9ad46",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Byte-identical to the current manuscript source."
     },
     "figures/tikz/joint_exclusion_geometry.tikz": {
       "manuscript_sha256": "288f847cef5fd2dd77de6152fa35f0950bb69d06eed2657ff4ae08dd3c4cc082",
       "repository_sha256": "288f847cef5fd2dd77de6152fa35f0950bb69d06eed2657ff4ae08dd3c4cc082",
-      "treatment": "Copied unchanged from the updated manuscript."
+      "treatment": "Byte-identical to the current manuscript source."
     }
   },
   "documentation": {
     "path": "extended_experiments.md",
     "title": "Extended Experiments",
     "format": "GitHub Markdown",
-    "scope": "Converted complete protocol, continuation-selector theorem and proof, definitions, and adaptive-instrument reference; no experimental values changed."
-  }
+    "scope": "Current experimental protocol and analytical examples, with adaptive parameters/caps aligned to the seven-page supplement; historical records and numerical figure data preserved."
+  },
+  "previous_alignment": {
+    "date": "2026-09-29",
+    "source_archive": "SC_for_Agentic_Wireless_Networks_GitHub_checked(1).zip",
+    "source_archive_sha256": "aab060ab3984a741450902e0e5e8407464718cb36dbb1b8c2efe06915e208c46",
+    "base_commit": "778be9d179e9b2a6816e8c3696c81468666d16b8",
+    "authoritative_paper_sources": {
+      "main.tex": "172f98239121e815c3d0502246da40056268e9d57bc9bface01f6d6af6fcd3ee",
+      "supplement.tex": "3948788301ce18f8c6eb2fb42aa885048bc7857760dfc55709989f74d1f95c3d",
+      "code/extended_experiments.tex": "6c74796782d125226ba3ad5419352cbdd70d8ab815cfdc57c47a8d5ca0d4f554"
+    }
+  },
+  "page_counts": {
+    "main": 13,
+    "supplement": 7
+  },
+  "source_archive_sha256": "3140b10412ec99bd758b0f1870ffddd14087d429564f636b5b6aac933832f8df"
 }

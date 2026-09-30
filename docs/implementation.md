@@ -1,6 +1,6 @@
 # Controller implementation specification
 
-This guide collects implementation details stated in the supplied manuscript and supplementary acquisition source. It specifies the reported controller interfaces and safeguards. The original controller implementations are not present; the four supplied Python programs draw figures. The complete original acquisition derivation is preserved in [`source/acquisition_original.tex`](source/acquisition_original.tex), while the paper and theoretical supplement retain the proof prerequisites.
+This guide collects implementation details stated in the supplied manuscript and supplementary acquisition source. It specifies the reported controller interfaces and safeguards. The original controller implementations are not present; the three supplied figure programs draw figures. The complete original acquisition derivation is preserved in [`source/acquisition_original.tex`](source/acquisition_original.tex), while the paper and theoretical supplement retain the proof prerequisites.
 
 The executable analytical benchmark is [`scripts/scalar_frontier.py`](../scripts/scalar_frontier.py). It implements integer precision maximization and the scalar Gaussian endpoint test. The updated manuscript's multivariate finite-witness frontier, likelihood-state Bellman recursion, multiplier optimization, and feasible-policy recovery are not implemented. Controller specifications below describe the supplied studies; they do not imply that their original implementations are available. See [`manuscript_alignment.md`](manuscript_alignment.md) for the manuscript mapping and the missing-record inventory.
 
@@ -8,7 +8,7 @@ The executable analytical benchmark is [`scripts/scalar_frontier.py`](../scripts
 
 The adaptive-separation example extends the scalar-report notation by acquiring two independent scalar observations as one coarse bundle. A coarse acquisition returns one observation of each stage, with independent Gaussian coordinate errors of variance `sigma_D²`. It consumes one coarse count and the declared total bundle price `c_D` and duration `ell_D`. A fine acquisition returns one scalar observation of its selected stage. All fresh errors are independent across acquisitions and coordinates.
 
-The coarse count therefore measures pairs, not individual coordinates. The bundle supplies information about both stages while its cost and duration are charged once. In the numerical example, 224 coarse acquisitions and 307 selected-stage fine reports retain duration `224 + 4 × 307 = 1452` and cost `224 + 8 × 307 = 2680`, with coarse/fine caps `(300, 400, 400)`. This convention clarifies accounting without changing the example's formulas, bounds, or numerical values.
+The coarse count therefore measures pairs, not individual coordinates. The bundle supplies information about both stages while its cost and duration are charged once. The current supplement's numerical example uses no history, `(d_min, d_max, D, D_max) = (0.1, 0.2, 1, 1)`, and coarse/fine caps `(224, 307, 307)`. Its 224 coarse acquisitions and 307 selected-stage fine reports have duration `224 + 4 × 307 = 1452` and cost `224 + 8 × 307 = 2680`, within deadline 1500 and acquisition budget 3000.
 
 ## Verification and acquisition loop
 
@@ -63,8 +63,10 @@ The guarded controller uses deterministic legal checkpoints: `(16,16)`, then leg
 At checkpoint `k`, define the historical/fresh discrepancy, standard error, and upper bound as
 
 $$D_{e,k}=\overline H_e-\overline Y_{e,n_e^{(k)}},\quad
- a_{e,k}=\sqrt{1/h_e+1/n_e^{(k)}},\quad
+ a_{e,k}=\sqrt{1/n_e^0+1/n_e^{(k)}},\quad
  U_{e,k}=|D_{e,k}|+q_{e,k}a_{e,k}.$$
+
+Here, $n_e^0$ denotes the number of historical type-$e$ reports.
 
 Cache the minimum of these bounds over checkpoints. The source uses `q = Phi^(-1)(1 − alpha/(4L))`, with `alpha = 0.005` and `L` deterministic checkpoints. A historical mask is eligible only if every retained instrument's cached bound is at most 0.9. The fresh mask always remains available. The simultaneous audit and all-mask/all-prefix confidence events each spend risk 0.005; the reported verifier constant is `beta = 7.886153024504561`.
 

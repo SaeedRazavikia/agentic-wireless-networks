@@ -33,8 +33,8 @@ xlabel={Mean acquisition cost (modeled units)},xlabel style={font=\jscfont{7.6}}
 \path[fill=jscBlue] (.82,2.75) rectangle (.98,2.83);%
 \node[font={\jscfont{7.7}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (1.04,2.79) {All 120 trials};%
 \path[fill=jscAmber] (.82,2.54) rectangle (.98,2.62);%
-\node[font={\jscfont{7.7}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (1.04,2.58) {Common 14-trial completion subset};%
-\node[font={\jscfont{8.3}\bfseries},text=jscAmber,anchor=center,align=center,inner sep=0pt] at (1.75,0.24016) {93.1\% lower in the common completion subset};%
+\node[font={\jscfont{7.7}},text=jscNavy,anchor=west,align=center,inner sep=0pt] at (1.04,2.58) {14 trials reaching the completion stage};%
+\node[font={\jscfont{8.3}\bfseries},text=jscAmber,anchor=center,align=center,inner sep=0pt] at (1.75,0.24016) {93.1\% lower in the completion-stage subset};%
 \node[font={\jscfont{8.3}\bfseries},text=jscBlue,anchor=center,align=center,inner sep=0pt] at (1.75,0.08816) {77.6\% lower across all 120 trials};%
 \end{tikzpicture}%
 \endgroup%

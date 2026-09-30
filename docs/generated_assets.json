@@ -1,18 +1,18 @@
 {
-  "date": "2026-09-29",
-  "scope": "Current figure exports of unchanged frozen data. Native figure PDFs are canonical; PNG previews support the Markdown experiment document.",
+  "date": "2026-09-30",
+  "scope": "Current figure exports of unchanged frozen data, with clarified stopping-subset and agent/verifier labels. Native wrappers use standard manuscript math fonts; PNG previews support the Markdown protocol.",
   "assets": [
     {
       "path": "figures/joint_service_overview.pdf",
       "generator": "reproduce.py --python",
-      "sha256": "9771466cd8d6a2886ae6e0f486c25967f37575138d7b49e6d6eec338d9e9e249",
-      "bytes": 45348
+      "sha256": "341f4a5594f6c76e5122c129a0f388e6480af79bc69a4054cf4b8975510bdedc",
+      "bytes": 45354
     },
     {
       "path": "figures/joint_service_overview.png",
       "generator": "reproduce.py --python",
-      "sha256": "d8b851f813a906bd7e705cb4127219925f3dcbb75ac10a49fd6ca5d1217fea47",
-      "bytes": 259536
+      "sha256": "60553d229341319596746ae5780bb449a30d221165c10e9f9558a24bf80d0122",
+      "bytes": 261405
     },
     {
       "path": "figures/joint_exclusion_geometry.pdf",
@@ -53,98 +53,98 @@
     {
       "path": "figures/execution_stopping_costs.pdf",
       "generator": "reproduce.py --pgf",
-      "sha256": "f17b3cde012a6dd37756d806e1adc092f726e556d4876abd9a4660e3210fb76b",
-      "bytes": 29900
+      "sha256": "ced90d4a7247855f9ddc0942830e2a59bf559cab8c9ea8dbd4ba054733ac0a53",
+      "bytes": 30440
     },
     {
       "path": "figures/execution_stopping_costs.png",
       "generator": "reproduce.py --pgf",
-      "sha256": "ca1ae79101f9169db973c9bfc1b1c11cb257618389f8fff0c8a75d087ae20616",
-      "bytes": 67388
+      "sha256": "5fe181eb03befc9c0b01e8f129a83dc81c9904c6083fbc4ccf534d79c99decb8",
+      "bytes": 68526
     },
     {
       "path": "figures/tikz/rendered/certification_costs.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "73777fa363b4f235cc7895c7aaa63f77c285e87773470a62c03eecdecd647063",
-      "bytes": 55345
+      "sha256": "80a23bb14d38a78c401e6aaf70df304b270955fdf1a747398b418908a3a0c1c3",
+      "bytes": 36939
     },
     {
       "path": "figures/tikz/rendered/execution_stopping_costs.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "ccd35d111809cf49e56aa7d0ef26790391044fdd5b16d6b7ba453b424b0beb90",
-      "bytes": 29295
+      "sha256": "5c42a9c8a7c148dd340775c628b486ad01a8e6ca74b62696a7e92a0c90d9db4c",
+      "bytes": 29837
     },
     {
       "path": "figures/tikz/rendered/goal_evidence_loop.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "5062f24c32a721a789d78b03c22f3fa8f420a460916ca8db66621578c58faa9f",
-      "bytes": 48811
+      "sha256": "107d736a11aa18f3f1989cf3646401cce0f7fbc60af0d2990429b1dbc949fb3f",
+      "bytes": 69626
     },
     {
       "path": "figures/tikz/rendered/joint_exclusion_geometry.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "88f807f078ae8a8c8ff89988b803f869b78f11f884f6ce81690eada6fb18473a",
-      "bytes": 57576
+      "sha256": "2731bcf1e78d4c96f076d58a6978d5b583ef96c7b2593ae30dbc18f86458bf39",
+      "bytes": 49945
     },
     {
       "path": "figures/tikz/rendered/v37_cost_comparisons.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "7de3b3ef81a18463351462e6de4f8b1497f87cbf90f1315bbfbf9d3652df6764",
-      "bytes": 44499
+      "sha256": "38f1a4fd1093fad040eb9be55b22b3e5fd5cb77188a8fb24bc030e1c889d8387",
+      "bytes": 26077
     },
     {
       "path": "figures/tikz/rendered/v37_promise_reservations.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "761ea206c1273690a8b97aade2e21b9fa26ab39b46fd8ea3479b6ccbc25bfd8d",
-      "bytes": 69427
+      "sha256": "cad70d54020554d887a813e9d233bdb1c2d6b2f86ba2260e7b593b52387b4534",
+      "bytes": 56684
     },
     {
       "path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "20ffd02925eb7325e3f79802acbc03fdca97699ad946f4e2605380253919d0a4",
-      "bytes": 65002
+      "sha256": "ca6a863c2e38f48658c2795ea31d887e8be44aea7f4a66255c38f1ed6512fa2f",
+      "bytes": 51542
     },
     {
       "path": "figures/tikz/rendered/v44_system_model.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "c53a5426e135c26c616de329d13f2e6ff83e56e92bf95c3d7b76ad4a78d7ebd9",
-      "bytes": 100951
+      "sha256": "5a303844decf024970ef83966ca3a6adf884a763e01a7d3d81f51773713275dc",
+      "bytes": 89588
     },
     {
       "path": "figures/tikz/rendered/validity_completion_outcomes.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "e3c3d6dd18dcd6f545b04f20b09e51e3765d2f796d8aab6a59eef09c9c22dfc2",
-      "bytes": 44240
+      "sha256": "fd5ceb047d991d04177c32bd8334091cbd87ec60f36fa4ad6cb19a869565e8f1",
+      "bytes": 25835
     },
     {
       "path": "figures/tikz/rendered/wireless_confidence_trace.pdf",
       "generator": "reproduce.py --tikz",
-      "sha256": "35a24909c409bb1890cff2eb719a1f3e4b5cdc9fd856d2e0c93abc24e83754b0",
-      "bytes": 69194
+      "sha256": "df35d539c9ccf8d46335f97bca858c637e2196d9dc3a29c93a26a431b5c36923",
+      "bytes": 51975
     },
     {
       "path": "figures/tikz/rendered/v37_cost_comparisons.png",
       "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
-      "sha256": "ca5473240e960de26b0f9005a5504106c838f1c87cd0e9966a418b5d683691dc",
-      "bytes": 33103
+      "sha256": "fef43ac91d277b30cb3e55255d342f47e09e704c049b1c0ba69e7d9041b6cdcc",
+      "bytes": 32801
     },
     {
       "path": "figures/tikz/rendered/v37_promise_reservations.png",
       "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
-      "sha256": "230bac9d61daf5104f0895eb5e033851448cca4512cc677cf9c8e54948971b78",
-      "bytes": 36448
+      "sha256": "b1d937cb9d22aae81f7f01bcda6bdaee805e7b3839da317096ad744ab61d6efb",
+      "bytes": 36843
     },
     {
       "path": "figures/tikz/rendered/v42_deadline_instrumentation_frontier.png",
       "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
-      "sha256": "5565aac5ad73d7ccbb1bd93921fd5befb25e7dcd5476a8985cd6fc7e1ca9dc88",
-      "bytes": 52907
+      "sha256": "33b69918f9ef7496b95a6040e3dd8dd2ce0adfd5bfcdeab23997b801277a9d6b",
+      "bytes": 53107
     },
     {
       "path": "figures/tikz/rendered/validity_completion_outcomes.png",
       "generator": "reproduce.py --previews (160 dpi, canonical native PDF)",
-      "sha256": "d845365fc341d00c81b193947c229060d4b91ccf151c5d2a78abe26ac8520484",
-      "bytes": 24899
+      "sha256": "00bf36ae53f2dcdb5e1d59703c3775f9019899a0ea7af30e39ad75081df206ba",
+      "bytes": 24750
     }
   ]
 }
