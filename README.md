@@ -55,6 +55,3 @@ The supplied manuscript archive contains plotting code, summary data, native fig
 The supplied historical numerical results are preserved. The new scalar benchmark independently reconstructs the declared exact reference; its optional Monte Carlo command generates a separately identified experiment. Historical adverse outcomes and reproduction limitations are retained in the extended protocol.
 
 Original controllers, report tapes, paired outcomes, and LLM execution records cannot be recovered from summary figures. The [restoration inventory](docs/manuscript_alignment.md#records-required-for-experimental-replay) identifies the material needed to rerun each affected study. No missing records or experimental results have been synthesized.
-
-
-No license has been added; reuse permissions have not been specified in this package.
