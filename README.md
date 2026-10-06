@@ -40,9 +40,7 @@ Outputs and logs are written under `build/`; supplied inputs are preserved. See 
 
 ## Exact scalar benchmark
 
-A new implementation of the specified exact scalar Gaussian benchmark reproduces all eight supplied frontier curves and the reported deadline table. This does not recover the missing original simulator or trial tapes. See [`docs/scalar_frontier.md`](docs/scalar_frontier.md).
-
-The updated paper also gives a multivariate finite-witness frontier through a joint likelihood-state Bellman recursion. That result is theoretical coverage: this repository supplies no multivariate Bellman solver or numerical policy-recovery implementation. The scalar dynamic program maximizes precision over integer acquisition designs and does not implement that recursion.
+A new implementation of the specified exact scalar Gaussian benchmark reproduces all eight supplied frontier curves and the reported deadline table.  That result is theoretical coverage: this repository supplies no multivariate Bellman solver or numerical policy-recovery implementation. The scalar dynamic program maximizes precision over integer acquisition designs and does not implement that recursion.
 
 ```bash
 python scripts/scalar_frontier.py verify
