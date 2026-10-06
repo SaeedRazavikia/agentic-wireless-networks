@@ -36,7 +36,7 @@ The default Python task reproduces the overview with Matplotlib. With a working 
 python scripts/reproduce.py --pgf --tikz --previews
 ```
 
-Outputs and logs are written under `build/`; supplied inputs are preserved. See [`docs/reproduction.md`](docs/reproduction.md) for TeX dependencies and individual commands.
+Outputs and logs are written under `build/`; supplied inputs are preserved. See [`docs/reproduction.md`](docs/reproduction.md) 
 
 ## Exact scalar benchmark
 
