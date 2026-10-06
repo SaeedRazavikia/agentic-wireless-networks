@@ -58,8 +58,5 @@ The supplied historical numerical results are preserved. The new scalar benchmar
 
 Original controllers, report tapes, paired outcomes, and LLM execution records cannot be recovered from summary figures. The [restoration inventory](docs/manuscript_alignment.md#records-required-for-experimental-replay) identifies the material needed to rerun each affected study. No missing records or experimental results have been synthesized.
 
-## Citation
-
-[`CITATION.cff`](CITATION.cff) contains author/title metadata, and [`docs/repository_citation.bib`](docs/repository_citation.bib) provides the BibTeX entry for this [GitHub repository](https://github.com/SaeedRazavikia/agentic-wireless-networks). Development instructions are in [`docs/development.md`](docs/development.md).
 
 No license has been added; reuse permissions have not been specified in this package.
