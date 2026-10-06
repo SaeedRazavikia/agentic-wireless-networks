@@ -52,7 +52,7 @@ python scripts/scalar_frontier.py monte-carlo --seed 20260914 --replications 100
 
 ## Evidence scope
 
-The supplied manuscript archive contains plotting code, summary data, native figure sources, and experimental descriptions. It does **not** contain the original simulation/controller drivers, complete paired trial records, random report tapes, LLM transcripts, or the `research_v*` and `archive_v*` directories cited in the protocol. Regenerating a plot reproduces its presentation from supplied data; it does not rerun the underlying experiment. The original `plot_validity_study.py` requires the absent `methods/validity_study/trial_results.csv`; the supplied TikZ plot instead uses the documented transcription in `validity_counts.csv`.
+The supplied manuscript archive contains plotting code, summary data, native figure sources, and experimental descriptions. It does **not** contain the original simulation/controller drivers, complete paired trial records, random report tapes, LLM transcripts, or the `research_v*` and `archive_v*` directories cited in the protocol. Regenerating a plot reproduces its presentation from supplied data; it does not rerun the underlying experiment. 
 
 The supplied historical numerical results are preserved. The new scalar benchmark independently reconstructs the declared exact reference; its optional Monte Carlo command generates a separately identified experiment. Historical adverse outcomes and reproduction limitations are retained in the extended protocol.
 
