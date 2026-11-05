@@ -45,6 +45,23 @@ Run the build-validation regression tests with:
 python -m unittest discover -s tests -v
 ```
 
+## Automated validation
+
+The [GitHub Actions workflow](../.github/workflows/validation.yml) runs on pushes and pull requests. It runs the regression tests, regenerates and validates the Python overview, and verifies the exact scalar benchmark against all 4,104 supplied curve values and 18 reported deadline entries. It requires no TeX or Poppler.
+
+CI uses Ubuntu 24.04, Python 3.12.14, and the pinned direct and transitive dependencies in [`requirements-ci.txt`](../requirements-ci.txt). To run the same checks locally, use a fresh Python 3.12.14 environment and run:
+
+```bash
+python -m pip install -r requirements-ci.txt
+python -m unittest discover -s tests -v
+python scripts/reproduce.py --python
+python scripts/scalar_frontier.py verify
+```
+
+Update the pins together after rerunning these checks.
+
+These checks validate figure generation and the independent analytical reconstruction. They do not replay historical experiments: the original simulation drivers and complete trial records remain unavailable. Generated outputs stay under the ignored `build/` directory; the workflow does not update supplied figures or data.
+
 ## Supplied validity script
 
 `figures/plot_validity_study.py` is retained unchanged. It expects `methods/validity_study/trial_results.csv`, with method, budget, immediate/issued/correct/unresolved/wrong fields, and checks 720 trials per budget for the audited-sufficient method. That file was not supplied. The script's `FileNotFoundError` was verified; synthetic replacement rows cannot establish the missing trial histories.
